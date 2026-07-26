@@ -54,7 +54,15 @@ async function main() {
   assert.ok(await page.getByText('Most-seen matchup').isVisible());
   const patsRow = page.locator('tr', { hasText: 'New England Patriots' }).first();
   assert.equal(await patsRow.locator('td').nth(3).innerText(), '24', 'Patriots seen 24 times');
-  await page.screenshot({ path: path.join(OUT, 'records.png') });
+
+  // Delight extras: heatmap grid and companions leaderboard render now;
+  // streaks/superlatives sections stay hidden until enrichment fills scores.
+  assert.ok(await page.locator('.heat .cell.q1, .heat .cell.q2, .heat .cell.q3').count() > 20, 'heatmap has filled cells');
+  assert.ok(await page.locator('h2.sec', { hasText: 'Crew' }).isVisible(), 'companions leaderboard present');
+  const gundyRow = page.locator('tr', { hasText: 'Gundy' }).first();
+  assert.equal(await gundyRow.locator('td').nth(1).innerText(), '1');
+  assert.equal(await page.getByText('Superlatives').count(), 0, 'superlatives hidden pre-enrichment');
+  await page.screenshot({ path: path.join(OUT, 'records.png'), fullPage: true });
 
   // Venues view: completion tile, defunct badge.
   await page.locator('nav.tabs a[data-view="venues"]').click();

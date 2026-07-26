@@ -9,7 +9,10 @@
   "seasonType": "regular",
   "doubleheaderGame": 0,
   "notes": "HH TD, sat with Clyde & Madwed",
-  "companions": [],
+  "companions": [
+    "Clyde",
+    "Madwed"
+  ],
   "seat": null,
   "venueOverride": null,
   "overrides": {},

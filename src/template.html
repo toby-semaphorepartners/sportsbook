@@ -98,6 +98,17 @@
   .bar { height: 6px; background: var(--card-edge); border-radius: 3px; overflow: hidden; margin-top: 6px; }
   .bar i { display: block; height: 100%; background: var(--acc, var(--gold)); border-radius: 3px; }
   .muted { color: var(--ink-3); }
+  .heatwrap { overflow-x: auto; padding: 4px 0 8px; }
+  .heat { display: grid; grid-auto-flow: column; gap: 2px; width: max-content; }
+  .heat .col { display: grid; grid-template-rows: repeat(13, 12px); gap: 2px; }
+  .heat .cell { width: 12px; height: 12px; border-radius: 3px; background: #232633; }
+  .heat .cell.q1 { background: #57451c; }
+  .heat .cell.q2 { background: #a07f2e; }
+  .heat .cell.q3 { background: var(--gold); }
+  .heat .ylab, .heat .mlab { font-size: 9px; color: var(--ink-3); line-height: 12px; text-align: center; }
+  .heat .mlab { width: 12px; }
+  .heat-legend { display: flex; gap: 6px; align-items: center; color: var(--ink-3); font-size: 12px; margin-top: 4px; }
+  .heat-legend .cell { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
   footer { max-width: 720px; margin: 0 auto; padding: 20px 12px 40px; color: var(--ink-3); font-size: 13px; }
   footer a { color: var(--ink-2); }
 </style>
@@ -320,12 +331,107 @@ function deriveStats(data) {
   };
 }
 
+// Year × month attendance grid. Day-precision games only — a "~2003" game
+// has no month to land in.
+function heatmap(games) {
+  var grid = {}, max = 0, minY = null, maxY = null;
+  for (var i = 0; i < games.length; i++) {
+    var g = games[i];
+    if (g.datePrecision !== 'day') continue;
+    var y = Number(g.date.slice(0, 4));
+    var m = Number(g.date.slice(5, 7)) - 1;
+    if (!grid[y]) { grid[y] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; }
+    grid[y][m]++;
+    if (grid[y][m] > max) max = grid[y][m];
+    if (minY === null || y < minY) minY = y;
+    if (maxY === null || y > maxY) maxY = y;
+  }
+  var years = [];
+  for (var yy = minY; yy !== null && yy <= maxY; yy++) years.push(yy);
+  return { years: years, grid: grid, max: max };
+}
+
+// Longest run of consecutive attended games (chronological) that a team won.
+// Games without a result are skipped, not treated as streak-breakers.
+function teamStreaks(games, teams) {
+  var dated = games.filter(function (g) { return g.datePrecision === 'day'; })
+    .slice().sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+  var cur = {}, best = {};
+  for (var i = 0; i < dated.length; i++) {
+    var g = dated[i];
+    var win = winnerOf(g);
+    if (win === null) continue;
+    var sides = ['home', 'away'];
+    for (var s = 0; s < sides.length; s++) {
+      var code = g[sides[s]];
+      if (!code) continue;
+      var k = g.league + ':' + code;
+      if (win === sides[s]) {
+        cur[k] = (cur[k] || 0) + 1;
+        if (!best[k] || cur[k] > best[k].len) best[k] = { len: cur[k], end: g.date };
+      } else {
+        cur[k] = 0;
+      }
+    }
+  }
+  var rows = [];
+  for (var bk in best) {
+    if (best[bk].len < 2) continue;
+    var parts = bk.split(':');
+    rows.push({
+      league: parts[0], code: parts[1],
+      name: teamName(teams, parts[0], parts[1], null),
+      len: best[bk].len, end: best[bk].end,
+    });
+  }
+  rows.sort(function (a, b) { return b.len - a.len || (a.name < b.name ? -1 : 1); });
+  return rows;
+}
+
+// Extremes across enriched games. Each entry is {game, value} or null; the
+// whole thing renders only once box scores exist.
+function superlatives(games) {
+  var out = { biggestCrowd: null, longestGame: null, hottest: null, coldest: null, biggestMargin: null, extraTime: 0 };
+  var better = function (slot, game, value, cmp) {
+    if (value === null) return;
+    if (!out[slot] || cmp(value, out[slot].value)) out[slot] = { game: game, value: value };
+  };
+  var hi = function (a, b) { return a > b; }, lo = function (a, b) { return a < b; };
+  for (var i = 0; i < games.length; i++) {
+    var g = games[i];
+    var s = summaryOf(g);
+    better('biggestCrowd', g, typeof s.attendance === 'number' ? s.attendance : null, hi);
+    better('longestGame', g, typeof s.durationMinutes === 'number' ? s.durationMinutes : null, hi);
+    var t = typeof s.weather === 'string' ? s.weather.match(/(-?\d+)\s*°F/) : null;
+    if (t) { better('hottest', g, Number(t[1]), hi); better('coldest', g, Number(t[1]), lo); }
+    if (typeof s.homeScore === 'number' && typeof s.awayScore === 'number') {
+      better('biggestMargin', g, Math.abs(s.homeScore - s.awayScore), hi);
+      if (s.finalType && s.finalType !== 'F') out.extraTime++;
+    }
+  }
+  return out;
+}
+
+function companionCounts(games) {
+  var counts = {};
+  for (var i = 0; i < games.length; i++) {
+    var list = games[i].companions || [];
+    for (var j = 0; j < list.length; j++) counts[list[j]] = (counts[list[j]] || 0) + 1;
+  }
+  var rows = [];
+  for (var name in counts) rows.push({ name: name, count: counts[name] });
+  rows.sort(function (a, b) { return b.count - a.count || (a.name < b.name ? -1 : 1); });
+  return rows;
+}
+
 if (typeof module !== 'undefined') {
   module.exports = {
     seasonYear: seasonYear, pickEra: pickEra, teamName: teamName,
     sportsrefCode: sportsrefCode, summaryOf: summaryOf, winnerOf: winnerOf,
     gameYear: gameYear, gameSeasonYear: gameSeasonYear, venueKeyOf: venueKeyOf,
     sortKey: sortKey, deriveStats: deriveStats,
+    heatmap: heatmap, teamStreaks: teamStreaks, superlatives: superlatives,
+    companionCounts: companionCounts,
     LEAGUE_LABELS: LEAGUE_LABELS, LEAGUE_ORDER: LEAGUE_ORDER,
   };
 }
@@ -405,9 +511,11 @@ if (typeof module !== 'undefined') {
   }
 
   function seasonTag(game) {
-    if (game.seasonType === 'postseason') return '<span class="badge">Playoffs</span>';
-    if (game.seasonType === 'allstar') return '<span class="badge">All-Star</span>';
-    return '';
+    var out = '';
+    if (game.seasonType === 'postseason') out += '<span class="badge">Playoffs</span>';
+    if (game.seasonType === 'allstar') out += '<span class="badge">All-Star</span>';
+    (game.tags || []).forEach(function (t) { out += '<span class="badge">' + esc(t) + '</span>'; });
+    return out;
   }
 
   function gameCard(g) {
@@ -526,6 +634,74 @@ if (typeof module !== 'undefined') {
     return r.w + '–' + r.l + (r.t ? '–' + r.t : '');
   }
 
+  var MONTH_LETTERS = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
+  var MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+  function renderHeatmap() {
+    var hm = heatmap(DATA.games);
+    if (!hm.years.length) return '';
+    var html = '<h2 class="sec">Games by month</h2><div class="heatwrap"><div class="heat">';
+    html += '<div class="col"><div class="ylab"></div>' +
+      MONTH_LETTERS.map(function (l) { return '<div class="mlab">' + l + '</div>'; }).join('') + '</div>';
+    hm.years.forEach(function (y) {
+      var label = y % 5 === 0 || y === hm.years[0] ? "’" + String(y).slice(2) : '';
+      html += '<div class="col"><div class="ylab">' + label + '</div>';
+      for (var m = 0; m < 12; m++) {
+        var n = (hm.grid[y] || [])[m] || 0;
+        var cls = n >= 3 ? ' q3' : n === 2 ? ' q2' : n === 1 ? ' q1' : '';
+        html += '<div class="cell' + cls + '" title="' + MONTH_NAMES[m] + ' ' + y + ' · ' + n + ' game' + (n === 1 ? '' : 's') + '"></div>';
+      }
+      html += '</div>';
+    });
+    html += '</div><div class="heat-legend">fewer <span class="cell" style="background:#232633"></span>' +
+      '<span class="cell" style="background:#57451c"></span><span class="cell" style="background:#a07f2e"></span>' +
+      '<span class="cell" style="background:var(--gold)"></span> more · day-precise dates only</div></div>';
+    return html;
+  }
+
+  function renderSuperlatives() {
+    var sup = superlatives(DATA.games);
+    var entries = [];
+    var describe = function (g) {
+      var yr = gameSeasonYear(g);
+      return esc(teamName(DATA.teams, g.league, g.away || g.home, yr)) +
+        (g.away ? ' at ' + esc(teamName(DATA.teams, g.league, g.home, yr)) : '') +
+        (g.date ? ', ' + g.date : '');
+    };
+    if (sup.biggestCrowd) entries.push(['Biggest crowd', Number(sup.biggestCrowd.value).toLocaleString('en-US'), describe(sup.biggestCrowd.game)]);
+    if (sup.longestGame) entries.push(['Longest game', Math.floor(sup.longestGame.value / 60) + 'h ' + (sup.longestGame.value % 60) + 'm', describe(sup.longestGame.game)]);
+    if (sup.hottest) entries.push(['Hottest', sup.hottest.value + '°F', describe(sup.hottest.game)]);
+    if (sup.coldest) entries.push(['Coldest', sup.coldest.value + '°F', describe(sup.coldest.game)]);
+    if (sup.biggestMargin) entries.push(['Biggest blowout', 'by ' + sup.biggestMargin.value, describe(sup.biggestMargin.game)]);
+    if (sup.extraTime) entries.push(['Extra time', sup.extraTime + ' game' + (sup.extraTime === 1 ? '' : 's'), 'OT / SO / extras']);
+    if (!entries.length) return '';
+    return '<h2 class="sec">Superlatives</h2><div class="tiles">' + entries.map(function (e) {
+      return '<div class="tile"><b>' + e[1] + '</b><span>' + e[0] + '</span><div class="sub">' + e[2] + '</div></div>';
+    }).join('') + '</div>';
+  }
+
+  function renderStreaks() {
+    var rows = teamStreaks(DATA.games, DATA.teams).slice(0, 5);
+    if (!rows.length) return '';
+    return '<h2 class="sec">Longest win streaks while I was there</h2><div class="tablewrap"><table><thead>' +
+      '<tr><th>Team</th><th class="num">Straight wins</th><th class="num">Streak ended/last</th></tr></thead><tbody>' +
+      rows.map(function (r) {
+        return '<tr><td><span class="lg ' + r.league + '">' + LEAGUE_LABELS[r.league] + '</span> ' + esc(r.name) +
+          '</td><td class="num"><b>' + r.len + '</b></td><td class="num">' + r.end + '</td></tr>';
+      }).join('') + '</tbody></table></div>';
+  }
+
+  function renderCompanions() {
+    var rows = companionCounts(DATA.games);
+    if (!rows.length) return '';
+    return '<h2 class="sec">Crew</h2><div class="tablewrap"><table><thead>' +
+      '<tr><th>Who</th><th class="num">Games together</th></tr></thead><tbody>' +
+      rows.map(function (r) {
+        return '<tr><td>' + esc(r.name) + '</td><td class="num"><b>' + r.count + '</b></td></tr>';
+      }).join('') + '</tbody></table></div>' +
+      '<p class="muted">Pulled from each game’s <code>companions</code> list — add names to the JSON records to grow the crew.</p>';
+  }
+
   function renderRecords() {
     var html = '<div class="tiles">' +
       '<div class="tile"><b>' + STATS.totalGames + '</b><span>games attended</span></div>';
@@ -542,6 +718,10 @@ if (typeof module !== 'undefined') {
         esc(teamName(DATA.teams, top.league, top.b, yr)) + '</b> — ' + top.count + ' games</div>';
     }
 
+    html += renderSuperlatives();
+    html += renderStreaks();
+    html += renderHeatmap();
+
     LEAGUE_ORDER.forEach(function (l) {
       var rows = STATS.teamRows.filter(function (r) { return r.league === l; });
       if (!rows.length) return;
@@ -554,6 +734,7 @@ if (typeof module !== 'undefined') {
       html += '</tbody></table></div>';
     });
     html += '<p class="muted">“Their W–L” is each team’s own record across the games I was in the building for; it fills in as box scores are fetched.</p>';
+    html += renderCompanions();
     view.innerHTML = html;
   }
 

@@ -9,7 +9,9 @@
   "seasonType": "regular",
   "doubleheaderGame": 0,
   "notes": "Mikey Mo's Box",
-  "companions": [],
+  "companions": [
+    "Mikey Mo"
+  ],
   "seat": null,
   "venueOverride": null,
   "overrides": {},

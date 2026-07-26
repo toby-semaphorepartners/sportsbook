@@ -9,7 +9,9 @@
   "seasonType": "regular",
   "doubleheaderGame": 0,
   "notes": "Tickets w/Gundy",
-  "companions": [],
+  "companions": [
+    "Gundy"
+  ],
   "seat": null,
   "venueOverride": null,
   "overrides": {},

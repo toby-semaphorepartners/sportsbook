@@ -9,7 +9,10 @@
   "seasonType": "regular",
   "doubleheaderGame": 0,
   "notes": "Suite for Denis 70th birthday, foul ball off Michele",
-  "companions": [],
+  "companions": [
+    "Denis",
+    "Michele"
+  ],
   "seat": null,
   "venueOverride": null,
   "overrides": {},

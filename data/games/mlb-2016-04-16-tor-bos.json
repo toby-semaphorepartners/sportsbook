@@ -9,7 +9,9 @@
   "seasonType": "regular",
   "doubleheaderGame": 0,
   "notes": "Colin's bachelor party",
-  "companions": [],
+  "companions": [
+    "Colin"
+  ],
   "seat": null,
   "venueOverride": null,
   "overrides": {},

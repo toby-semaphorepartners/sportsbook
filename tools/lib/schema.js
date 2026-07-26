@@ -93,6 +93,10 @@ function validateGame(game, ref) {
   if (!Array.isArray(game.companions) || game.companions.some((c) => typeof c !== 'string')) {
     errors.push('companions: must be an array of strings');
   }
+  if (game.tags !== undefined &&
+      (!Array.isArray(game.tags) || game.tags.some((t) => typeof t !== 'string'))) {
+    errors.push('tags: must be an array of strings when present');
+  }
   if (game.seat !== null && typeof game.seat !== 'string') errors.push('seat: string or null');
   if (game.venueOverride !== null) {
     if (typeof game.venueOverride !== 'string' || !(game.venueOverride in venues.venues)) {

@@ -131,4 +131,72 @@ test('deriveStats venue completion counts only active buildings', () => {
   assert.equal(st.defunct[0].key, 'turner-field');
 });
 
+const scored = (patch, h, a) => makeGame(Object.assign({
+  enrichment: { status: 'enriched', source: 'espn', sourceGameId: 'x', snapshot: 'data/snapshots/nfl/x.json', fetchedAt: null, candidates: null, summary: { homeScore: h, awayScore: a } },
+}, patch));
+
+test('heatmap: day-precision games bucketed by year × month, fuzzy excluded', () => {
+  const hm = S.heatmap([
+    makeGame({ id: 'h1', date: '1997-09-06' }),
+    makeGame({ id: 'h2', date: '1999-09-10' }),
+    makeGame({ id: 'h3', date: '1999-09-20' }),
+    makeGame({ id: 'h4', date: '2003', datePrecision: 'year' }),
+  ]);
+  assert.equal(hm.years.length, 3); // 1997..1999, fuzzy 2003 excluded
+  assert.equal(hm.grid[1997][8], 1);
+  assert.equal(hm.grid[1999][8], 2);
+  assert.equal(hm.max, 2);
+});
+
+test('teamStreaks: consecutive attended wins; unscored games skip, losses reset', () => {
+  const games = [
+    scored({ id: 's1', league: 'nfl', home: 'nyj', away: 'ne', date: '2016-01-01' }, 10, 20), // NE win
+    makeGame({ id: 's2', league: 'nfl', home: 'nyj', away: 'ne', date: '2016-06-01' }),       // no score: skipped
+    scored({ id: 's3', league: 'nfl', home: 'ne', away: 'nyj', date: '2017-01-01' }, 30, 3),  // NE win (streak 2)
+    scored({ id: 's4', league: 'nfl', home: 'nyj', away: 'ne', date: '2018-01-01' }, 21, 14), // NE loss: reset
+    scored({ id: 's5', league: 'nfl', home: 'nyj', away: 'ne', date: '2019-01-01' }, 7, 28),  // NE win
+  ];
+  const rows = S.teamStreaks(games, teams);
+  const ne = rows.find((r) => r.code === 'ne');
+  assert.deepEqual([ne.len, ne.end], [2, '2017-01-01']);
+  // Jets never won twice in a row -> below the >=2 cutoff.
+  assert.equal(rows.find((r) => r.code === 'nyj'), undefined);
+});
+
+test('superlatives: extremes from enriched fields, temps parsed from weather', () => {
+  const g1 = scored({ id: 'p1' }, 4, 2);
+  g1.enrichment.summary.attendance = 67612;
+  g1.enrichment.summary.weather = 'Sunny, 91°F, wind 5 mph';
+  g1.enrichment.summary.durationMinutes = 190;
+  const g2 = scored({ id: 'p2' }, 3, 17);
+  g2.enrichment.summary.attendance = 15242;
+  g2.enrichment.summary.weather = 'Snow, 21°F';
+  g2.enrichment.summary.finalType = 'F/OT';
+  const sup = S.superlatives([g1, g2, makeGame({ id: 'p3' })]);
+  assert.equal(sup.biggestCrowd.value, 67612);
+  assert.equal(sup.longestGame.value, 190);
+  assert.equal(sup.hottest.value, 91);
+  assert.equal(sup.coldest.value, 21);
+  assert.equal(sup.biggestMargin.value, 14);
+  assert.equal(sup.extraTime, 1);
+});
+
+test('superlatives: all-null before enrichment', () => {
+  const sup = S.superlatives([makeGame({})]);
+  assert.equal(sup.biggestCrowd, null);
+  assert.equal(sup.extraTime, 0);
+});
+
+test('companionCounts tallies and sorts', () => {
+  const rows = S.companionCounts([
+    makeGame({ id: 'c1', companions: ['Gundy', 'Colin'] }),
+    makeGame({ id: 'c2', companions: ['Gundy'] }),
+    makeGame({ id: 'c3' }),
+  ]);
+  assert.deepEqual(JSON.parse(JSON.stringify(rows)), [
+    { name: 'Gundy', count: 2 },
+    { name: 'Colin', count: 1 },
+  ]);
+});
+
 summary('stats.test.js');

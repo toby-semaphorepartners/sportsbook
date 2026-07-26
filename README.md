@@ -20,7 +20,12 @@ Three views, hash-routed so they're linkable:
   venue, personal notes, and a box-score link. Fuzzy dates render dashed as
   `~2003`; fully undated games get their own section. Filter by league or team.
 - **`#/records`** — games per league, per-team seen counts (home/away/total)
-  and each team's W–L record in games I attended, plus the most-seen matchup.
+  and each team's W–L record in games I attended, the most-seen matchup, a
+  year-by-month **calendar heatmap**, and a **Crew** leaderboard of who I've
+  gone with (fed by each record's `companions` list). Once box scores are
+  enriched, two more sections light up automatically: **Superlatives**
+  (biggest crowd, longest game, hottest/coldest, biggest blowout, extra-time
+  count) and **longest win streaks while I was there**.
 - **`#/venues`** — per-league venue table with visit counts and years,
   completion bars against each league's active venues, and the buildings I've
   seen games in that no longer host.
@@ -108,8 +113,7 @@ fixtures in `test/fixtures/`.
 
 ## Roadmap
 
-- **Delight pass**: attended win streaks, calendar heatmap, milestone tags
-  ("witnessed" list), companions leaderboard, superlatives (coldest game,
-  biggest crowd, longest game).
 - **Stretch**: per-player stats accumulated only in games I attended, a venue
-  map, stub photo support (`images: []` per game is an easy schema add).
+  map, milestone tags for moments witnessed (a free-form `tags: []` field
+  already renders as badges), stub photo support (`images: []` per game is an
+  easy schema add).

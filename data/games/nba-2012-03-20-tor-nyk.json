@@ -9,7 +9,9 @@
   "seasonType": "regular",
   "doubleheaderGame": 0,
   "notes": "Box with Foster",
-  "companions": [],
+  "companions": [
+    "Foster"
+  ],
   "seat": null,
   "venueOverride": null,
   "overrides": {},

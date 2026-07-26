@@ -9,7 +9,9 @@
   "seasonType": "regular",
   "doubleheaderGame": 1,
   "notes": "Day Game of Doubleheader, BMcG Bachelor Party",
-  "companions": [],
+  "companions": [
+    "BMcG"
+  ],
   "seat": null,
   "venueOverride": null,
   "overrides": {},
