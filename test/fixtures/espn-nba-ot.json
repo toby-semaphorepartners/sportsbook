@@ -1,0 +1,49 @@
+{
+  "source": "espn",
+  "sourceGameId": "400975399",
+  "fetchedAt": "2026-07-26T00:00:00Z",
+  "pruned": ["plays", "winprobability", "article"],
+  "endpoints": {
+    "summary": {
+      "header": {
+        "competitions": [
+          {
+            "id": "400975399",
+            "competitors": [
+              {
+                "homeAway": "home",
+                "team": { "abbreviation": "BKN", "displayName": "Brooklyn Nets" },
+                "score": "116",
+                "linescores": [
+                  { "displayValue": "25" },
+                  { "displayValue": "28" },
+                  { "displayValue": "27" },
+                  { "displayValue": "26" },
+                  { "displayValue": "10" }
+                ]
+              },
+              {
+                "homeAway": "away",
+                "team": { "abbreviation": "ATL", "displayName": "Atlanta Hawks" },
+                "score": "112",
+                "linescores": [
+                  { "displayValue": "30" },
+                  { "displayValue": "24" },
+                  { "displayValue": "26" },
+                  { "displayValue": "26" },
+                  { "displayValue": "6" }
+                ]
+              }
+            ],
+            "status": { "type": { "name": "STATUS_FINAL", "shortDetail": "Final/OT" } }
+          }
+        ]
+      },
+      "gameInfo": {
+        "venue": { "fullName": "Barclays Center", "address": { "city": "Brooklyn", "state": "NY" } },
+        "attendance": 15242,
+        "weather": null
+      }
+    }
+  }
+}

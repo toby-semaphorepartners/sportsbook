@@ -1,0 +1,32 @@
+{
+  "source": "mlb",
+  "sourceGameId": "634567",
+  "fetchedAt": "2026-07-26T00:00:00Z",
+  "pruned": ["liveData.plays"],
+  "endpoints": {
+    "feed": {
+      "gameData": {
+        "venue": { "id": 31, "name": "PNC Park" },
+        "weather": { "condition": "Partly Cloudy", "temp": "74", "wind": "9 mph, L To R" },
+        "gameInfo": { "attendance": 24312, "gameDurationMinutes": 201 }
+      },
+      "liveData": {
+        "linescore": {
+          "innings": [
+            { "num": 1, "home": { "runs": 0 }, "away": { "runs": 1 } },
+            { "num": 2, "home": { "runs": 0 }, "away": { "runs": 0 } },
+            { "num": 3, "home": { "runs": 2 }, "away": { "runs": 0 } },
+            { "num": 4, "home": { "runs": 0 }, "away": { "runs": 0 } },
+            { "num": 5, "home": { "runs": 0 }, "away": { "runs": 0 } },
+            { "num": 6, "home": { "runs": 0 }, "away": { "runs": 1 } },
+            { "num": 7, "home": { "runs": 0 }, "away": { "runs": 0 } },
+            { "num": 8, "home": { "runs": 0 }, "away": { "runs": 0 } },
+            { "num": 9, "home": { "runs": 0 }, "away": { "runs": 0 } },
+            { "num": 10, "home": { "runs": 1 }, "away": { "runs": 0 } }
+          ],
+          "teams": { "home": { "runs": 3 }, "away": { "runs": 2 } }
+        }
+      }
+    }
+  }
+}
