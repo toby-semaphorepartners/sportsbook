@@ -8,13 +8,19 @@ const fs = require('fs');
 const assert = require('assert/strict');
 
 const ROOT = path.join(__dirname, '..');
-const CHROMIUM = process.env.CHROMIUM || '/opt/pw-browsers/chromium';
 const OUT = path.join(__dirname, 'out');
+
+// Pinned system Chromium when present (this repo's usual environments);
+// otherwise playwright's own registry install (CI).
+function launchOpts() {
+  const p = process.env.CHROMIUM || '/opt/pw-browsers/chromium';
+  return fs.existsSync(p) ? { executablePath: p } : {};
+}
 
 async function main() {
   const { chromium } = require('playwright-core');
   fs.mkdirSync(OUT, { recursive: true });
-  const browser = await chromium.launch({ executablePath: CHROMIUM });
+  const browser = await chromium.launch(launchOpts());
   const page = await browser.newPage({ viewport: { width: 420, height: 900 } });
 
   const problems = [];

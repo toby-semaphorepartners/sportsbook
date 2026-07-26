@@ -67,6 +67,24 @@ test('NBA All-Star games link to the all-star page, not a boxscore', () => {
   );
 });
 
+test('officialUrl: league game pages derived from the enrichment source id', () => {
+  const withSource = (patch, source, id) => {
+    const g = makeGame(patch);
+    g.enrichment.source = source;
+    g.enrichment.sourceGameId = id;
+    return g;
+  };
+  assert.equal(L.officialUrl(withSource({ league: 'mlb' }, 'mlb', '531060')),
+    'https://www.mlb.com/gameday/531060');
+  assert.equal(L.officialUrl(withSource({ league: 'nhl', home: 'njd', away: 'nyr' }, 'nhl', '2013020876')),
+    'https://www.nhl.com/gamecenter/2013020876');
+  assert.equal(L.officialUrl(withSource({ league: 'nfl', home: 'ne', away: 'phi' }, 'espn', '400999173')),
+    'https://www.espn.com/nfl/game/_/gameId/400999173');
+  assert.equal(L.officialUrl(withSource({ league: 'nba', home: 'bkn', away: 'atl' }, 'espn', '400975399')),
+    'https://www.espn.com/nba/game/_/gameId/400975399');
+  assert.equal(L.officialUrl(makeGame({})), null); // pending game, no source id
+});
+
 test('no link without a day-precise date or a sportsref code', () => {
   assert.equal(url({ date: '2003', datePrecision: 'year' }), null);
   assert.equal(url({ date: null, datePrecision: 'unknown' }), null);

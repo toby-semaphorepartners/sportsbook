@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node tools/build.js",
     "validate": "node tools/validate.js",
-    "test": "node test/schema.test.js && node test/stats.test.js && node test/links.test.js && node test/import.test.js && node test/normalize.test.js && node test/build.test.js && node test/ui.test.js",
+    "test": "node test/schema.test.js && node test/stats.test.js && node test/links.test.js && node test/import.test.js && node test/normalize.test.js && node test/build.test.js && node test/ui.test.js && node test/enriched-ui.test.js",
     "test:node": "node test/schema.test.js && node test/stats.test.js && node test/links.test.js && node test/import.test.js && node test/normalize.test.js && node test/build.test.js"
   },
   "devDependencies": {

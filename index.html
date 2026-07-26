@@ -76,7 +76,12 @@
   .card .score .wtag { color: var(--gold); font-weight: 700; font-size: 12px; margin-left: 6px; }
   .card .meta { color: var(--ink-3); font-size: 13px; margin-top: 6px; display: flex; flex-wrap: wrap; gap: 4px 14px; }
   .card .notes { color: var(--gold); font-size: 14px; margin-top: 7px; }
-  .card .boxlink { margin-top: 8px; font-size: 13px; }
+  .linescore { margin-top: 8px; overflow-x: auto; }
+  .linescore table { border-collapse: collapse; width: auto; margin: 0; font-size: 12px; font-variant-numeric: tabular-nums; }
+  .linescore th, .linescore td { padding: 1px 7px 1px 0; border: 0; color: var(--ink-3); text-align: right; }
+  .linescore th:first-child, .linescore td:first-child { text-align: left; font-weight: 700; color: var(--ink-2); }
+  .linescore td.tot { color: var(--ink); font-weight: 700; border-left: 1px solid var(--card-edge); padding-left: 8px; }
+  .card .boxlink { margin-top: 8px; font-size: 13px; display: flex; gap: 16px; flex-wrap: wrap; }
   .card .boxlink a { color: var(--ink-2); text-decoration: none; border-bottom: 1px dotted var(--ink-3); padding: 4px 0; }
   .card .boxlink a:hover { color: var(--ink); }
 
@@ -473,8 +478,21 @@ function sportsrefUrl(game, teams) {
   return SR_SITES[game.league] + '/boxscores/' + d + game.doubleheaderGame + code + '.html';
 }
 
+// The league's own game page, derived from the enrichment source ID.
+function officialUrl(game) {
+  var e = game.enrichment || {};
+  if (!e.sourceGameId) return null;
+  if (e.source === 'mlb') return 'https://www.mlb.com/gameday/' + e.sourceGameId;
+  if (e.source === 'nhl') return 'https://www.nhl.com/gamecenter/' + e.sourceGameId;
+  if (e.source === 'espn') {
+    var kind = game.league === 'nfl' ? 'nfl' : 'nba';
+    return 'https://www.espn.com/' + kind + '/game/_/gameId/' + e.sourceGameId;
+  }
+  return null;
+}
+
 if (typeof module !== 'undefined') {
-  module.exports = { sportsrefUrl: sportsrefUrl, SR_SITES: SR_SITES };
+  module.exports = { sportsrefUrl: sportsrefUrl, officialUrl: officialUrl, SR_SITES: SR_SITES };
 }
 </script>
 
@@ -550,8 +568,27 @@ if (typeof module !== 'undefined') {
     if (g.companions && g.companions.length) meta.push('👋 ' + esc(g.companions.join(', ')));
     if (meta.length) html += '<div class="meta"><span>' + meta.join('</span><span>') + '</span></div>';
     if (g.notes) html += '<div class="notes">' + esc(g.notes) + '</div>';
-    if (link) html += '<div class="boxlink"><a href="' + esc(link) + '" target="_blank" rel="noopener">Box score at ' +
-      esc(link.replace('https://www.', '').split('/')[0]) + ' ↗</a></div>';
+    if (Array.isArray(s.linescore) && s.linescore.length && g.away !== null) {
+      var periods = s.linescore.length;
+      var row = function (label, idx, total) {
+        var cells = '';
+        for (var p = 0; p < periods; p++) cells += '<td>' + s.linescore[p][idx] + '</td>';
+        return '<tr><td>' + esc(label) + '</td>' + cells + '<td class="tot">' + total + '</td></tr>';
+      };
+      var head = '<tr><th></th>';
+      for (var p = 1; p <= periods; p++) head += '<th>' + p + '</th>';
+      head += '<th></th></tr>';
+      html += '<div class="linescore"><table>' + head +
+        row(g.away.toUpperCase(), 1, s.awayScore) + row(g.home.toUpperCase(), 0, s.homeScore) +
+        '</table></div>';
+    }
+    var links = [];
+    if (link) links.push('<a href="' + esc(link) + '" target="_blank" rel="noopener">Box score at ' +
+      esc(link.replace('https://www.', '').split('/')[0]) + ' ↗</a>');
+    var official = officialUrl(g);
+    if (official) links.push('<a href="' + esc(official) + '" target="_blank" rel="noopener">' +
+      esc(official.replace('https://www.', '').split('/')[0]) + ' ↗</a>');
+    if (links.length) html += '<div class="boxlink">' + links.join('') + '</div>';
     html += '</article>';
     return html;
   }
@@ -715,7 +752,8 @@ if (typeof module !== 'undefined') {
       var yr = null;
       html += '<div class="callout">Most-seen matchup: <b>' +
         esc(teamName(DATA.teams, top.league, top.a, yr)) + ' vs ' +
-        esc(teamName(DATA.teams, top.league, top.b, yr)) + '</b> — ' + top.count + ' games</div>';
+        esc(teamName(DATA.teams, top.league, top.b, yr)) + '</b> — ' + top.count +
+        ' game' + (top.count === 1 ? '' : 's') + '</div>';
     }
 
     html += renderSuperlatives();
