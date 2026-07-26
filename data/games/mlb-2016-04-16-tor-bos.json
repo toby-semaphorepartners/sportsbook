@@ -1,0 +1,25 @@
+{
+  "id": "mlb-2016-04-16-tor-bos",
+  "league": "mlb",
+  "date": "2016-04-16",
+  "datePrecision": "day",
+  "home": "bos",
+  "away": "tor",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "Colin's bachelor party",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

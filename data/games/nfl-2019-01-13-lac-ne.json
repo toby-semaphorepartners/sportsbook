@@ -1,0 +1,25 @@
+{
+  "id": "nfl-2019-01-13-lac-ne",
+  "league": "nfl",
+  "date": "2019-01-13",
+  "datePrecision": "day",
+  "home": "ne",
+  "away": "lac",
+  "neutralSite": false,
+  "seasonType": "postseason",
+  "doubleheaderGame": 0,
+  "notes": "AFC Divisional Game",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

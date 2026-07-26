@@ -1,0 +1,25 @@
+{
+  "id": "nba-2009-12-16-cle-phi",
+  "league": "nba",
+  "date": "2009-12-16",
+  "datePrecision": "day",
+  "home": "phi",
+  "away": "cle",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

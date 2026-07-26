@@ -1,0 +1,25 @@
+{
+  "id": "nfl-2016-11-27-ne-nyj",
+  "league": "nfl",
+  "date": "2016-11-27",
+  "datePrecision": "day",
+  "home": "nyj",
+  "away": "ne",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "Brady's 200th win, Brady drop & MM TD, JW Missed 2PC",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

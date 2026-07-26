@@ -1,0 +1,25 @@
+{
+  "id": "mlb-2003x-ath-bos",
+  "league": "mlb",
+  "date": "2003",
+  "datePrecision": "year",
+  "home": "bos",
+  "away": "ath",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

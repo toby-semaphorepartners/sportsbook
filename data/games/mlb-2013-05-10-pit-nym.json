@@ -1,0 +1,25 @@
+{
+  "id": "mlb-2013-05-10-pit-nym",
+  "league": "mlb",
+  "date": "2013-05-10",
+  "datePrecision": "day",
+  "home": "nym",
+  "away": "pit",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

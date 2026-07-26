@@ -1,0 +1,25 @@
+{
+  "id": "nba-2024-06-09-dal-bos",
+  "league": "nba",
+  "date": "2024-06-09",
+  "datePrecision": "day",
+  "home": "bos",
+  "away": "dal",
+  "neutralSite": false,
+  "seasonType": "postseason",
+  "doubleheaderGame": 0,
+  "notes": "Finals Game 2",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

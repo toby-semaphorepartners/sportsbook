@@ -1,0 +1,25 @@
+{
+  "id": "nhl-2012-01-17-wpg-njd",
+  "league": "nhl",
+  "date": "2012-01-17",
+  "datePrecision": "day",
+  "home": "njd",
+  "away": "wpg",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

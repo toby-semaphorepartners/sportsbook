@@ -1,0 +1,25 @@
+{
+  "id": "nfl-2012-10-08-hou-nyj",
+  "league": "nfl",
+  "date": "2012-10-08",
+  "datePrecision": "day",
+  "home": "nyj",
+  "away": "hou",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "nba-2024-02-18-west-east",
+  "league": "nba",
+  "date": "2024-02-18",
+  "datePrecision": "day",
+  "home": "east",
+  "away": "west",
+  "neutralSite": true,
+  "seasonType": "allstar",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": "gainbridge-fieldhouse",
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

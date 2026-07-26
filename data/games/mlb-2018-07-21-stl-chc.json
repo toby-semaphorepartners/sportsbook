@@ -1,0 +1,25 @@
+{
+  "id": "mlb-2018-07-21-stl-chc",
+  "league": "mlb",
+  "date": "2018-07-21",
+  "datePrecision": "day",
+  "home": "chc",
+  "away": "stl",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 1,
+  "notes": "Day Game of Doubleheader, BMcG Bachelor Party",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "nba-2017-04-02-atl-bkn",
+  "league": "nba",
+  "date": "2017-04-02",
+  "datePrecision": "day",
+  "home": "bkn",
+  "away": "atl",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

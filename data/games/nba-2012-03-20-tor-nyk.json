@@ -1,0 +1,25 @@
+{
+  "id": "nba-2012-03-20-tor-nyk",
+  "league": "nba",
+  "date": "2012-03-20",
+  "datePrecision": "day",
+  "home": "nyk",
+  "away": "tor",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "Box with Foster",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "nba-2022-02-20-west-east",
+  "league": "nba",
+  "date": "2022-02-20",
+  "datePrecision": "day",
+  "home": "east",
+  "away": "west",
+  "neutralSite": true,
+  "seasonType": "allstar",
+  "doubleheaderGame": 0,
+  "notes": "All Star Game- CLE, LBJ GW shot",
+  "companions": [],
+  "seat": null,
+  "venueOverride": "rocket-arena",
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}
