@@ -1,0 +1,25 @@
+{
+  "id": "nba-undated-unk-bkn",
+  "league": "nba",
+  "date": null,
+  "datePrecision": "unknown",
+  "home": "bkn",
+  "away": null,
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

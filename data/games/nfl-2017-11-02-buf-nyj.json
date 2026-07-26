@@ -1,0 +1,25 @@
+{
+  "id": "nfl-2017-11-02-buf-nyj",
+  "league": "nfl",
+  "date": "2017-11-02",
+  "datePrecision": "day",
+  "home": "nyj",
+  "away": "buf",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "TNF",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

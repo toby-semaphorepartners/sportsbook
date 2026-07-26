@@ -1,0 +1,25 @@
+{
+  "id": "mlb-2007-09-07-bos-bal",
+  "league": "mlb",
+  "date": "2007-09-07",
+  "datePrecision": "day",
+  "home": "bal",
+  "away": "bos",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

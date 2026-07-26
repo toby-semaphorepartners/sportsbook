@@ -1,0 +1,25 @@
+{
+  "id": "nfl-2018-11-25-ne-nyj",
+  "league": "nfl",
+  "date": "2018-11-25",
+  "datePrecision": "day",
+  "home": "nyj",
+  "away": "ne",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

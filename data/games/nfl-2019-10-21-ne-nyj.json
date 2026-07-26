@@ -1,0 +1,25 @@
+{
+  "id": "nfl-2019-10-21-ne-nyj",
+  "league": "nfl",
+  "date": "2019-10-21",
+  "datePrecision": "day",
+  "home": "nyj",
+  "away": "ne",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "\"seeing ghosts\"",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

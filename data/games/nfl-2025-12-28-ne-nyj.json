@@ -1,0 +1,25 @@
+{
+  "id": "nfl-2025-12-28-ne-nyj",
+  "league": "nfl",
+  "date": "2025-12-28",
+  "datePrecision": "day",
+  "home": "nyj",
+  "away": "ne",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "Sideline!, 5 Passing TDs",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

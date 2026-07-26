@@ -1,0 +1,25 @@
+{
+  "id": "nhl-2015-10-23-bos-nyi",
+  "league": "nhl",
+  "date": "2015-10-23",
+  "datePrecision": "day",
+  "home": "nyi",
+  "away": "bos",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "BSS @ BP",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

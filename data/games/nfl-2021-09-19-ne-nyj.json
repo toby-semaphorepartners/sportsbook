@@ -1,0 +1,25 @@
+{
+  "id": "nfl-2021-09-19-ne-nyj",
+  "league": "nfl",
+  "date": "2021-09-19",
+  "datePrecision": "day",
+  "home": "nyj",
+  "away": "ne",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "1st Mac Jones game, Home opener",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

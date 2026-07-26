@@ -1,0 +1,25 @@
+{
+  "id": "nfl-2012-11-22-ne-nyj",
+  "league": "nfl",
+  "date": "2012-11-22",
+  "datePrecision": "day",
+  "home": "nyj",
+  "away": "ne",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "Thanksgiving (Butt-fumble)",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

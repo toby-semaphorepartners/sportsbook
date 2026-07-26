@@ -1,0 +1,25 @@
+{
+  "id": "nfl-2014-10-16-nyj-ne",
+  "league": "nfl",
+  "date": "2014-10-16",
+  "datePrecision": "day",
+  "home": "ne",
+  "away": "nyj",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "TNF, Blocked FG to win",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

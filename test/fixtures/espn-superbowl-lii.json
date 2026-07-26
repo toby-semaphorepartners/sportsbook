@@ -1,0 +1,48 @@
+{
+  "source": "espn",
+  "sourceGameId": "400999173",
+  "fetchedAt": "2026-07-26T00:00:00Z",
+  "pruned": ["plays", "drives", "winprobability"],
+  "endpoints": {
+    "summary": {
+      "header": {
+        "competitions": [
+          {
+            "id": "400999173",
+            "date": "2018-02-04T23:30Z",
+            "neutralSite": true,
+            "competitors": [
+              {
+                "homeAway": "home",
+                "team": { "abbreviation": "NE", "displayName": "New England Patriots" },
+                "score": "33",
+                "linescores": [
+                  { "displayValue": "3" },
+                  { "displayValue": "9" },
+                  { "displayValue": "14" },
+                  { "displayValue": "7" }
+                ]
+              },
+              {
+                "homeAway": "away",
+                "team": { "abbreviation": "PHI", "displayName": "Philadelphia Eagles" },
+                "score": "41",
+                "linescores": [
+                  { "displayValue": "9" },
+                  { "displayValue": "13" },
+                  { "displayValue": "7" },
+                  { "displayValue": "12" }
+                ]
+              }
+            ],
+            "status": { "type": { "name": "STATUS_FINAL", "shortDetail": "Final" } }
+          }
+        ]
+      },
+      "gameInfo": {
+        "venue": { "fullName": "U.S. Bank Stadium", "address": { "city": "Minneapolis", "state": "MN" } },
+        "attendance": 67612
+      }
+    }
+  }
+}

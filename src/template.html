@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stub Book 🎟️</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #14151a;
+    --card: #1b1d24;
+    --card-edge: #262933;
+    --ink: #f2f3f5;
+    --ink-2: #a9adb8;
+    --ink-3: #7c8090;
+    --gold: #e3b341;
+    --mlb: #3987e5;
+    --nfl: #199e70;
+    --nhl: #9085e9;
+    --nba: #d95926;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  main { max-width: 720px; margin: 0 auto; padding: 0 12px 64px; }
+
+  header.site { max-width: 720px; margin: 0 auto; padding: 20px 12px 4px; }
+  header.site h1 { margin: 0; font-size: 26px; letter-spacing: .3px; }
+  header.site .tagline { color: var(--ink-2); margin: 2px 0 10px; font-size: 14px; }
+  .stat-strip { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--ink-2); font-size: 14px; padding: 8px 0 2px; }
+  .stat-strip b { color: var(--ink); font-size: 18px; font-variant-numeric: tabular-nums; }
+  .stat-strip .cell { display: flex; flex-direction: column; }
+  .stat-strip .cell span { font-size: 12px; text-transform: uppercase; letter-spacing: .6px; color: var(--ink-3); }
+
+  nav.tabs { display: flex; gap: 6px; max-width: 720px; margin: 10px auto 0; padding: 0 12px; border-bottom: 1px solid var(--card-edge); }
+  nav.tabs a {
+    padding: 10px 14px; min-height: 44px; display: flex; align-items: center;
+    text-decoration: none; color: var(--ink-2); font-weight: 600; font-size: 15px;
+    border-bottom: 3px solid transparent; margin-bottom: -1px;
+  }
+  nav.tabs a.active { color: var(--ink); border-bottom-color: var(--gold); }
+
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 0 4px; align-items: center; }
+  .filters button.chip {
+    background: var(--card); color: var(--ink-2); border: 1px solid var(--card-edge);
+    border-radius: 999px; padding: 8px 14px; min-height: 40px; font: inherit; font-size: 14px;
+    font-weight: 600; cursor: pointer;
+  }
+  .filters button.chip.on { color: var(--ink); border-color: var(--acc, var(--gold)); box-shadow: inset 0 0 0 1px var(--acc, var(--gold)); }
+  .filters select {
+    background: var(--card); color: var(--ink); border: 1px solid var(--card-edge);
+    border-radius: 8px; padding: 8px 10px; min-height: 40px; font: inherit; font-size: 14px; max-width: 100%;
+  }
+
+  .year-mark { color: var(--ink-3); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin: 22px 2px 8px; }
+  .card {
+    background: var(--card); border: 1px solid var(--card-edge); border-radius: 12px;
+    padding: 12px 14px; margin: 10px 0; overflow-wrap: anywhere;
+  }
+  .card.approx { border-style: dashed; }
+  .card .top { display: flex; justify-content: space-between; gap: 10px; color: var(--ink-3); font-size: 13px; }
+  .lg { font-weight: 700; font-size: 12px; letter-spacing: .5px; text-transform: uppercase; }
+  .lg::before { content: "●"; margin-right: 5px; }
+  .lg.mlb { color: var(--mlb); } .lg.nfl { color: var(--nfl); }
+  .lg.nhl { color: var(--nhl); } .lg.nba { color: var(--nba); }
+  .card .matchup { font-size: 17px; font-weight: 700; margin: 6px 0 2px; }
+  .card .matchup .at { color: var(--ink-3); font-weight: 400; font-size: 14px; }
+  .card .score { font-size: 15px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .card .score b { color: var(--ink); }
+  .card .score .wtag { color: var(--gold); font-weight: 700; font-size: 12px; margin-left: 6px; }
+  .card .meta { color: var(--ink-3); font-size: 13px; margin-top: 6px; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  .card .notes { color: var(--gold); font-size: 14px; margin-top: 7px; }
+  .linescore { margin-top: 8px; overflow-x: auto; }
+  .linescore table { border-collapse: collapse; width: auto; margin: 0; font-size: 12px; font-variant-numeric: tabular-nums; }
+  .linescore th, .linescore td { padding: 1px 7px 1px 0; border: 0; color: var(--ink-3); text-align: right; }
+  .linescore th:first-child, .linescore td:first-child { text-align: left; font-weight: 700; color: var(--ink-2); }
+  .linescore td.tot { color: var(--ink); font-weight: 700; border-left: 1px solid var(--card-edge); padding-left: 8px; }
+  .card .boxlink { margin-top: 8px; font-size: 13px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .card .boxlink a { color: var(--ink-2); text-decoration: none; border-bottom: 1px dotted var(--ink-3); padding: 4px 0; }
+  .card .boxlink a:hover { color: var(--ink); }
+
+  h2.sec { font-size: 15px; text-transform: uppercase; letter-spacing: 1px; color: var(--ink-2); margin: 26px 2px 6px; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin: 14px 0; }
+  .tile { background: var(--card); border: 1px solid var(--card-edge); border-radius: 12px; padding: 12px 14px; }
+  .tile b { display: block; font-size: 24px; font-variant-numeric: tabular-nums; }
+  .tile span { color: var(--ink-3); font-size: 12px; text-transform: uppercase; letter-spacing: .6px; }
+  .callout { background: var(--card); border: 1px solid var(--gold); border-radius: 12px; padding: 12px 14px; margin: 14px 0; }
+  .callout b { color: var(--gold); }
+
+  .tablewrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; margin: 8px 0 20px; font-size: 14px; }
+  th { text-align: left; color: var(--ink-3); font-size: 12px; text-transform: uppercase; letter-spacing: .5px; padding: 6px 10px 6px 0; border-bottom: 1px solid var(--card-edge); }
+  th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td { padding: 7px 10px 7px 0; border-bottom: 1px solid var(--card-edge); }
+  td .sub { color: var(--ink-3); font-size: 12px; }
+  .badge { font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; border: 1px solid var(--ink-3); color: var(--ink-2); border-radius: 5px; padding: 1px 5px; margin-left: 6px; white-space: nowrap; }
+  .bar { height: 6px; background: var(--card-edge); border-radius: 3px; overflow: hidden; margin-top: 6px; }
+  .bar i { display: block; height: 100%; background: var(--acc, var(--gold)); border-radius: 3px; }
+  .muted { color: var(--ink-3); }
+  .heatwrap { overflow-x: auto; padding: 4px 0 8px; }
+  .heat { display: grid; grid-auto-flow: column; gap: 2px; width: max-content; }
+  .heat .col { display: grid; grid-template-rows: repeat(13, 12px); gap: 2px; }
+  .heat .cell { width: 12px; height: 12px; border-radius: 3px; background: #232633; }
+  .heat .cell.q1 { background: #57451c; }
+  .heat .cell.q2 { background: #a07f2e; }
+  .heat .cell.q3 { background: var(--gold); }
+  .heat .ylab, .heat .mlab { font-size: 9px; color: var(--ink-3); line-height: 12px; text-align: center; }
+  .heat .mlab { width: 12px; }
+  .heat-legend { display: flex; gap: 6px; align-items: center; color: var(--ink-3); font-size: 12px; margin-top: 4px; }
+  .heat-legend .cell { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  footer { max-width: 720px; margin: 0 auto; padding: 20px 12px 40px; color: var(--ink-3); font-size: 13px; }
+  footer a { color: var(--ink-2); }
+</style>
+</head>
+<body>
+<header class="site">
+  <h1>Stub Book 🎟️</h1>
+  <div class="tagline">Every game I've been to.</div>
+  <div class="stat-strip" id="statStrip"></div>
+</header>
+<nav class="tabs" id="tabs">
+  <a href="#/timeline" data-view="timeline">Timeline</a>
+  <a href="#/records" data-view="records">Records</a>
+  <a href="#/venues" data-view="venues">Venues</a>
+</nav>
+<main id="view"></main>
+<footer>
+  Data lives as JSON in the repo; box-score links go to the
+  <a href="https://www.sports-reference.com/">Sports-Reference</a> family.
+</footer>
+
+<script id="data" type="application/json">__DATA_JSON__</script>
+
+<script id="stats">
+'use strict';
+// DOM-free derivation layer. Everything here is unit-tested under Node by
+// extracting this block; keep it free of document/window references.
+
+var LEAGUE_LABELS = { mlb: 'MLB', nfl: 'NFL', nhl: 'NHL', nba: 'NBA' };
+var LEAGUE_ORDER = ['mlb', 'nfl', 'nhl', 'nba'];
+
+// League season identified by its starting year: winter leagues (and the NFL,
+// whose playoffs run into February) attribute Jan–Jul games to the prior year.
+function seasonYear(league, isoDate) {
+  var y = Number(String(isoDate).slice(0, 4));
+  if (String(isoDate).length <= 4) return y;
+  var m = Number(String(isoDate).slice(5, 7));
+  if (league === 'mlb') return y;
+  return m >= 8 ? y : y - 1;
+}
+
+function pickEra(list, year) {
+  if (!list) return null;
+  for (var i = 0; i < list.length; i++) {
+    var e = list[i];
+    if (year >= e.from && (e.to === null || year <= e.to)) return e;
+  }
+  return list.length ? list[list.length - 1] : null;
+}
+
+function teamEntry(teams, league, code) {
+  return (teams[league] || {})[code] || null;
+}
+
+// Era-correct display name; year null (undated) falls back to the current name.
+function teamName(teams, league, code, year) {
+  var t = teamEntry(teams, league, code);
+  if (!t) return code;
+  var era = year === null ? t.eras[t.eras.length - 1] : pickEra(t.eras, year);
+  return era ? era.name : code;
+}
+
+function sportsrefCode(teams, league, code, year) {
+  var t = teamEntry(teams, league, code);
+  if (!t || !t.sportsref || !t.sportsref.length) return null;
+  var era = pickEra(t.sportsref, year);
+  return era ? era.code : null;
+}
+
+// Effective summary: manual overrides win over enrichment.
+function summaryOf(game) {
+  var out = {};
+  var src = (game.enrichment && game.enrichment.summary) || {};
+  var k;
+  for (k in src) out[k] = src[k];
+  for (k in game.overrides || {}) out[k] = game.overrides[k];
+  return out;
+}
+
+function winnerOf(game) {
+  var s = summaryOf(game);
+  if (game.away === null || typeof s.homeScore !== 'number' || typeof s.awayScore !== 'number') return null;
+  if (s.homeScore > s.awayScore) return 'home';
+  if (s.homeScore < s.awayScore) return 'away';
+  return 'tie';
+}
+
+function gameYear(game) {
+  if (game.datePrecision === 'unknown') return null;
+  return Number(String(game.date).slice(0, 4));
+}
+
+function gameSeasonYear(game) {
+  if (game.datePrecision === 'unknown') return null;
+  return seasonYear(game.league, game.date);
+}
+
+// Venue resolution order: manual override, enriched venue, then inference from
+// the home team's building for that season (never for neutral-site games).
+function venueKeyOf(game, venues) {
+  if (game.venueOverride) return game.venueOverride;
+  var s = summaryOf(game);
+  if (s.venue) return s.venue;
+  if (game.neutralSite) return null;
+  var sy = gameSeasonYear(game);
+  if (sy === null) return null;
+  var hits = [];
+  for (var key in venues.venues) {
+    var homeOf = venues.venues[key].homeOf || [];
+    for (var i = 0; i < homeOf.length; i++) {
+      var h = homeOf[i];
+      if (h.league === game.league && h.team === game.home &&
+          sy >= h.from && (h.to === null || sy <= h.to)) hits.push(key);
+    }
+  }
+  return hits.length === 1 ? hits[0] : null;
+}
+
+// Reverse-chronological sort key; year-only dates sort at the end of their
+// year. Undated games are excluded here and rendered in their own section.
+function sortKey(game) {
+  if (game.datePrecision === 'day') return game.date;
+  if (game.datePrecision === 'year') return game.date + '-12-99';
+  return '';
+}
+
+function deriveStats(data) {
+  var games = data.games, teams = data.teams, venues = data.venues;
+  var byLeague = {}, teamAgg = {}, matchups = {}, venueAgg = {};
+  var firstDate = null, lastDate = null, undated = 0;
+
+  function agg(league, code) {
+    var k = league + ':' + code;
+    if (!teamAgg[k]) teamAgg[k] = { league: league, code: code, home: 0, away: 0, w: 0, l: 0, t: 0 };
+    return teamAgg[k];
+  }
+
+  for (var i = 0; i < games.length; i++) {
+    var g = games[i];
+    byLeague[g.league] = (byLeague[g.league] || 0) + 1;
+    if (g.datePrecision === 'day') {
+      if (firstDate === null || g.date < firstDate) firstDate = g.date;
+      if (lastDate === null || g.date > lastDate) lastDate = g.date;
+    }
+    if (g.datePrecision === 'unknown') undated++;
+
+    agg(g.league, g.home).home++;
+    if (g.away !== null) agg(g.league, g.away).away++;
+
+    var win = winnerOf(g);
+    if (win !== null) {
+      if (win === 'tie') { agg(g.league, g.home).t++; agg(g.league, g.away).t++; }
+      else if (win === 'home') { agg(g.league, g.home).w++; agg(g.league, g.away).l++; }
+      else { agg(g.league, g.away).w++; agg(g.league, g.home).l++; }
+    }
+
+    if (g.away !== null) {
+      var pair = [g.home, g.away].sort();
+      var mk = g.league + ':' + pair[0] + ':' + pair[1];
+      matchups[mk] = (matchups[mk] || 0) + 1;
+    }
+
+    var vk = venueKeyOf(g, venues);
+    if (vk) {
+      if (!venueAgg[vk]) venueAgg[vk] = { key: vk, games: 0, first: null, last: null };
+      var v = venueAgg[vk];
+      v.games++;
+      var yr = gameYear(g);
+      if (yr !== null) {
+        if (v.first === null || yr < v.first) v.first = yr;
+        if (v.last === null || yr > v.last) v.last = yr;
+      }
+    }
+  }
+
+  var teamRows = [];
+  for (var tk in teamAgg) {
+    var row = teamAgg[tk];
+    row.total = row.home + row.away;
+    row.name = teamName(teams, row.league, row.code, null);
+    teamRows.push(row);
+  }
+  teamRows.sort(function (a, b) { return b.total - a.total || (a.name < b.name ? -1 : 1); });
+
+  var matchupRows = [];
+  for (var mk2 in matchups) {
+    var parts = mk2.split(':');
+    matchupRows.push({ league: parts[0], a: parts[1], b: parts[2], count: matchups[mk2] });
+  }
+  matchupRows.sort(function (a, b) { return b.count - a.count; });
+
+  var venueRows = [], visitedActive = {}, defunct = [];
+  for (var vk2 in venueAgg) {
+    var meta = venues.venues[vk2];
+    var vr = venueAgg[vk2];
+    vr.name = meta.name;
+    vr.city = meta.city;
+    vr.leagues = meta.leagues;
+    vr.closed = meta.closed;
+    venueRows.push(vr);
+    if (meta.closed !== null) defunct.push(vr);
+    for (var li = 0; li < meta.leagues.length; li++) {
+      if (meta.closed === null) visitedActive[meta.leagues[li]] = (visitedActive[meta.leagues[li]] || 0) + 1;
+    }
+  }
+  venueRows.sort(function (a, b) { return b.games - a.games || (a.name < b.name ? -1 : 1); });
+
+  return {
+    totalGames: games.length,
+    byLeague: byLeague,
+    firstDate: firstDate,
+    lastDate: lastDate,
+    undated: undated,
+    teamRows: teamRows,
+    matchupRows: matchupRows,
+    venueRows: venueRows,
+    visitedActive: visitedActive,
+    activeVenues: venues.meta.activeVenues,
+    defunct: defunct,
+  };
+}
+
+// Year × month attendance grid. Day-precision games only — a "~2003" game
+// has no month to land in.
+function heatmap(games) {
+  var grid = {}, max = 0, minY = null, maxY = null;
+  for (var i = 0; i < games.length; i++) {
+    var g = games[i];
+    if (g.datePrecision !== 'day') continue;
+    var y = Number(g.date.slice(0, 4));
+    var m = Number(g.date.slice(5, 7)) - 1;
+    if (!grid[y]) { grid[y] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; }
+    grid[y][m]++;
+    if (grid[y][m] > max) max = grid[y][m];
+    if (minY === null || y < minY) minY = y;
+    if (maxY === null || y > maxY) maxY = y;
+  }
+  var years = [];
+  for (var yy = minY; yy !== null && yy <= maxY; yy++) years.push(yy);
+  return { years: years, grid: grid, max: max };
+}
+
+// Longest run of consecutive attended games (chronological) that a team won.
+// Games without a result are skipped, not treated as streak-breakers.
+function teamStreaks(games, teams) {
+  var dated = games.filter(function (g) { return g.datePrecision === 'day'; })
+    .slice().sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+  var cur = {}, best = {};
+  for (var i = 0; i < dated.length; i++) {
+    var g = dated[i];
+    var win = winnerOf(g);
+    if (win === null) continue;
+    var sides = ['home', 'away'];
+    for (var s = 0; s < sides.length; s++) {
+      var code = g[sides[s]];
+      if (!code) continue;
+      var k = g.league + ':' + code;
+      if (win === sides[s]) {
+        cur[k] = (cur[k] || 0) + 1;
+        if (!best[k] || cur[k] > best[k].len) best[k] = { len: cur[k], end: g.date };
+      } else {
+        cur[k] = 0;
+      }
+    }
+  }
+  var rows = [];
+  for (var bk in best) {
+    if (best[bk].len < 2) continue;
+    var parts = bk.split(':');
+    rows.push({
+      league: parts[0], code: parts[1],
+      name: teamName(teams, parts[0], parts[1], null),
+      len: best[bk].len, end: best[bk].end,
+    });
+  }
+  rows.sort(function (a, b) { return b.len - a.len || (a.name < b.name ? -1 : 1); });
+  return rows;
+}
+
+// Extremes across enriched games. Each entry is {game, value} or null; the
+// whole thing renders only once box scores exist.
+function superlatives(games) {
+  var out = { biggestCrowd: null, longestGame: null, hottest: null, coldest: null, biggestMargin: null, extraTime: 0 };
+  var better = function (slot, game, value, cmp) {
+    if (value === null) return;
+    if (!out[slot] || cmp(value, out[slot].value)) out[slot] = { game: game, value: value };
+  };
+  var hi = function (a, b) { return a > b; }, lo = function (a, b) { return a < b; };
+  for (var i = 0; i < games.length; i++) {
+    var g = games[i];
+    var s = summaryOf(g);
+    better('biggestCrowd', g, typeof s.attendance === 'number' ? s.attendance : null, hi);
+    better('longestGame', g, typeof s.durationMinutes === 'number' ? s.durationMinutes : null, hi);
+    var t = typeof s.weather === 'string' ? s.weather.match(/(-?\d+)\s*°F/) : null;
+    if (t) { better('hottest', g, Number(t[1]), hi); better('coldest', g, Number(t[1]), lo); }
+    if (typeof s.homeScore === 'number' && typeof s.awayScore === 'number') {
+      better('biggestMargin', g, Math.abs(s.homeScore - s.awayScore), hi);
+      if (s.finalType && s.finalType !== 'F') out.extraTime++;
+    }
+  }
+  return out;
+}
+
+function companionCounts(games) {
+  var counts = {};
+  for (var i = 0; i < games.length; i++) {
+    var list = games[i].companions || [];
+    for (var j = 0; j < list.length; j++) counts[list[j]] = (counts[list[j]] || 0) + 1;
+  }
+  var rows = [];
+  for (var name in counts) rows.push({ name: name, count: counts[name] });
+  rows.sort(function (a, b) { return b.count - a.count || (a.name < b.name ? -1 : 1); });
+  return rows;
+}
+
+if (typeof module !== 'undefined') {
+  module.exports = {
+    seasonYear: seasonYear, pickEra: pickEra, teamName: teamName,
+    sportsrefCode: sportsrefCode, summaryOf: summaryOf, winnerOf: winnerOf,
+    gameYear: gameYear, gameSeasonYear: gameSeasonYear, venueKeyOf: venueKeyOf,
+    sortKey: sortKey, deriveStats: deriveStats,
+    heatmap: heatmap, teamStreaks: teamStreaks, superlatives: superlatives,
+    companionCounts: companionCounts,
+    LEAGUE_LABELS: LEAGUE_LABELS, LEAGUE_ORDER: LEAGUE_ORDER,
+  };
+}
+</script>
+
+<script id="links">
+'use strict';
+// Sports-Reference deep links, derived — never stored, never fetched.
+// Depends on globals from the #stats block (seasonYear, sportsrefCode).
+
+var SR_SITES = {
+  mlb: 'https://www.baseball-reference.com',
+  nfl: 'https://www.pro-football-reference.com',
+  nhl: 'https://www.hockey-reference.com',
+  nba: 'https://www.basketball-reference.com',
+};
+
+function srDate(iso) { return iso.replace(/-/g, ''); }
+
+// Boxscore URL for a game, or null when one can't exist (fuzzy date, no code).
+// Site quirks are load-bearing: b-ref repeats the HOME code and uses .shtml
+// with the doubleheader index AFTER the code; PFR is lowercase .htm with the
+// index BEFORE the code; hockey/basketball are uppercase .html.
+function sportsrefUrl(game, teams) {
+  if (game.datePrecision !== 'day') return null;
+  var d = srDate(game.date);
+  var calYear = Number(game.date.slice(0, 4));
+  if (game.league === 'nba' && game.seasonType === 'allstar') {
+    return SR_SITES.nba + '/allstar/NBA_' + calYear + '.html';
+  }
+  var code = sportsrefCode(teams, game.league, game.home, seasonYear(game.league, game.date));
+  if (!code) return null;
+  if (game.league === 'mlb') {
+    return SR_SITES.mlb + '/boxes/' + code + '/' + code + d + game.doubleheaderGame + '.shtml';
+  }
+  if (game.league === 'nfl') {
+    return SR_SITES.nfl + '/boxscores/' + d + game.doubleheaderGame + code + '.htm';
+  }
+  return SR_SITES[game.league] + '/boxscores/' + d + game.doubleheaderGame + code + '.html';
+}
+
+// The league's own game page, derived from the enrichment source ID.
+function officialUrl(game) {
+  var e = game.enrichment || {};
+  if (!e.sourceGameId) return null;
+  if (e.source === 'mlb') return 'https://www.mlb.com/gameday/' + e.sourceGameId;
+  if (e.source === 'nhl') return 'https://www.nhl.com/gamecenter/' + e.sourceGameId;
+  if (e.source === 'espn') {
+    var kind = game.league === 'nfl' ? 'nfl' : 'nba';
+    return 'https://www.espn.com/' + kind + '/game/_/gameId/' + e.sourceGameId;
+  }
+  return null;
+}
+
+if (typeof module !== 'undefined') {
+  module.exports = { sportsrefUrl: sportsrefUrl, officialUrl: officialUrl, SR_SITES: SR_SITES };
+}
+</script>
+
+<script id="ui">
+'use strict';
+(function () {
+  var DATA = JSON.parse(document.getElementById('data').textContent);
+  var STATS = deriveStats(DATA);
+  var view = document.getElementById('view');
+  var filter = { league: null, team: null };
+
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function fmtDate(game) {
+    if (game.datePrecision === 'unknown') return 'Date unknown';
+    if (game.datePrecision === 'year') return '~' + game.date;
+    var d = new Date(game.date + 'T12:00:00');
+    var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return days[d.getDay()] + ' ' + months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  }
+
+  function renderStrip() {
+    var years = STATS.firstDate && STATS.lastDate
+      ? STATS.firstDate.slice(0, 4) + '–' + STATS.lastDate.slice(0, 4) : '—';
+    var leagues = LEAGUE_ORDER.filter(function (l) { return STATS.byLeague[l]; }).length;
+    document.getElementById('statStrip').innerHTML =
+      '<div class="cell"><b>' + STATS.totalGames + '</b><span>games</span></div>' +
+      '<div class="cell"><b>' + leagues + '</b><span>leagues</span></div>' +
+      '<div class="cell"><b>' + esc(years) + '</b><span>span</span></div>' +
+      '<div class="cell"><b>' + STATS.venueRows.length + '</b><span>venues</span></div>';
+  }
+
+  function seasonTag(game) {
+    var out = '';
+    if (game.seasonType === 'postseason') out += '<span class="badge">Playoffs</span>';
+    if (game.seasonType === 'allstar') out += '<span class="badge">All-Star</span>';
+    (game.tags || []).forEach(function (t) { out += '<span class="badge">' + esc(t) + '</span>'; });
+    return out;
+  }
+
+  function gameCard(g) {
+    var s = summaryOf(g);
+    var win = winnerOf(g);
+    var yr = gameSeasonYear(g);
+    var homeName = teamName(DATA.teams, g.league, g.home, yr);
+    var awayName = g.away === null ? 'Unknown opponent' : teamName(DATA.teams, g.league, g.away, yr);
+    var vk = venueKeyOf(g, DATA.venues);
+    var venue = vk ? DATA.venues.venues[vk] : null;
+    var link = sportsrefUrl(g, DATA.teams);
+
+    var html = '<article class="card' + (g.datePrecision !== 'day' ? ' approx' : '') + '" data-id="' + esc(g.id) + '">';
+    html += '<div class="top"><span>' + esc(fmtDate(g)) + seasonTag(g) +
+      (g.neutralSite ? '<span class="badge">Neutral site</span>' : '') + '</span>' +
+      '<span class="lg ' + g.league + '">' + LEAGUE_LABELS[g.league] + '</span></div>';
+    html += '<div class="matchup">' + esc(awayName) + ' <span class="at">at</span> ' + esc(homeName) + '</div>';
+    if (typeof s.homeScore === 'number' && typeof s.awayScore === 'number') {
+      var a = esc(awayName) + ' ' + s.awayScore, h = esc(homeName) + ' ' + s.homeScore;
+      html += '<div class="score">' +
+        (win === 'away' ? '<b>' + a + '</b>' : a) + ' · ' +
+        (win === 'home' ? '<b>' + h + '</b>' : h) +
+        (s.finalType && s.finalType !== 'F' ? ' <span class="muted">(' + esc(s.finalType) + ')</span>' : '') +
+        (win === 'tie' ? ' <span class="wtag">TIE</span>' : '') +
+        '</div>';
+    }
+    var meta = [];
+    if (venue) meta.push('🏟 ' + esc(venue.name));
+    if (s.attendance) meta.push('👥 ' + Number(s.attendance).toLocaleString('en-US'));
+    if (s.weather) meta.push('🌤 ' + esc(s.weather));
+    if (s.durationMinutes) meta.push('⏱ ' + Math.floor(s.durationMinutes / 60) + ':' + String(s.durationMinutes % 60).padStart(2, '0'));
+    if (g.companions && g.companions.length) meta.push('👋 ' + esc(g.companions.join(', ')));
+    if (meta.length) html += '<div class="meta"><span>' + meta.join('</span><span>') + '</span></div>';
+    if (g.notes) html += '<div class="notes">' + esc(g.notes) + '</div>';
+    if (Array.isArray(s.linescore) && s.linescore.length && g.away !== null) {
+      var periods = s.linescore.length;
+      var row = function (label, idx, total) {
+        var cells = '';
+        for (var p = 0; p < periods; p++) cells += '<td>' + s.linescore[p][idx] + '</td>';
+        return '<tr><td>' + esc(label) + '</td>' + cells + '<td class="tot">' + total + '</td></tr>';
+      };
+      var head = '<tr><th></th>';
+      for (var p = 1; p <= periods; p++) head += '<th>' + p + '</th>';
+      head += '<th></th></tr>';
+      html += '<div class="linescore"><table>' + head +
+        row(g.away.toUpperCase(), 1, s.awayScore) + row(g.home.toUpperCase(), 0, s.homeScore) +
+        '</table></div>';
+    }
+    var links = [];
+    if (link) links.push('<a href="' + esc(link) + '" target="_blank" rel="noopener">Box score at ' +
+      esc(link.replace('https://www.', '').split('/')[0]) + ' ↗</a>');
+    var official = officialUrl(g);
+    if (official) links.push('<a href="' + esc(official) + '" target="_blank" rel="noopener">' +
+      esc(official.replace('https://www.', '').split('/')[0]) + ' ↗</a>');
+    if (links.length) html += '<div class="boxlink">' + links.join('') + '</div>';
+    html += '</article>';
+    return html;
+  }
+
+  function teamsInData() {
+    var seen = {};
+    DATA.games.forEach(function (g) {
+      seen[g.league + ':' + g.home] = true;
+      if (g.away) seen[g.league + ':' + g.away] = true;
+    });
+    return seen;
+  }
+
+  function renderFilters() {
+    var html = '<div class="filters">';
+    LEAGUE_ORDER.forEach(function (l) {
+      if (!STATS.byLeague[l]) return;
+      html += '<button class="chip' + (filter.league === l ? ' on' : '') + '" style="--acc: var(--' + l + ')" data-league="' + l + '">' +
+        LEAGUE_LABELS[l] + ' <span class="muted">' + STATS.byLeague[l] + '</span></button>';
+    });
+    html += '<select id="teamSel" aria-label="Filter by team"><option value="">All teams</option>';
+    var seen = teamsInData();
+    LEAGUE_ORDER.forEach(function (l) {
+      var opts = '';
+      Object.keys(DATA.teams[l] || {}).sort().forEach(function (code) {
+        if (!seen[l + ':' + code]) return;
+        var sel = filter.team === l + ':' + code ? ' selected' : '';
+        opts += '<option value="' + l + ':' + code + '"' + sel + '>' + esc(teamName(DATA.teams, l, code, null)) + '</option>';
+      });
+      if (opts) html += '<optgroup label="' + LEAGUE_LABELS[l] + '">' + opts + '</optgroup>';
+    });
+    html += '</select></div>';
+    return html;
+  }
+
+  function renderTimeline() {
+    var games = DATA.games.filter(function (g) {
+      if (filter.league && g.league !== filter.league) return false;
+      if (filter.team) {
+        var parts = filter.team.split(':');
+        if (g.league !== parts[0] || (g.home !== parts[1] && g.away !== parts[1])) return false;
+      }
+      return true;
+    });
+    var dated = games.filter(function (g) { return g.datePrecision !== 'unknown'; });
+    var undated = games.filter(function (g) { return g.datePrecision === 'unknown'; });
+    dated.sort(function (a, b) { return sortKey(b) < sortKey(a) ? -1 : 1; });
+
+    var html = renderFilters();
+    var lastYear = null;
+    dated.forEach(function (g) {
+      var y = String(gameYear(g));
+      if (y !== lastYear) { html += '<div class="year-mark">' + y + '</div>'; lastYear = y; }
+      html += gameCard(g);
+    });
+    if (undated.length) {
+      html += '<div class="year-mark">Undated</div>';
+      undated.forEach(function (g) { html += gameCard(g); });
+    }
+    if (!games.length) html += '<p class="muted">No games match this filter.</p>';
+    view.innerHTML = html;
+
+    view.querySelectorAll('.filters .chip').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        filter.league = filter.league === btn.dataset.league ? null : btn.dataset.league;
+        filter.team = null;
+        renderTimeline();
+      });
+    });
+    var sel = view.querySelector('#teamSel');
+    sel.addEventListener('change', function () {
+      filter.team = sel.value || null;
+      if (filter.team) filter.league = null;
+      renderTimeline();
+    });
+  }
+
+  function recordStr(r) {
+    if (r.w + r.l + r.t === 0) return '<span class="muted">—</span>';
+    return r.w + '–' + r.l + (r.t ? '–' + r.t : '');
+  }
+
+  var MONTH_LETTERS = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
+  var MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+  function renderHeatmap() {
+    var hm = heatmap(DATA.games);
+    if (!hm.years.length) return '';
+    var html = '<h2 class="sec">Games by month</h2><div class="heatwrap"><div class="heat">';
+    html += '<div class="col"><div class="ylab"></div>' +
+      MONTH_LETTERS.map(function (l) { return '<div class="mlab">' + l + '</div>'; }).join('') + '</div>';
+    hm.years.forEach(function (y) {
+      var label = y % 5 === 0 || y === hm.years[0] ? "’" + String(y).slice(2) : '';
+      html += '<div class="col"><div class="ylab">' + label + '</div>';
+      for (var m = 0; m < 12; m++) {
+        var n = (hm.grid[y] || [])[m] || 0;
+        var cls = n >= 3 ? ' q3' : n === 2 ? ' q2' : n === 1 ? ' q1' : '';
+        html += '<div class="cell' + cls + '" title="' + MONTH_NAMES[m] + ' ' + y + ' · ' + n + ' game' + (n === 1 ? '' : 's') + '"></div>';
+      }
+      html += '</div>';
+    });
+    html += '</div><div class="heat-legend">fewer <span class="cell" style="background:#232633"></span>' +
+      '<span class="cell" style="background:#57451c"></span><span class="cell" style="background:#a07f2e"></span>' +
+      '<span class="cell" style="background:var(--gold)"></span> more · day-precise dates only</div></div>';
+    return html;
+  }
+
+  function renderSuperlatives() {
+    var sup = superlatives(DATA.games);
+    var entries = [];
+    var describe = function (g) {
+      var yr = gameSeasonYear(g);
+      return esc(teamName(DATA.teams, g.league, g.away || g.home, yr)) +
+        (g.away ? ' at ' + esc(teamName(DATA.teams, g.league, g.home, yr)) : '') +
+        (g.date ? ', ' + g.date : '');
+    };
+    if (sup.biggestCrowd) entries.push(['Biggest crowd', Number(sup.biggestCrowd.value).toLocaleString('en-US'), describe(sup.biggestCrowd.game)]);
+    if (sup.longestGame) entries.push(['Longest game', Math.floor(sup.longestGame.value / 60) + 'h ' + (sup.longestGame.value % 60) + 'm', describe(sup.longestGame.game)]);
+    if (sup.hottest) entries.push(['Hottest', sup.hottest.value + '°F', describe(sup.hottest.game)]);
+    if (sup.coldest) entries.push(['Coldest', sup.coldest.value + '°F', describe(sup.coldest.game)]);
+    if (sup.biggestMargin) entries.push(['Biggest blowout', 'by ' + sup.biggestMargin.value, describe(sup.biggestMargin.game)]);
+    if (sup.extraTime) entries.push(['Extra time', sup.extraTime + ' game' + (sup.extraTime === 1 ? '' : 's'), 'OT / SO / extras']);
+    if (!entries.length) return '';
+    return '<h2 class="sec">Superlatives</h2><div class="tiles">' + entries.map(function (e) {
+      return '<div class="tile"><b>' + e[1] + '</b><span>' + e[0] + '</span><div class="sub">' + e[2] + '</div></div>';
+    }).join('') + '</div>';
+  }
+
+  function renderStreaks() {
+    var rows = teamStreaks(DATA.games, DATA.teams).slice(0, 5);
+    if (!rows.length) return '';
+    return '<h2 class="sec">Longest win streaks while I was there</h2><div class="tablewrap"><table><thead>' +
+      '<tr><th>Team</th><th class="num">Straight wins</th><th class="num">Streak ended/last</th></tr></thead><tbody>' +
+      rows.map(function (r) {
+        return '<tr><td><span class="lg ' + r.league + '">' + LEAGUE_LABELS[r.league] + '</span> ' + esc(r.name) +
+          '</td><td class="num"><b>' + r.len + '</b></td><td class="num">' + r.end + '</td></tr>';
+      }).join('') + '</tbody></table></div>';
+  }
+
+  function renderCompanions() {
+    var rows = companionCounts(DATA.games);
+    if (!rows.length) return '';
+    return '<h2 class="sec">Crew</h2><div class="tablewrap"><table><thead>' +
+      '<tr><th>Who</th><th class="num">Games together</th></tr></thead><tbody>' +
+      rows.map(function (r) {
+        return '<tr><td>' + esc(r.name) + '</td><td class="num"><b>' + r.count + '</b></td></tr>';
+      }).join('') + '</tbody></table></div>' +
+      '<p class="muted">Pulled from each game’s <code>companions</code> list — add names to the JSON records to grow the crew.</p>';
+  }
+
+  function renderRecords() {
+    var html = '<div class="tiles">' +
+      '<div class="tile"><b>' + STATS.totalGames + '</b><span>games attended</span></div>';
+    LEAGUE_ORDER.forEach(function (l) {
+      if (STATS.byLeague[l]) html += '<div class="tile" style="--acc: var(--' + l + ')"><b>' + STATS.byLeague[l] + '</b><span>' + LEAGUE_LABELS[l] + ' games</span></div>';
+    });
+    html += '</div>';
+
+    var top = STATS.matchupRows[0];
+    if (top) {
+      var yr = null;
+      html += '<div class="callout">Most-seen matchup: <b>' +
+        esc(teamName(DATA.teams, top.league, top.a, yr)) + ' vs ' +
+        esc(teamName(DATA.teams, top.league, top.b, yr)) + '</b> — ' + top.count +
+        ' game' + (top.count === 1 ? '' : 's') + '</div>';
+    }
+
+    html += renderSuperlatives();
+    html += renderStreaks();
+    html += renderHeatmap();
+
+    LEAGUE_ORDER.forEach(function (l) {
+      var rows = STATS.teamRows.filter(function (r) { return r.league === l; });
+      if (!rows.length) return;
+      html += '<h2 class="sec"><span class="lg ' + l + '">' + LEAGUE_LABELS[l] + '</span> — teams seen</h2>';
+      html += '<div class="tablewrap"><table><thead><tr><th>Team</th><th class="num">Home</th><th class="num">Away</th><th class="num">Total</th><th class="num" title="This team\'s record in games I attended">Their W–L</th></tr></thead><tbody>';
+      rows.forEach(function (r) {
+        html += '<tr><td>' + esc(r.name) + '</td><td class="num">' + r.home + '</td><td class="num">' + r.away +
+          '</td><td class="num"><b>' + r.total + '</b></td><td class="num">' + recordStr(r) + '</td></tr>';
+      });
+      html += '</tbody></table></div>';
+    });
+    html += '<p class="muted">“Their W–L” is each team’s own record across the games I was in the building for; it fills in as box scores are fetched.</p>';
+    html += renderCompanions();
+    view.innerHTML = html;
+  }
+
+  function renderVenues() {
+    var html = '';
+    LEAGUE_ORDER.forEach(function (l) {
+      var rows = STATS.venueRows.filter(function (v) { return v.leagues.indexOf(l) !== -1; });
+      if (!rows.length) return;
+      var active = STATS.activeVenues[l];
+      var visited = STATS.visitedActive[l] || 0;
+      html += '<h2 class="sec"><span class="lg ' + l + '">' + LEAGUE_LABELS[l] + '</span> — venues</h2>';
+      html += '<div class="tile" style="--acc: var(--' + l + ')"><b>' + visited + ' / ' + active + '</b>' +
+        '<span>active ' + LEAGUE_LABELS[l] + ' venues visited</span>' +
+        '<div class="bar"><i style="width:' + Math.round(100 * visited / active) + '%"></i></div></div>';
+      html += '<div class="tablewrap"><table><thead><tr><th>Venue</th><th class="num">Games</th><th class="num">Visits</th></tr></thead><tbody>';
+      rows.forEach(function (v) {
+        html += '<tr><td>' + esc(v.name) + (v.closed !== null ? '<span class="badge">Gone</span>' : '') +
+          '<div class="sub">' + esc(v.city) + '</div></td>' +
+          '<td class="num">' + v.games + '</td><td class="num">' +
+          (v.first === null ? '—' : v.first === v.last ? v.first : v.first + '–' + v.last) + '</td></tr>';
+      });
+      html += '</tbody></table></div>';
+    });
+    if (STATS.defunct.length) {
+      html += '<div class="callout">Buildings I’ve seen a game in that no longer host: <b>' +
+        STATS.defunct.map(function (v) { return esc(v.name); }).join(', ') + '</b></div>';
+    }
+    html += '<p class="muted">Venues come from box-score data where fetched, otherwise inferred from the home team’s building for that season. Neutral-site games are pinned by hand.</p>';
+    view.innerHTML = html;
+  }
+
+  var ROUTES = { timeline: renderTimeline, records: renderRecords, venues: renderVenues };
+
+  function route() {
+    var name = (location.hash.replace('#/', '') || 'timeline');
+    if (!ROUTES[name]) name = 'timeline';
+    document.querySelectorAll('nav.tabs a').forEach(function (a) {
+      a.classList.toggle('active', a.dataset.view === name);
+    });
+    ROUTES[name]();
+  }
+
+  window.addEventListener('hashchange', route);
+  renderStrip();
+  route();
+})();
+</script>
+</body>
+</html>

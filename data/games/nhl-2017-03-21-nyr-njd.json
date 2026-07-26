@@ -1,0 +1,25 @@
+{
+  "id": "nhl-2017-03-21-nyr-njd",
+  "league": "nhl",
+  "date": "2017-03-21",
+  "datePrecision": "day",
+  "home": "njd",
+  "away": "nyr",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

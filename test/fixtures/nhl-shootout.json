@@ -1,0 +1,27 @@
+{
+  "source": "nhl",
+  "sourceGameId": "2013020876",
+  "fetchedAt": "2026-07-26T00:00:00Z",
+  "pruned": ["summary.scoring", "summary.penalties"],
+  "endpoints": {
+    "boxscore": {
+      "id": 2013020876,
+      "venue": { "default": "Prudential Center" },
+      "homeTeam": { "id": 1, "abbrev": "NJD", "score": 3 },
+      "awayTeam": { "id": 3, "abbrev": "NYR", "score": 2 },
+      "gameOutcome": { "lastPeriodType": "SO" }
+    },
+    "landing": {
+      "summary": {
+        "linescore": {
+          "byPeriod": [
+            { "periodDescriptor": { "number": 1 }, "home": 1, "away": 1 },
+            { "periodDescriptor": { "number": 2 }, "home": 1, "away": 0 },
+            { "periodDescriptor": { "number": 3 }, "home": 0, "away": 1 },
+            { "periodDescriptor": { "number": 4, "periodType": "OT" }, "home": 0, "away": 0 }
+          ]
+        }
+      }
+    }
+  }
+}

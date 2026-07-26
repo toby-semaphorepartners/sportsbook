@@ -1,0 +1,27 @@
+{
+  "id": "nfl-2015-12-13-ten-nyj",
+  "league": "nfl",
+  "date": "2015-12-13",
+  "datePrecision": "day",
+  "home": "nyj",
+  "away": "ten",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "Mikey Mo's Box",
+  "companions": [
+    "Mikey Mo"
+  ],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "mlb-1997-09-06-mil-bos",
+  "league": "mlb",
+  "date": "1997-09-06",
+  "datePrecision": "day",
+  "home": "bos",
+  "away": "mil",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "After 7 straight losses",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "mlb-2016-07-08-chc-pit",
+  "league": "mlb",
+  "date": "2016-07-08",
+  "datePrecision": "day",
+  "home": "pit",
+  "away": "chc",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "nfl-2022-01-09-ne-mia",
+  "league": "nfl",
+  "date": "2022-01-09",
+  "datePrecision": "day",
+  "home": "mia",
+  "away": "ne",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "W18",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

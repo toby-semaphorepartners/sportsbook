@@ -1,0 +1,25 @@
+{
+  "id": "nfl-2025-09-22-pit-ne",
+  "league": "nfl",
+  "date": "2025-09-22",
+  "datePrecision": "day",
+  "home": "ne",
+  "away": "pit",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "5 TOs",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

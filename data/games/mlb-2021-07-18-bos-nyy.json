@@ -1,0 +1,28 @@
+{
+  "id": "mlb-2021-07-18-bos-nyy",
+  "league": "mlb",
+  "date": "2021-07-18",
+  "datePrecision": "day",
+  "home": "nyy",
+  "away": "bos",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "Suite for Denis 70th birthday, foul ball off Michele",
+  "companions": [
+    "Denis",
+    "Michele"
+  ],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

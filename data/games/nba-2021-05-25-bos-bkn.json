@@ -1,0 +1,25 @@
+{
+  "id": "nba-2021-05-25-bos-bkn",
+  "league": "nba",
+  "date": "2021-05-25",
+  "datePrecision": "day",
+  "home": "bkn",
+  "away": "bos",
+  "neutralSite": false,
+  "seasonType": "postseason",
+  "doubleheaderGame": 0,
+  "notes": "Playoff Game",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

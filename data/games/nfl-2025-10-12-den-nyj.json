@@ -1,0 +1,28 @@
+{
+  "id": "nfl-2025-10-12-den-nyj",
+  "league": "nfl",
+  "date": "2025-10-12",
+  "datePrecision": "day",
+  "home": "nyj",
+  "away": "den",
+  "neutralSite": true,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "London, Tottenham Stadium, -10 Passing Yards",
+  "companions": [],
+  "seat": null,
+  "venueOverride": "tottenham-hotspur-stadium",
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  },
+  "tags": [
+    "London"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "nfl-2013-01-13-hou-ne",
+  "league": "nfl",
+  "date": "2013-01-13",
+  "datePrecision": "day",
+  "home": "ne",
+  "away": "hou",
+  "neutralSite": false,
+  "seasonType": "postseason",
+  "doubleheaderGame": 0,
+  "notes": "AFC Divisional Game",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

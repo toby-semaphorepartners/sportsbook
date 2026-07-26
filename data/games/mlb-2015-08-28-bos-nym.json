@@ -1,0 +1,25 @@
+{
+  "id": "mlb-2015-08-28-bos-nym",
+  "league": "mlb",
+  "date": "2015-08-28",
+  "datePrecision": "day",
+  "home": "nym",
+  "away": "bos",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "Barstool at the Ballpark",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

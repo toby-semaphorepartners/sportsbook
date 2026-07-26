@@ -1,0 +1,25 @@
+{
+  "id": "mlb-2016-07-23-sf-nyy",
+  "league": "mlb",
+  "date": "2016-07-23",
+  "datePrecision": "day",
+  "home": "nyy",
+  "away": "sf",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

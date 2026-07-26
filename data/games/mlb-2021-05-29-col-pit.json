@@ -1,0 +1,25 @@
+{
+  "id": "mlb-2021-05-29-col-pit",
+  "league": "mlb",
+  "date": "2021-05-29",
+  "datePrecision": "day",
+  "home": "pit",
+  "away": "col",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "WHS BP, suite",
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}
