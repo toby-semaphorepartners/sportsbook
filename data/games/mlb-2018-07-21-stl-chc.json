@@ -16,12 +16,58 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "mlb",
+    "sourceGameId": "529651",
+    "snapshot": "data/snapshots/mlb/529651.json",
+    "fetchedAt": "2026-07-27T01:09:25.302Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 7,
+      "awayScore": 2,
+      "linescore": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "finalType": "F",
+      "venue": "wrigley-field",
+      "attendance": 41004,
+      "weather": "Overcast, 68°F, wind 22 mph, L To R",
+      "durationMinutes": 193
+    }
   }
 }

@@ -14,12 +14,21 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "nhl",
+    "sourceGameId": "2015020893",
+    "snapshot": "data/snapshots/nhl/2015020893.json",
+    "fetchedAt": "2026-07-27T01:11:39.070Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 5,
+      "awayScore": 2,
+      "linescore": null,
+      "finalType": "F",
+      "venue": "prudential-center",
+      "attendance": null,
+      "weather": null,
+      "durationMinutes": null
+    }
   }
 }

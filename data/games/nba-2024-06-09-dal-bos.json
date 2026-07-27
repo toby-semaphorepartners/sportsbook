@@ -14,12 +14,38 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "espn",
+    "sourceGameId": "401656360",
+    "snapshot": "data/snapshots/nba/401656360.json",
+    "fetchedAt": "2026-07-27T01:09:56.566Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 105,
+      "awayScore": 98,
+      "linescore": [
+        [
+          25,
+          28
+        ],
+        [
+          29,
+          23
+        ],
+        [
+          29,
+          23
+        ],
+        [
+          22,
+          24
+        ]
+      ],
+      "finalType": "F",
+      "venue": "td-garden",
+      "attendance": 19156,
+      "weather": null,
+      "durationMinutes": null
+    }
   }
 }

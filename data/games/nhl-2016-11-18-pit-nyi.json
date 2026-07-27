@@ -14,12 +14,21 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "nhl",
+    "sourceGameId": "2016020255",
+    "snapshot": "data/snapshots/nhl/2016020255.json",
+    "fetchedAt": "2026-07-27T01:11:42.394Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 2,
+      "awayScore": 3,
+      "linescore": null,
+      "finalType": "F/OT",
+      "venue": "barclays-center",
+      "attendance": null,
+      "weather": null,
+      "durationMinutes": null
+    }
   }
 }

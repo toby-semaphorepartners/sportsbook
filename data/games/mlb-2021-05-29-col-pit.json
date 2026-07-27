@@ -14,12 +14,23 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
+    "status": "candidates",
     "source": null,
     "sourceGameId": null,
     "snapshot": null,
     "fetchedAt": null,
-    "candidates": null,
+    "candidates": [
+      {
+        "sourceGameId": "634005",
+        "date": "2021-05-29",
+        "note": "game 1 of doubleheader"
+      },
+      {
+        "sourceGameId": "633936",
+        "date": "2021-05-29",
+        "note": "game 2 of doubleheader"
+      }
+    ],
     "summary": null
   }
 }

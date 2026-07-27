@@ -14,12 +14,38 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "espn",
+    "sourceGameId": "401327875",
+    "snapshot": "data/snapshots/nba/401327875.json",
+    "fetchedAt": "2026-07-27T01:09:45.544Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 130,
+      "awayScore": 108,
+      "linescore": [
+        [
+          40,
+          26
+        ],
+        [
+          31,
+          21
+        ],
+        [
+          38,
+          35
+        ],
+        [
+          21,
+          26
+        ]
+      ],
+      "finalType": "F",
+      "venue": "barclays-center",
+      "attendance": 14774,
+      "weather": null,
+      "durationMinutes": null
+    }
   }
 }

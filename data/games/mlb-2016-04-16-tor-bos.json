@@ -16,12 +16,58 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "mlb",
+    "sourceGameId": "447035",
+    "snapshot": "data/snapshots/mlb/447035.json",
+    "fetchedAt": "2026-07-27T01:09:12.061Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 4,
+      "awayScore": 2,
+      "linescore": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "finalType": "F",
+      "venue": "fenway-park",
+      "attendance": 36267,
+      "weather": "Partly Cloudy, 53°F, wind 20 mph, In From CF",
+      "durationMinutes": 163
+    }
   }
 }

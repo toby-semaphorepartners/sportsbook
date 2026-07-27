@@ -14,13 +14,22 @@
   "venueOverride": "acrisure-stadium",
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "nhl",
+    "sourceGameId": "2010020566",
+    "snapshot": "data/snapshots/nhl/2010020566.json",
+    "fetchedAt": "2026-07-27T01:11:25.854Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 1,
+      "awayScore": 3,
+      "linescore": null,
+      "finalType": "F",
+      "venue": "acrisure-stadium",
+      "attendance": null,
+      "weather": null,
+      "durationMinutes": null
+    }
   },
   "tags": [
     "Winter Classic"

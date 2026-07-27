@@ -14,12 +14,38 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "espn",
+    "sourceGameId": "331118029",
+    "snapshot": "data/snapshots/nfl/331118029.json",
+    "fetchedAt": "2026-07-27T01:10:31.895Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 24,
+      "awayScore": 20,
+      "linescore": [
+        [
+          7,
+          0
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          7,
+          10
+        ]
+      ],
+      "finalType": "F",
+      "venue": "bank-of-america-stadium",
+      "attendance": 74225,
+      "weather": null,
+      "durationMinutes": null
+    }
   }
 }

@@ -14,12 +14,38 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "espn",
+    "sourceGameId": "401772808",
+    "snapshot": "data/snapshots/nfl/401772808.json",
+    "fetchedAt": "2026-07-27T01:11:20.081Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 10,
+      "awayScore": 42,
+      "linescore": [
+        [
+          0,
+          14
+        ],
+        [
+          3,
+          21
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          7,
+          0
+        ]
+      ],
+      "finalType": "F",
+      "venue": "metlife-stadium",
+      "attendance": 70918,
+      "weather": null,
+      "durationMinutes": null
+    }
   }
 }
