@@ -1,10 +1,10 @@
 {
-  "id": "mlb-2010-09-17-atl-pit",
+  "id": "mlb-2010-09-17-ari-pit",
   "league": "mlb",
   "date": "2010-09-17",
   "datePrecision": "day",
   "home": "pit",
-  "away": "atl",
+  "away": "ari",
   "neutralSite": false,
   "seasonType": "regular",
   "doubleheaderGame": 0,
