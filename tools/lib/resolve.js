@@ -104,6 +104,12 @@ async function resolveNhlOnDate(game, teams, date) {
 async function resolveEspnOnDate(game, teams, date, extra = '') {
   const sb = await fetchJson(`${ESPN}/${ESPN_PATH[game.league]}/scoreboard?dates=${compact(date)}${extra}`);
   const events = sb.events || [];
+  // All-Star rosters carry sponsor-era names (2022 was "Team LeBron vs Team
+  // Durant"), so East/West can never match by name — a lone event on the
+  // right date IS the All-Star game.
+  if (game.seasonType === 'allstar' && events.length === 1) {
+    return { sourceGameId: String(events[0].id) };
+  }
   const matches = [];
   for (const ev of events) {
     const comp = (ev.competitions || [])[0] || {};
@@ -153,7 +159,7 @@ function prune(obj, paths) {
   return pruned;
 }
 
-async function fetchSnapshot(game, sourceGameId) {
+async function fetchSnapshot(game, sourceGameId, teams) {
   const endpoints = {};
   let pruned = [];
   let source;
@@ -168,6 +174,16 @@ async function fetchSnapshot(game, sourceGameId) {
     endpoints.boxscore = await fetchJson(`${NHL}/gamecenter/${sourceGameId}/boxscore`);
     endpoints.landing = await fetchJson(`${NHL}/gamecenter/${sourceGameId}/landing`);
     pruned = prune(endpoints.landing, ['summary.scoring', 'summary.penalties']);
+    // The NHL API doesn't expose attendance; best-effort ESPN supplement.
+    try {
+      const espnGame = teams && await resolveEspnOnDate(game, teams, game.date);
+      if (espnGame && !espnGame.swapped) {
+        const summary = await fetchJson(`${ESPN}/hockey/nhl/summary?event=${espnGame.sourceGameId}`);
+        endpoints.espnSummary = { gameInfo: (summary && summary.gameInfo) || {} };
+      }
+    } catch (err) {
+      // Attendance stays null; everything else about the snapshot is intact.
+    }
   } else {
     source = 'espn';
     const summary = await fetchJson(`${ESPN}/${ESPN_PATH[game.league]}/summary?event=${sourceGameId}`);

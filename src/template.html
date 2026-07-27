@@ -764,7 +764,7 @@ if (typeof module !== 'undefined') {
       var rows = STATS.teamRows.filter(function (r) { return r.league === l; });
       if (!rows.length) return;
       html += '<h2 class="sec"><span class="lg ' + l + '">' + LEAGUE_LABELS[l] + '</span> — teams seen</h2>';
-      html += '<div class="tablewrap"><table><thead><tr><th>Team</th><th class="num">Home</th><th class="num">Away</th><th class="num">Total</th><th class="num" title="This team\'s record in games I attended">Their W–L</th></tr></thead><tbody>';
+      html += '<div class="tablewrap"><table class="teams"><thead><tr><th>Team</th><th class="num">Home</th><th class="num">Away</th><th class="num">Total</th><th class="num" title="This team\'s record in games I attended">Their W–L</th></tr></thead><tbody>';
       rows.forEach(function (r) {
         html += '<tr><td>' + esc(r.name) + '</td><td class="num">' + r.home + '</td><td class="num">' + r.away +
           '</td><td class="num"><b>' + r.total + '</b></td><td class="num">' + recordStr(r) + '</td></tr>';

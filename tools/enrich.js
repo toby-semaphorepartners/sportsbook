@@ -80,7 +80,7 @@ async function enrichOne(game, teams, venues, opts) {
     return true;
   }
 
-  const snap = await fetchSnapshot(game, sourceGameId);
+  const snap = await fetchSnapshot(game, sourceGameId, teams);
   snap.fetchedAt = new Date().toISOString();
   const snapRel = `data/snapshots/${game.league}/${sourceGameId}.json`;
   const snapAbs = path.join(ROOT, snapRel);
