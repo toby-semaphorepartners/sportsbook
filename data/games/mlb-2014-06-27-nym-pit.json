@@ -14,12 +14,66 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "mlb",
+    "sourceGameId": "381740",
+    "snapshot": "data/snapshots/mlb/381740.json",
+    "fetchedAt": "2026-07-27T01:35:47.550Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 3,
+      "awayScore": 2,
+      "linescore": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "finalType": "F/11",
+      "venue": "pnc-park",
+      "attendance": 37952,
+      "weather": "Partly Cloudy, 82°F, wind 4 mph, Out To CF",
+      "durationMinutes": 225
+    }
   }
 }
