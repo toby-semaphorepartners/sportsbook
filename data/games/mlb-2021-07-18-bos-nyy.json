@@ -17,12 +17,58 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "mlb",
+    "sourceGameId": "633273",
+    "snapshot": "data/snapshots/mlb/633273.json",
+    "fetchedAt": "2026-07-27T01:09:28.596Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 9,
+      "awayScore": 1,
+      "linescore": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "finalType": "F",
+      "venue": "yankee-stadium",
+      "attendance": 40309,
+      "weather": "Cloudy, 80°F, wind 13 mph, Out To CF",
+      "durationMinutes": 224
+    }
   }
 }

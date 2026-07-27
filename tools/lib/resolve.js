@@ -82,12 +82,21 @@ async function resolveMlbOnDate(game, teams, date) {
   const games = (sched.dates || []).flatMap((d) => d.games || []);
   let matches = games.filter((g) =>
     g.teams.home.team.id === homeId && (awayId === null || g.teams.away.team.id === awayId));
+  if (!matches.length && awayId !== null) {
+    const flipped = games.filter((g) => g.teams.home.team.id === awayId && g.teams.away.team.id === homeId);
+    if (flipped.length === 1) return { sourceGameId: String(flipped[0].gamePk), swapped: true };
+  }
   if (matches.length > 1 && game.doubleheaderGame) {
     matches = matches.filter((g) => g.gameNumber === game.doubleheaderGame);
   }
   if (matches.length === 1) return { sourceGameId: String(matches[0].gamePk) };
   if (matches.length > 1) {
-    return { candidates: matches.map((g) => ({ sourceGameId: String(g.gamePk), date, note: `game ${g.gameNumber} of doubleheader` })) };
+    return {
+      candidates: matches.map((g) => ({
+        sourceGameId: String(g.gamePk), date, gameNumber: g.gameNumber,
+        note: `game ${g.gameNumber} of doubleheader`,
+      })),
+    };
   }
   return null;
 }
@@ -96,14 +105,27 @@ async function resolveNhlOnDate(game, teams, date) {
   const home = teams.nhl[game.home].api.nhlAbbr;
   const away = game.away ? teams.nhl[game.away].api.nhlAbbr : null;
   const score = await fetchJson(`${NHL}/score/${date}`);
-  const matches = (score.games || []).filter((g) =>
+  const games = score.games || [];
+  const matches = games.filter((g) =>
     g.homeTeam && g.homeTeam.abbrev === home && (away === null || (g.awayTeam && g.awayTeam.abbrev === away)));
-  return matches.length === 1 ? { sourceGameId: String(matches[0].id) } : null;
+  if (matches.length === 1) return { sourceGameId: String(matches[0].id) };
+  if (!matches.length && away !== null) {
+    const flipped = games.filter((g) =>
+      g.homeTeam && g.homeTeam.abbrev === away && g.awayTeam && g.awayTeam.abbrev === home);
+    if (flipped.length === 1) return { sourceGameId: String(flipped[0].id), swapped: true };
+  }
+  return null;
 }
 
 async function resolveEspnOnDate(game, teams, date, extra = '') {
   const sb = await fetchJson(`${ESPN}/${ESPN_PATH[game.league]}/scoreboard?dates=${compact(date)}${extra}`);
   const events = sb.events || [];
+  // All-Star rosters carry sponsor-era names (2022 was "Team LeBron vs Team
+  // Durant"), so East/West can never match by name — a lone event on the
+  // right date IS the All-Star game.
+  if (game.seasonType === 'allstar' && events.length === 1) {
+    return { sourceGameId: String(events[0].id) };
+  }
   const matches = [];
   for (const ev of events) {
     const comp = (ev.competitions || [])[0] || {};
@@ -153,7 +175,7 @@ function prune(obj, paths) {
   return pruned;
 }
 
-async function fetchSnapshot(game, sourceGameId) {
+async function fetchSnapshot(game, sourceGameId, teams) {
   const endpoints = {};
   let pruned = [];
   let source;
@@ -168,6 +190,16 @@ async function fetchSnapshot(game, sourceGameId) {
     endpoints.boxscore = await fetchJson(`${NHL}/gamecenter/${sourceGameId}/boxscore`);
     endpoints.landing = await fetchJson(`${NHL}/gamecenter/${sourceGameId}/landing`);
     pruned = prune(endpoints.landing, ['summary.scoring', 'summary.penalties']);
+    // The NHL API doesn't expose attendance; best-effort ESPN supplement.
+    try {
+      const espnGame = teams && await resolveEspnOnDate(game, teams, game.date);
+      if (espnGame && !espnGame.swapped) {
+        const summary = await fetchJson(`${ESPN}/hockey/nhl/summary?event=${espnGame.sourceGameId}`);
+        endpoints.espnSummary = { gameInfo: (summary && summary.gameInfo) || {} };
+      }
+    } catch (err) {
+      // Attendance stays null; everything else about the snapshot is intact.
+    }
   } else {
     source = 'espn';
     const summary = await fetchJson(`${ESPN}/${ESPN_PATH[game.league]}/summary?event=${sourceGameId}`);

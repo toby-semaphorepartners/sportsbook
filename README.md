@@ -62,6 +62,9 @@ Neutral sites (Super Bowl, London, All-Star) set `neutralSite: true` plus a
 
 ## Enrichment — run this on your own machine
 
+The CLI is zero-dependency — a fresh clone and Node ≥ 18 is all it needs, no
+`npm install` required.
+
 `tools/enrich.js` resolves each pending game against free league APIs
 (MLB Stats API, NHL api-web, ESPN for NFL/NBA), saves the raw response under
 `data/snapshots/`, and writes a normalized summary (score, linescore, venue,
@@ -106,8 +109,9 @@ npm test       # Node suites, then a headless-Chromium UI smoke test
 npm run test:node   # skip the browser test
 ```
 
-The browser test expects Chromium at `/opt/pw-browsers/chromium`; point
-`CHROMIUM` elsewhere if needed. Screenshots land in `test/out/`. No test ever
+The browser tests use, in order: `$CHROMIUM` / `/opt/pw-browsers/chromium`
+when present, playwright's own registry Chromium, then an installed Google
+Chrome. Without `npm install` they skip with a note instead of failing. Screenshots land in `test/out/`. No test ever
 touches the network — enrichment normalizers are tested against recorded
 fixtures in `test/fixtures/`.
 

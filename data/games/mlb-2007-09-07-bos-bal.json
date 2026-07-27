@@ -14,12 +14,58 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "mlb",
+    "sourceGameId": "70230",
+    "snapshot": "data/snapshots/mlb/70230.json",
+    "fetchedAt": "2026-07-27T01:08:49.981Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 0,
+      "awayScore": 4,
+      "linescore": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "finalType": "F",
+      "venue": "camden-yards",
+      "attendance": 34091,
+      "weather": "Clear, 92°F, wind 7 mph, R To L",
+      "durationMinutes": 192
+    }
   }
 }

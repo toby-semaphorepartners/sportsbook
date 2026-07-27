@@ -8,18 +8,44 @@
   "neutralSite": false,
   "seasonType": "regular",
   "doubleheaderGame": 0,
-  "notes": null,
+  "notes": "Bucknell alumni outing — Mike Muscala '13 & Charles Lee '06 meet-and-greet after",
   "companions": [],
   "seat": null,
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "espn",
+    "sourceGameId": "400899441",
+    "snapshot": "data/snapshots/nba/400899441.json",
+    "fetchedAt": "2026-07-27T01:09:43.330Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 91,
+      "awayScore": 82,
+      "linescore": [
+        [
+          29,
+          24
+        ],
+        [
+          17,
+          19
+        ],
+        [
+          24,
+          18
+        ],
+        [
+          21,
+          21
+        ]
+      ],
+      "finalType": "F",
+      "venue": "barclays-center",
+      "attendance": 15040,
+      "weather": null,
+      "durationMinutes": null
+    }
   }
 }

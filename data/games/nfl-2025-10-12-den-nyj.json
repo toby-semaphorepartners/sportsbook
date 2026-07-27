@@ -14,13 +14,39 @@
   "venueOverride": "tottenham-hotspur-stadium",
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "espn",
+    "sourceGameId": "401772634",
+    "snapshot": "data/snapshots/nfl/401772634.json",
+    "fetchedAt": "2026-07-27T01:11:17.885Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 11,
+      "awayScore": 13,
+      "linescore": [
+        [
+          6,
+          10
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "finalType": "F",
+      "venue": "tottenham-hotspur-stadium",
+      "attendance": 61155,
+      "weather": null,
+      "durationMinutes": null
+    }
   },
   "tags": [
     "London"

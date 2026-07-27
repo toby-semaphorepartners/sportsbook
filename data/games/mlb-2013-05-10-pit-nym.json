@@ -14,12 +14,58 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "mlb",
+    "sourceGameId": "347271",
+    "snapshot": "data/snapshots/mlb/347271.json",
+    "fetchedAt": "2026-07-27T01:08:57.699Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 3,
+      "awayScore": 7,
+      "linescore": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "finalType": "F",
+      "venue": "citi-field",
+      "attendance": 25153,
+      "weather": "Overcast, 68°F, wind 14 mph, Out To LF",
+      "durationMinutes": 187
+    }
   }
 }

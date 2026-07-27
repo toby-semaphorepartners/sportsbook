@@ -14,12 +14,38 @@
   "venueOverride": "gainbridge-fieldhouse",
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "espn",
+    "sourceGameId": "401623259",
+    "snapshot": "data/snapshots/nba/401623259.json",
+    "fetchedAt": "2026-07-27T01:09:54.379Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 211,
+      "awayScore": 186,
+      "linescore": [
+        [
+          53,
+          47
+        ],
+        [
+          51,
+          42
+        ],
+        [
+          56,
+          47
+        ],
+        [
+          51,
+          50
+        ]
+      ],
+      "finalType": "F",
+      "venue": "gainbridge-fieldhouse",
+      "attendance": 17251,
+      "weather": null,
+      "durationMinutes": null
+    }
   }
 }

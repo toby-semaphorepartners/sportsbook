@@ -7,19 +7,57 @@
   "away": "col",
   "neutralSite": false,
   "seasonType": "regular",
-  "doubleheaderGame": 0,
+  "doubleheaderGame": 1,
   "notes": "WHS BP, suite",
   "companions": [],
   "seat": null,
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "mlb",
+    "sourceGameId": "634005",
+    "snapshot": "data/snapshots/mlb/634005.json",
+    "fetchedAt": "2026-07-27T01:35:49.761Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 7,
+      "awayScore": 0,
+      "linescore": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "finalType": "F/7",
+      "venue": "pnc-park",
+      "attendance": 5279,
+      "weather": "Overcast, 49°F, wind 10 mph, In From LF",
+      "durationMinutes": 153
+    }
   }
 }

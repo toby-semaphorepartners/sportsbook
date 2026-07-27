@@ -80,7 +80,7 @@ async function enrichOne(game, teams, venues, opts) {
     return true;
   }
 
-  const snap = await fetchSnapshot(game, sourceGameId);
+  const snap = await fetchSnapshot(game, sourceGameId, teams);
   snap.fetchedAt = new Date().toISOString();
   const snapRel = `data/snapshots/${game.league}/${sourceGameId}.json`;
   const snapAbs = path.join(ROOT, snapRel);
@@ -138,6 +138,7 @@ async function main() {
       if (!cand) throw new Error(`${chosen} is not among ${game.id}'s saved candidates — run --search first`);
       const oldId = game.id;
       if (cand.date) { game.date = cand.date; game.datePrecision = 'day'; }
+      if (cand.gameNumber) game.doubleheaderGame = cand.gameNumber; // b-ref URLs need the DH index
       game.id = canonicalId(game);
       game.enrichment.candidates = null;
       game.enrichment.status = 'pending';

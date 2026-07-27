@@ -12,6 +12,12 @@
       "api": { "statsapiId": 144 },
       "aliases": ["atlanta braves", "braves", "atl"]
     },
+    "ari": {
+      "eras": [{ "from": 1998, "to": null, "name": "Arizona Diamondbacks" }],
+      "sportsref": [{ "from": 1998, "to": null, "code": "ARI" }],
+      "api": { "statsapiId": 109 },
+      "aliases": ["arizona diamondbacks", "diamondbacks", "dbacks", "d-backs", "ari"]
+    },
     "bos": {
       "eras": [{ "from": 1908, "to": null, "name": "Boston Red Sox" }],
       "sportsref": [{ "from": 1908, "to": null, "code": "BOS" }],

@@ -1,0 +1,79 @@
+{
+  "id": "mlb-2014-06-27-nym-pit",
+  "league": "mlb",
+  "date": "2014-06-27",
+  "datePrecision": "day",
+  "home": "pit",
+  "away": "nym",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "enriched",
+    "source": "mlb",
+    "sourceGameId": "381740",
+    "snapshot": "data/snapshots/mlb/381740.json",
+    "fetchedAt": "2026-07-27T01:35:47.550Z",
+    "candidates": null,
+    "summary": {
+      "homeScore": 3,
+      "awayScore": 2,
+      "linescore": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "finalType": "F/11",
+      "venue": "pnc-park",
+      "attendance": 37952,
+      "weather": "Partly Cloudy, 82°F, wind 4 mph, Out To CF",
+      "durationMinutes": 225
+    }
+  }
+}

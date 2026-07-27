@@ -14,12 +14,38 @@
   "venueOverride": "us-bank-stadium",
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "espn",
+    "sourceGameId": "400999173",
+    "snapshot": "data/snapshots/nfl/400999173.json",
+    "fetchedAt": "2026-07-27T01:10:49.250Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 33,
+      "awayScore": 41,
+      "linescore": [
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          14,
+          7
+        ],
+        [
+          7,
+          12
+        ]
+      ],
+      "finalType": "F",
+      "venue": "us-bank-stadium",
+      "attendance": 67612,
+      "weather": null,
+      "durationMinutes": null
+    }
   }
 }

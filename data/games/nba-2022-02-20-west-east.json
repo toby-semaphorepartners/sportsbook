@@ -14,12 +14,38 @@
   "venueOverride": "rocket-arena",
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "espn",
+    "sourceGameId": "401410564",
+    "snapshot": "data/snapshots/nba/401410564.json",
+    "fetchedAt": "2026-07-27T01:25:20.252Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 163,
+      "awayScore": 160,
+      "linescore": [
+        [
+          47,
+          45
+        ],
+        [
+          46,
+          49
+        ],
+        [
+          45,
+          45
+        ],
+        [
+          25,
+          21
+        ]
+      ],
+      "finalType": "F",
+      "venue": "rocket-arena",
+      "attendance": 0,
+      "weather": null,
+      "durationMinutes": null
+    }
   }
 }

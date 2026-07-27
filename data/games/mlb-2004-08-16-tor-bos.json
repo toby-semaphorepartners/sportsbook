@@ -1,0 +1,71 @@
+{
+  "id": "mlb-2004-08-16-tor-bos",
+  "league": "mlb",
+  "date": "2004-08-16",
+  "datePrecision": "day",
+  "home": "bos",
+  "away": "tor",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "enriched",
+    "source": "mlb",
+    "sourceGameId": "21787",
+    "snapshot": "data/snapshots/mlb/21787.json",
+    "fetchedAt": "2026-07-27T01:37:21.695Z",
+    "candidates": null,
+    "summary": {
+      "homeScore": 8,
+      "awayScore": 4,
+      "linescore": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "finalType": "F",
+      "venue": "fenway-park",
+      "attendance": 35271,
+      "weather": "Sunny, 64°F, wind 8 mph, ",
+      "durationMinutes": 179
+    }
+  }
+}

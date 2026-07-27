@@ -1,0 +1,71 @@
+{
+  "id": "mlb-2010-09-17-ari-pit",
+  "league": "mlb",
+  "date": "2010-09-17",
+  "datePrecision": "day",
+  "home": "pit",
+  "away": "ari",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "enriched",
+    "source": "mlb",
+    "sourceGameId": "266001",
+    "snapshot": "data/snapshots/mlb/266001.json",
+    "fetchedAt": "2026-07-27T01:35:45.339Z",
+    "candidates": null,
+    "summary": {
+      "homeScore": 4,
+      "awayScore": 3,
+      "linescore": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "finalType": "F",
+      "venue": "pnc-park",
+      "attendance": 22939,
+      "weather": "Cloudy, 66°F, wind 5 mph, Out To CF",
+      "durationMinutes": 170
+    }
+  }
+}

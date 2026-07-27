@@ -14,12 +14,38 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "espn",
+    "sourceGameId": "401326592",
+    "snapshot": "data/snapshots/nfl/401326592.json",
+    "fetchedAt": "2026-07-27T01:11:02.706Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 33,
+      "awayScore": 24,
+      "linescore": [
+        [
+          14,
+          0
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          9,
+          14
+        ]
+      ],
+      "finalType": "F",
+      "venue": "hard-rock-stadium",
+      "attendance": 66514,
+      "weather": null,
+      "durationMinutes": null
+    }
   }
 }

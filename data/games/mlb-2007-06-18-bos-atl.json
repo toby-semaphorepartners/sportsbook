@@ -14,12 +14,58 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "mlb",
+    "sourceGameId": "69168",
+    "snapshot": "data/snapshots/mlb/69168.json",
+    "fetchedAt": "2026-07-27T01:08:43.399Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 9,
+      "awayScore": 4,
+      "linescore": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "finalType": "F",
+      "venue": "turner-field",
+      "attendance": 47562,
+      "weather": "Partly Cloudy, 91°F, wind 12 mph, R To L",
+      "durationMinutes": 191
+    }
   }
 }

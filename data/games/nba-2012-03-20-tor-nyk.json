@@ -16,12 +16,38 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "espn",
+    "sourceGameId": "320320018",
+    "snapshot": "data/snapshots/nba/320320018.json",
+    "fetchedAt": "2026-07-27T01:09:41.358Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 106,
+      "awayScore": 87,
+      "linescore": [
+        [
+          27,
+          24
+        ],
+        [
+          26,
+          20
+        ],
+        [
+          26,
+          24
+        ],
+        [
+          27,
+          19
+        ]
+      ],
+      "finalType": "F",
+      "venue": "madison-square-garden",
+      "attendance": 19763,
+      "weather": null,
+      "durationMinutes": null
+    }
   }
 }

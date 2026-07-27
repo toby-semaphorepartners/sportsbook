@@ -14,12 +14,38 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "espn",
+    "sourceGameId": "291216020",
+    "snapshot": "data/snapshots/nba/291216020.json",
+    "fetchedAt": "2026-07-27T01:25:19.087Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 101,
+      "awayScore": 108,
+      "linescore": [
+        [
+          26,
+          32
+        ],
+        [
+          29,
+          28
+        ],
+        [
+          25,
+          23
+        ],
+        [
+          21,
+          25
+        ]
+      ],
+      "finalType": "F",
+      "venue": "wells-fargo-center",
+      "attendance": 19517,
+      "weather": null,
+      "durationMinutes": null
+    }
   }
 }

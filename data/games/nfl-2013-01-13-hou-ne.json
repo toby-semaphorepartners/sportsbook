@@ -14,12 +14,38 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "espn",
+    "sourceGameId": "330113017",
+    "snapshot": "data/snapshots/nfl/330113017.json",
+    "fetchedAt": "2026-07-27T01:10:27.544Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 41,
+      "awayScore": 28,
+      "linescore": [
+        [
+          7,
+          3
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          14,
+          0
+        ],
+        [
+          10,
+          15
+        ]
+      ],
+      "finalType": "F",
+      "venue": "gillette-stadium",
+      "attendance": 0,
+      "weather": null,
+      "durationMinutes": null
+    }
   }
 }
