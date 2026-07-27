@@ -80,6 +80,11 @@ node tools/enrich.js --search <id>   # fuzzy "2003?" dates: list that season's
                                      #   candidate games (with day-of-week)
 node tools/enrich.js --pick <id> <sourceGameId>   # commit a candidate
 node tools/enrich.js --force <id>    # refetch + overwrite a snapshot
+node tools/enrich.js --renormalize   # recompute summaries from committed
+                                     #   snapshots — offline, run after any
+                                     #   normalizer improvement, no refetching
+node tools/enrich.js --weather-nfl   # fill NFL weather (temp/wind/dome) from
+                                     #   the nflverse games.csv dataset
 ```
 
 It sleeps ≥1s between requests and is idempotent. Corporate/CI proxies often

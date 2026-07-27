@@ -127,6 +127,16 @@ function normalizeEspn(snapshot, venues) {
     s.weather = [w.displayValue, w.temperature != null ? `${w.temperature}°F` : null]
       .filter(Boolean).join(', ') || null;
   }
+  // ESPN carries no weather for historical games; the nflverse supplement
+  // (added by enrich.js --weather-nfl) fills it for outdoor NFL games.
+  const nv = snapshot.endpoints.nflverse;
+  if (!s.weather && nv) {
+    if (nv.roof === 'dome' || nv.roof === 'closed') s.weather = 'Dome';
+    else if (nv.temp !== null && nv.temp !== undefined) {
+      s.weather = [`${nv.temp}°F`, nv.wind != null ? `wind ${nv.wind} mph` : null]
+        .filter(Boolean).join(', ');
+    }
+  }
   return { summary: s, warnings };
 }
 

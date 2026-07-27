@@ -12,6 +12,9 @@
 //   node tools/enrich.js --pick <id> <sourceGameId>      # finalize a candidate
 //   node tools/enrich.js --force <id>       # refetch + overwrite snapshot
 //   node tools/enrich.js --accept-swap      # allow home/away auto-correction
+//   node tools/enrich.js --renormalize      # recompute summaries from committed
+//                                           #   snapshots (offline, no fetching)
+//   node tools/enrich.js --weather-nfl      # fill NFL weather from nflverse games.csv
 
 const fs = require('fs');
 const path = require('path');
@@ -112,7 +115,51 @@ async function main() {
   const opts = { dryRun: flag('--dry-run'), acceptSwap: flag('--accept-swap') };
   const { teams, venues } = loadRef();
 
+  const enrichedGames = () => fs.readdirSync(GAMES_DIR).filter((f) => f.endsWith('.json')).sort()
+    .map((f) => JSON.parse(fs.readFileSync(path.join(GAMES_DIR, f), 'utf8')))
+    .filter((g) => g.enrichment.status === 'enriched');
+
+  const renormalizeOne = (game) => {
+    const snap = JSON.parse(fs.readFileSync(path.join(ROOT, game.enrichment.snapshot), 'utf8'));
+    const { summary, warnings } = normalize(snap, loadRef().venues);
+    for (const w of warnings) console.warn(`  warn ${game.id}: ${w}`);
+    if (JSON.stringify(summary) === JSON.stringify(game.enrichment.summary)) return false;
+    game.enrichment.summary = summary;
+    writeGame(game);
+    return true;
+  };
+
   try {
+    if (flag('--renormalize')) {
+      let changed = 0, total = 0;
+      for (const game of enrichedGames()) {
+        total++;
+        if (renormalizeOne(game)) { changed++; console.log(`  ~ ${game.id}: summary updated`); }
+      }
+      console.log(`renormalized ${total} game(s) from committed snapshots: ${changed} changed.${changed ? ' Now run: node tools/build.js' : ''}`);
+      return;
+    }
+
+    if (flag('--weather-nfl')) {
+      const { GAMES_CSV_URL, parseGames, findRow, supplementOf } = require('./lib/nflverse');
+      console.log(`fetching ${GAMES_CSV_URL} …`);
+      const res = await fetch(GAMES_CSV_URL, { headers: { 'User-Agent': 'stub-book/1.0' } });
+      if (!res.ok) throw new Error(`games.csv: HTTP ${res.status}${res.status === 403 ? ' — this network blocks the download; run from your own machine' : ''}`);
+      const rows = parseGames(await res.text());
+      let filled = 0, missed = 0;
+      for (const game of enrichedGames().filter((g) => g.league === 'nfl')) {
+        const row = findRow(rows, game, teams);
+        if (!row) { missed++; console.log(`  ? ${game.id}: no nflverse row for ${game.date}`); continue; }
+        const snapPath = path.join(ROOT, game.enrichment.snapshot);
+        const snap = JSON.parse(fs.readFileSync(snapPath, 'utf8'));
+        snap.endpoints.nflverse = supplementOf(row);
+        fs.writeFileSync(snapPath, JSON.stringify(snap, null, 2) + '\n');
+        if (renormalizeOne(game)) filled++;
+      }
+      console.log(`nflverse weather: ${filled} filled, ${missed} unmatched.${filled ? ' Now run: node tools/build.js' : ''}`);
+      return;
+    }
+
     if (val('--search')) {
       const game = readGame(val('--search'));
       const season = val('--season') ? Number(val('--season')) :
