@@ -14,11 +14,7 @@ const { normalize } = require('../tools/lib/normalize');
 
 const ROOT = path.join(__dirname, '..');
 const OUT = path.join(__dirname, 'out');
-
-function launchOpts() {
-  const p = process.env.CHROMIUM || '/opt/pw-browsers/chromium';
-  return fs.existsSync(p) ? { executablePath: p } : {};
-}
+const { requireChromium, launchBrowser } = require('./browser');
 
 function makeRoot() {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'stubbook-enriched-'));
@@ -46,6 +42,8 @@ function enrichedRecord(id, league, date, home, away, fixtureName, extra = {}) {
 }
 
 async function main() {
+  const chromium = requireChromium('enriched-ui.test.js');
+  if (!chromium) return;
   const root = makeRoot();
   const games = [
     enrichedRecord('mlb-1997-09-06-mil-bos', 'mlb', '1997-09-06', 'bos', 'mil', 'mlb-1997-fenway.json'),
@@ -62,9 +60,8 @@ async function main() {
   const outFile = path.join(root, 'index.html');
   build({ root, outFile });
 
-  const { chromium } = require('playwright-core');
   fs.mkdirSync(OUT, { recursive: true });
-  const browser = await chromium.launch(launchOpts());
+  const browser = await launchBrowser(chromium);
   const page = await browser.newPage({ viewport: { width: 420, height: 900 } });
   const problems = [];
   page.on('console', (msg) => { if (msg.type() === 'error') problems.push(`console: ${msg.text()}`); });
