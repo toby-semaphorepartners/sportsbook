@@ -81,6 +81,35 @@ test('unmapped venue: null + a warning telling you to extend venues.json', () =>
   assert.match(warnings[0], /venues\.json/);
 });
 
+test('NFL weather falls back to the nflverse supplement (ESPN has none)', () => {
+  const outdoor = fixture('espn-superbowl-lii.json');
+  outdoor.endpoints.nflverse = { temp: 39, wind: 12, roof: 'outdoors', surface: 'grass', stadium: 'X' };
+  assert.equal(normalize(outdoor, venues).summary.weather, '39°F, wind 12 mph');
+  const dome = fixture('espn-superbowl-lii.json');
+  dome.endpoints.nflverse = { temp: null, wind: null, roof: 'dome', surface: null, stadium: null };
+  assert.equal(normalize(dome, venues).summary.weather, 'Dome');
+  // A real ESPN weather value always wins over the supplement.
+  const both = fixture('espn-superbowl-lii.json');
+  both.endpoints.summary.gameInfo.weather = { displayValue: 'Sunny', temperature: 70 };
+  both.endpoints.nflverse = { temp: 39, wind: 12, roof: 'outdoors' };
+  assert.equal(normalize(both, venues).summary.weather, 'Sunny, 70°F');
+});
+
+test('nflverse: csv parsing, row matching, neutral-site designation kept', () => {
+  const { parseGames, findRow, supplementOf } = require('../tools/lib/nflverse');
+  const csv = 'game_id,gameday,away_team,home_team,temp,wind,roof,surface,stadium\n' +
+    '2012_12_NE_NYJ,2012-11-22,NE,NYJ,44,9,outdoors,fieldturf,MetLife Stadium\n' +
+    '2017_SB_PHI_NE,2018-02-04,PHI,NE,,,dome,sportturf,U.S. Bank Stadium\n';
+  const rows = parseGames(csv);
+  const bf = findRow(rows, { date: '2012-11-22', home: 'nyj', away: 'ne' }, teams);
+  assert.equal(bf.temp, '44');
+  const sb = findRow(rows, { date: '2018-02-04', home: 'ne', away: 'phi' }, teams);
+  assert.equal(sb.roof, 'dome');
+  assert.equal(findRow(rows, { date: '2012-11-22', home: 'ne', away: 'nyj' }, teams), null); // swapped -> no match
+  assert.deepEqual(supplementOf(bf), { temp: 44, wind: 9, roof: 'outdoors', surface: 'fieldturf', stadium: 'MetLife Stadium' });
+  assert.equal(supplementOf(sb).temp, null); // blank temp stays null, not 0
+});
+
 test('mapVenue matches name, aka, and apiNames case-insensitively', () => {
   const w = [];
   assert.equal(mapVenue(venues, 'heinz field', w), 'acrisure-stadium');

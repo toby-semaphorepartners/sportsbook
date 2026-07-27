@@ -1,0 +1,29 @@
+{
+  "id": "nba-2024-06-26-draft",
+  "league": "nba",
+  "date": "2024-06-26",
+  "datePrecision": "day",
+  "home": null,
+  "away": null,
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": "barclays-center",
+  "overrides": {},
+  "enrichment": {
+    "status": "unresolvable",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  },
+  "event": {
+    "kind": "draft",
+    "title": "2024 NBA Draft"
+  }
+}

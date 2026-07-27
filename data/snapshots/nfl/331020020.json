@@ -7677,6 +7677,13 @@
         "picker_topic": "picker-football-nfl",
         "gameState": "post"
       }
+    },
+    "nflverse": {
+      "temp": 63,
+      "wind": 11,
+      "roof": "outdoors",
+      "surface": "fieldturf",
+      "stadium": "MetLife Stadium"
     }
   },
   "fetchedAt": "2026-07-27T01:10:29.753Z"

@@ -91,4 +91,16 @@ test('no link without a day-precise date or a sportsref code', () => {
   assert.equal(url({ league: 'nba', home: 'east', away: 'west', date: '2022-02-20' }), null); // pseudo-team, non-allstar
 });
 
+test('soccer and event records get no Sports-Reference link', () => {
+  assert.equal(url({ league: 'usmnt', home: 'usa', away: null, date: '2025-06-10' }), null);
+  assert.equal(url({ league: 'nfl', home: null, away: null, date: '2017-04-27', event: { kind: 'draft', title: 'NFL Draft' } }), null);
+});
+
+test('espn soccer official link', () => {
+  const g = makeGame({ league: 'usmnt', home: 'usa', away: null, espnLeague: 'fifa.friendly' });
+  g.enrichment.source = 'espn';
+  g.enrichment.sourceGameId = '733090';
+  assert.equal(L.officialUrl(g), 'https://www.espn.com/soccer/match/_/gameId/733090');
+});
+
 summary('links.test.js');

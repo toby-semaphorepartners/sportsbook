@@ -8545,6 +8545,13 @@
           }
         }
       ]
+    },
+    "nflverse": {
+      "temp": 46,
+      "wind": 2,
+      "roof": "outdoors",
+      "surface": "fieldturf",
+      "stadium": "MetLife Stadium"
     }
   },
   "fetchedAt": "2026-07-27T01:25:24.502Z"

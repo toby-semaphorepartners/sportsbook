@@ -1158,6 +1158,95 @@
         "inIntermission": false
       }
     },
+    "rightRail": {
+      "linescore": {
+        "byPeriod": [
+          {
+            "periodDescriptor": {
+              "number": 1,
+              "periodType": "REG",
+              "maxRegulationPeriods": 3
+            },
+            "away": 0,
+            "home": 0
+          },
+          {
+            "periodDescriptor": {
+              "number": 2,
+              "periodType": "REG",
+              "maxRegulationPeriods": 3
+            },
+            "away": 2,
+            "home": 1
+          },
+          {
+            "periodDescriptor": {
+              "number": 3,
+              "periodType": "REG",
+              "maxRegulationPeriods": 3
+            },
+            "away": 1,
+            "home": 0
+          }
+        ],
+        "totals": {
+          "away": 3,
+          "home": 1
+        }
+      },
+      "teamGameStats": [
+        {
+          "category": "sog",
+          "awayValue": 32,
+          "homeValue": 33
+        },
+        {
+          "category": "faceoffWinningPctg",
+          "awayValue": 0.5,
+          "homeValue": 0.5
+        },
+        {
+          "category": "faceoffWins",
+          "awayValue": "33/66",
+          "homeValue": "33/66"
+        },
+        {
+          "category": "powerPlay",
+          "awayValue": "1/2",
+          "homeValue": "0/4"
+        },
+        {
+          "category": "powerPlayPctg",
+          "awayValue": 0.5,
+          "homeValue": 0
+        },
+        {
+          "category": "pim",
+          "awayValue": 13,
+          "homeValue": 9
+        },
+        {
+          "category": "hits",
+          "awayValue": 26,
+          "homeValue": 44
+        },
+        {
+          "category": "blockedShots",
+          "awayValue": 16,
+          "homeValue": 9
+        },
+        {
+          "category": "giveaways",
+          "awayValue": 1,
+          "homeValue": 7
+        },
+        {
+          "category": "takeaways",
+          "awayValue": 2,
+          "homeValue": 5
+        }
+      ]
+    },
     "espnSummary": {
       "gameInfo": {
         "attendance": 68111,
@@ -1206,5 +1295,5 @@
       }
     }
   },
-  "fetchedAt": "2026-07-27T01:41:38.666Z"
+  "fetchedAt": "2026-07-27T02:22:47.050Z"
 }

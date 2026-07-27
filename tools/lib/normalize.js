@@ -85,7 +85,10 @@ function normalizeNhl(snapshot, venues) {
   if (outcome === 'OT') s.finalType = 'F/OT';
   else if (outcome === 'SO') s.finalType = 'F/SO';
 
-  const byPeriod = landing.summary && landing.summary.linescore && landing.summary.linescore.byPeriod;
+  const rail = snapshot.endpoints.rightRail || {};
+  const byPeriod =
+    (rail.linescore && rail.linescore.byPeriod) ||
+    (landing.summary && landing.summary.linescore && landing.summary.linescore.byPeriod);
   if (Array.isArray(byPeriod) && byPeriod.length) {
     s.linescore = byPeriod.map((p) => [num(p.home) || 0, num(p.away) || 0]);
   }
@@ -123,6 +126,16 @@ function normalizeEspn(snapshot, venues) {
     const w = info.weather;
     s.weather = [w.displayValue, w.temperature != null ? `${w.temperature}°F` : null]
       .filter(Boolean).join(', ') || null;
+  }
+  // ESPN carries no weather for historical games; the nflverse supplement
+  // (added by enrich.js --weather-nfl) fills it for outdoor NFL games.
+  const nv = snapshot.endpoints.nflverse;
+  if (!s.weather && nv) {
+    if (nv.roof === 'dome' || nv.roof === 'closed') s.weather = 'Dome';
+    else if (nv.temp !== null && nv.temp !== undefined) {
+      s.weather = [`${nv.temp}°F`, nv.wind != null ? `wind ${nv.wind} mph` : null]
+        .filter(Boolean).join(', ');
+    }
   }
   return { summary: s, warnings };
 }

@@ -7307,6 +7307,13 @@
         "gameState": "post",
         "syncUrl": "https://client.espncdn.com/fauxcast/stats/28/401326592/en/us/"
       }
+    },
+    "nflverse": {
+      "temp": 75,
+      "wind": 8,
+      "roof": "outdoors",
+      "surface": "grass",
+      "stadium": "Hard Rock Stadium"
     }
   },
   "fetchedAt": "2026-07-27T01:11:02.706Z"

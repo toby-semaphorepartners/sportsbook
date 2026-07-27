@@ -18,12 +18,25 @@
     "source": "nhl",
     "sourceGameId": "2010020566",
     "snapshot": "data/snapshots/nhl/2010020566.json",
-    "fetchedAt": "2026-07-27T01:41:38.666Z",
+    "fetchedAt": "2026-07-27T02:22:47.050Z",
     "candidates": null,
     "summary": {
       "homeScore": 1,
       "awayScore": 3,
-      "linescore": null,
+      "linescore": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
       "finalType": "F",
       "venue": "acrisure-stadium",
       "attendance": 68111,

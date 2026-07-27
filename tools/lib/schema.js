@@ -3,7 +3,7 @@
 // Game-record validation. Every rule the data files must obey lives here;
 // build.js refuses to bake anything this module rejects.
 
-const LEAGUES = ['mlb', 'nfl', 'nhl', 'nba'];
+const LEAGUES = ['mlb', 'nfl', 'nhl', 'nba', 'mls', 'usmnt'];
 const PRECISIONS = ['day', 'year', 'unknown'];
 const SEASON_TYPES = ['regular', 'postseason', 'allstar'];
 const ENRICH_STATUSES = ['pending', 'enriched', 'candidates', 'unresolvable'];
@@ -75,9 +75,21 @@ function validateGame(game, ref) {
     errors.push('date: precision "unknown" requires null');
   }
 
+  if (game.event !== undefined) {
+    if (!isPlainObject(game.event) || typeof game.event.title !== 'string' || !game.event.title ||
+        typeof game.event.kind !== 'string' || !game.event.kind) {
+      errors.push('event: must be {kind, title} with non-empty strings');
+    }
+  }
+  if (game.espnLeague !== undefined && (typeof game.espnLeague !== 'string' || !game.espnLeague)) {
+    errors.push('espnLeague: must be a non-empty string when present (e.g. "usa.1", "fifa.friendly")');
+  }
   const leagueTeams = LEAGUES.includes(game.league) ? teams[game.league] : null;
   if (leagueTeams) {
-    if (!(game.home in leagueTeams)) errors.push(`home: unknown ${game.league} team "${game.home}"`);
+    // Non-game events (drafts) may have no teams at all.
+    if (game.home === null) {
+      if (!game.event) errors.push('home: null is only allowed on event records');
+    } else if (!(game.home in leagueTeams)) errors.push(`home: unknown ${game.league} team "${game.home}"`);
     if (game.away !== null && !(game.away in leagueTeams)) {
       errors.push(`away: unknown ${game.league} team "${game.away}" (use null for unknown opponent)`);
     }

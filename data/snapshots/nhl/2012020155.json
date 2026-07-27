@@ -1142,7 +1142,146 @@
         "running": false,
         "inIntermission": false
       }
+    },
+    "rightRail": {
+      "linescore": {
+        "byPeriod": [
+          {
+            "periodDescriptor": {
+              "number": 1,
+              "periodType": "REG",
+              "maxRegulationPeriods": 3
+            },
+            "away": 1,
+            "home": 0
+          },
+          {
+            "periodDescriptor": {
+              "number": 2,
+              "periodType": "REG",
+              "maxRegulationPeriods": 3
+            },
+            "away": 0,
+            "home": 1
+          },
+          {
+            "periodDescriptor": {
+              "number": 3,
+              "periodType": "REG",
+              "maxRegulationPeriods": 3
+            },
+            "away": 0,
+            "home": 2
+          }
+        ],
+        "totals": {
+          "away": 1,
+          "home": 3
+        }
+      },
+      "teamGameStats": [
+        {
+          "category": "sog",
+          "awayValue": 25,
+          "homeValue": 28
+        },
+        {
+          "category": "faceoffWinningPctg",
+          "awayValue": 0.533333,
+          "homeValue": 0.466667
+        },
+        {
+          "category": "faceoffWins",
+          "awayValue": "32/60",
+          "homeValue": "28/60"
+        },
+        {
+          "category": "powerPlay",
+          "awayValue": "1/6",
+          "homeValue": "2/10"
+        },
+        {
+          "category": "powerPlayPctg",
+          "awayValue": 0.166667,
+          "homeValue": 0.2
+        },
+        {
+          "category": "pim",
+          "awayValue": 29,
+          "homeValue": 21
+        },
+        {
+          "category": "hits",
+          "awayValue": 8,
+          "homeValue": 14
+        },
+        {
+          "category": "blockedShots",
+          "awayValue": 13,
+          "homeValue": 4
+        },
+        {
+          "category": "giveaways",
+          "awayValue": 2,
+          "homeValue": 6
+        },
+        {
+          "category": "takeaways",
+          "awayValue": 3,
+          "homeValue": 7
+        }
+      ]
+    },
+    "espnSummary": {
+      "gameInfo": {
+        "venue": {
+          "id": "1826",
+          "fullName": "Prudential Center",
+          "address": {
+            "city": "Newark",
+            "state": "NJ",
+            "zipCode": "07199",
+            "country": "USA"
+          },
+          "grass": false,
+          "images": [
+            {
+              "href": "https://a.espncdn.com/i/venues/nhl/day/1826.jpg",
+              "width": 2000,
+              "height": 1125,
+              "alt": "",
+              "rel": [
+                "full",
+                "day"
+              ]
+            }
+          ]
+        },
+        "attendance": 17625,
+        "officials": [
+          {
+            "fullName": "Chris Lee",
+            "displayName": "Chris Lee",
+            "position": {
+              "name": "Referee",
+              "displayName": "Referee",
+              "id": "24"
+            },
+            "order": 1
+          },
+          {
+            "fullName": "Derek Nansen",
+            "displayName": "Derek Nansen",
+            "position": {
+              "name": "Linesman",
+              "displayName": "Linesman",
+              "id": "25"
+            },
+            "order": 1
+          }
+        ]
+      }
     }
   },
-  "fetchedAt": "2026-07-27T01:41:54.032Z"
+  "fetchedAt": "2026-07-27T02:22:59.756Z"
 }

@@ -1,0 +1,29 @@
+{
+  "id": "nfl-2014-05-09-draft",
+  "league": "nfl",
+  "date": "2014-05-09",
+  "datePrecision": "day",
+  "home": null,
+  "away": null,
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "Day 2",
+  "companions": [],
+  "seat": null,
+  "venueOverride": "radio-city-music-hall",
+  "overrides": {},
+  "enrichment": {
+    "status": "unresolvable",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  },
+  "event": {
+    "kind": "draft",
+    "title": "2014 NFL Draft"
+  }
+}

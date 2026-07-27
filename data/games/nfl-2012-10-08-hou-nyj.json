@@ -44,7 +44,7 @@
       "finalType": "F",
       "venue": "metlife-stadium",
       "attendance": 0,
-      "weather": null,
+      "weather": "52°F, wind 4 mph",
       "durationMinutes": null
     }
   }

@@ -2,12 +2,12 @@
   "name": "stub-book",
   "version": "1.0.0",
   "private": true,
-  "description": "A personal record of every game attended — stubs, stats, and stadiums — as a single static page built from JSON records in the repo",
+  "description": "A personal record of every game attended \u2014 stubs, stats, and stadiums \u2014 as a single static page built from JSON records in the repo",
   "scripts": {
     "build": "node tools/build.js",
     "validate": "node tools/validate.js",
-    "test": "node test/schema.test.js && node test/stats.test.js && node test/links.test.js && node test/import.test.js && node test/normalize.test.js && node test/build.test.js && node test/ui.test.js && node test/enriched-ui.test.js",
-    "test:node": "node test/schema.test.js && node test/stats.test.js && node test/links.test.js && node test/import.test.js && node test/normalize.test.js && node test/build.test.js"
+    "test": "node test/schema.test.js && node test/stats.test.js && node test/links.test.js && node test/import.test.js && node test/normalize.test.js && node test/players.test.js && node test/build.test.js && node test/ui.test.js && node test/enriched-ui.test.js",
+    "test:node": "node test/schema.test.js && node test/stats.test.js && node test/links.test.js && node test/import.test.js && node test/normalize.test.js && node test/players.test.js && node test/build.test.js"
   },
   "devDependencies": {
     "playwright-core": "^1.45.0"

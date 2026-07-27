@@ -44,7 +44,7 @@
       "finalType": "F",
       "venue": "gillette-stadium",
       "attendance": 0,
-      "weather": null,
+      "weather": "51°F, wind 10 mph",
       "durationMinutes": null
     }
   }

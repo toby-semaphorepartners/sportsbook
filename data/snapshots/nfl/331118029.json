@@ -7104,6 +7104,13 @@
         "picker_topic": "picker-football-nfl",
         "gameState": "post"
       }
+    },
+    "nflverse": {
+      "temp": 59,
+      "wind": 8,
+      "roof": "outdoors",
+      "surface": "grass",
+      "stadium": "Bank of America Stadium"
     }
   },
   "fetchedAt": "2026-07-27T01:10:31.895Z"

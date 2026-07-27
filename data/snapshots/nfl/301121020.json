@@ -7986,6 +7986,13 @@
         "picker_topic": "picker-football-nfl",
         "gameState": "post"
       }
+    },
+    "nflverse": {
+      "temp": 46,
+      "wind": 1,
+      "roof": "outdoors",
+      "surface": "fieldturf",
+      "stadium": "New Meadowlands Stadium"
     }
   },
   "fetchedAt": "2026-07-27T01:09:59.072Z"

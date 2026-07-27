@@ -7450,6 +7450,13 @@
         "picker_topic": "picker-football-nfl",
         "gameState": "post"
       }
+    },
+    "nflverse": {
+      "temp": 82,
+      "wind": 9,
+      "roof": "outdoors",
+      "surface": "fieldturf",
+      "stadium": "Gillette Stadium"
     }
   },
   "fetchedAt": "2026-07-27T01:10:01.350Z"
