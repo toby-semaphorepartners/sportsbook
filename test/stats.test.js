@@ -199,4 +199,27 @@ test('companionCounts tallies and sorts', () => {
   ]);
 });
 
+test('cityDots aggregates metros with coordinates; venues drive the map', () => {
+  const dots = S.cityDots([
+    makeGame({ id: 'm1', date: '2013-05-10' }),                                  // Citi -> New York
+    makeGame({ id: 'm2', league: 'nfl', home: 'ne', away: 'nyj', date: '2014-10-16' }), // Gillette -> Boston
+    makeGame({ id: 'm3', league: 'nfl', home: 'nyj', away: 'ne', date: '2014-12-21' }), // MetLife -> New York
+  ], venues);
+  assert.equal(dots[0].name, 'New York');
+  assert.equal(dots[0].games, 2);
+  assert.equal(typeof dots[0].lat, 'number');
+  assert.equal(dots.find((d) => d.name === 'Boston').games, 1);
+});
+
+test('deriveStats: event records count as games but never as teams/matchups', () => {
+  const draft = makeGame({
+    id: 'ev1', league: 'nfl', home: null, away: null,
+    event: { kind: 'draft', title: '2017 NFL Draft' },
+  });
+  const st = S.deriveStats({ games: [draft, makeGame({ id: 'g1' })], teams, venues });
+  assert.equal(st.totalGames, 2);
+  assert.equal(st.teamRows.filter((r) => r.league === 'nfl').length, 0); // draft made no team rows
+  assert.equal(st.matchupRows.length, 1); // only the real mlb game's matchup
+});
+
 summary('stats.test.js');

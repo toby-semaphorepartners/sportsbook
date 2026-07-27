@@ -18,6 +18,8 @@
     --nfl: #199e70;
     --nhl: #9085e9;
     --nba: #d95926;
+    --mls: #c98500;
+    --usmnt: #d55181;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
@@ -69,6 +71,7 @@
   .lg::before { content: "●"; margin-right: 5px; }
   .lg.mlb { color: var(--mlb); } .lg.nfl { color: var(--nfl); }
   .lg.nhl { color: var(--nhl); } .lg.nba { color: var(--nba); }
+  .lg.mls { color: var(--mls); } .lg.usmnt { color: var(--usmnt); }
   .card .matchup { font-size: 17px; font-weight: 700; margin: 6px 0 2px; }
   .card .matchup .at { color: var(--ink-3); font-weight: 400; font-size: 14px; }
   .card .score { font-size: 15px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
@@ -103,6 +106,13 @@
   .bar { height: 6px; background: var(--card-edge); border-radius: 3px; overflow: hidden; margin-top: 6px; }
   .bar i { display: block; height: 100%; background: var(--acc, var(--gold)); border-radius: 3px; }
   .muted { color: var(--ink-3); }
+  .mapwrap { position: relative; background: var(--card); border: 1px solid var(--card-edge); border-radius: 12px; padding: 8px; margin: 12px 0; }
+  .mapwrap svg { display: block; width: 100%; height: auto; }
+  .mapwrap .outline { fill: #1e212b; stroke: #303442; stroke-width: 1; }
+  .mapwrap .dot { fill: var(--gold); fill-opacity: .85; }
+  .mapwrap .dot-count { fill: #14151a; font-weight: 700; text-anchor: middle; }
+  .mapwrap .dot-name { fill: var(--ink-2); font-size: 10px; text-anchor: middle; }
+  .mapwrap .inset { position: absolute; right: 10px; top: 10px; background: #1e212b; border: 1px solid var(--card-edge); border-radius: 8px; padding: 5px 9px; font-size: 12px; color: var(--ink-2); }
   .heatwrap { overflow-x: auto; padding: 4px 0 8px; }
   .heat { display: grid; grid-auto-flow: column; gap: 2px; width: max-content; }
   .heat .col { display: grid; grid-template-rows: repeat(13, 12px); gap: 2px; }
@@ -127,6 +137,7 @@
 <nav class="tabs" id="tabs">
   <a href="#/timeline" data-view="timeline">Timeline</a>
   <a href="#/records" data-view="records">Records</a>
+  <a href="#/players" data-view="players">Players</a>
   <a href="#/venues" data-view="venues">Venues</a>
 </nav>
 <main id="view"></main>
@@ -142,8 +153,10 @@
 // DOM-free derivation layer. Everything here is unit-tested under Node by
 // extracting this block; keep it free of document/window references.
 
-var LEAGUE_LABELS = { mlb: 'MLB', nfl: 'NFL', nhl: 'NHL', nba: 'NBA' };
-var LEAGUE_ORDER = ['mlb', 'nfl', 'nhl', 'nba'];
+var LEAGUE_LABELS = { mlb: 'MLB', nfl: 'NFL', mls: 'MLS', usmnt: 'USMNT', nhl: 'NHL', nba: 'NBA' };
+// Order doubles as accent-color adjacency; validated as a set — keep in sync
+// with the --mlb.. custom properties if it ever changes.
+var LEAGUE_ORDER = ['mlb', 'nfl', 'mls', 'usmnt', 'nhl', 'nba'];
 
 // League season identified by its starting year: winter leagues (and the NFL,
 // whose playoffs run into February) attribute Jan–Jul games to the prior year.
@@ -151,7 +164,7 @@ function seasonYear(league, isoDate) {
   var y = Number(String(isoDate).slice(0, 4));
   if (String(isoDate).length <= 4) return y;
   var m = Number(String(isoDate).slice(5, 7));
-  if (league === 'mlb') return y;
+  if (league === 'mlb' || league === 'mls' || league === 'usmnt') return y;
   return m >= 8 ? y : y - 1;
 }
 
@@ -195,6 +208,7 @@ function summaryOf(game) {
 
 function winnerOf(game) {
   var s = summaryOf(game);
+  if (game.event || game.home === null) return null;
   if (game.away === null || typeof s.homeScore !== 'number' || typeof s.awayScore !== 'number') return null;
   if (s.homeScore > s.awayScore) return 'home';
   if (s.homeScore < s.awayScore) return 'away';
@@ -260,17 +274,19 @@ function deriveStats(data) {
     }
     if (g.datePrecision === 'unknown') undated++;
 
-    agg(g.league, g.home).home++;
-    if (g.away !== null) agg(g.league, g.away).away++;
+    if (!g.event && g.home !== null) {
+      agg(g.league, g.home).home++;
+      if (g.away !== null) agg(g.league, g.away).away++;
+    }
 
-    var win = winnerOf(g);
+    var win = g.event ? null : winnerOf(g);
     if (win !== null) {
       if (win === 'tie') { agg(g.league, g.home).t++; agg(g.league, g.away).t++; }
       else if (win === 'home') { agg(g.league, g.home).w++; agg(g.league, g.away).l++; }
       else { agg(g.league, g.away).w++; agg(g.league, g.home).l++; }
     }
 
-    if (g.away !== null) {
+    if (!g.event && g.home !== null && g.away !== null) {
       var pair = [g.home, g.away].sort();
       var mk = g.league + ':' + pair[0] + ':' + pair[1];
       matchups[mk] = (matchups[mk] || 0) + 1;
@@ -417,6 +433,23 @@ function superlatives(games) {
   return out;
 }
 
+// Games per metro area, with coordinates for the dot map.
+function cityDots(games, venues) {
+  var metros = {};
+  for (var i = 0; i < games.length; i++) {
+    var vk = venueKeyOf(games[i], venues);
+    if (!vk) continue;
+    var v = venues.venues[vk];
+    if (!v || v.lat === undefined) continue;
+    if (!metros[v.metro]) metros[v.metro] = { name: v.metro, lat: v.lat, lng: v.lng, country: v.country, games: 0 };
+    metros[v.metro].games++;
+  }
+  var rows = [];
+  for (var m in metros) rows.push(metros[m]);
+  rows.sort(function (a, b) { return b.games - a.games || (a.name < b.name ? -1 : 1); });
+  return rows;
+}
+
 function companionCounts(games) {
   var counts = {};
   for (var i = 0; i < games.length; i++) {
@@ -436,7 +469,7 @@ if (typeof module !== 'undefined') {
     gameYear: gameYear, gameSeasonYear: gameSeasonYear, venueKeyOf: venueKeyOf,
     sortKey: sortKey, deriveStats: deriveStats,
     heatmap: heatmap, teamStreaks: teamStreaks, superlatives: superlatives,
-    companionCounts: companionCounts,
+    companionCounts: companionCounts, cityDots: cityDots,
     LEAGUE_LABELS: LEAGUE_LABELS, LEAGUE_ORDER: LEAGUE_ORDER,
   };
 }
@@ -462,6 +495,7 @@ function srDate(iso) { return iso.replace(/-/g, ''); }
 // index BEFORE the code; hockey/basketball are uppercase .html.
 function sportsrefUrl(game, teams) {
   if (game.datePrecision !== 'day') return null;
+  if (game.event || game.league === 'mls' || game.league === 'usmnt') return null;
   var d = srDate(game.date);
   var calYear = Number(game.date.slice(0, 4));
   if (game.league === 'nba' && game.seasonType === 'allstar') {
@@ -485,6 +519,9 @@ function officialUrl(game) {
   if (e.source === 'mlb') return 'https://www.mlb.com/gameday/' + e.sourceGameId;
   if (e.source === 'nhl') return 'https://www.nhl.com/gamecenter/' + e.sourceGameId;
   if (e.source === 'espn') {
+    if (game.league === 'mls' || game.league === 'usmnt') {
+      return 'https://www.espn.com/soccer/match/_/gameId/' + e.sourceGameId;
+    }
     var kind = game.league === 'nfl' ? 'nfl' : 'nba';
     return 'https://www.espn.com/' + kind + '/game/_/gameId/' + e.sourceGameId;
   }
@@ -540,7 +577,7 @@ if (typeof module !== 'undefined') {
     var s = summaryOf(g);
     var win = winnerOf(g);
     var yr = gameSeasonYear(g);
-    var homeName = teamName(DATA.teams, g.league, g.home, yr);
+    var homeName = g.home === null ? '' : teamName(DATA.teams, g.league, g.home, yr);
     var awayName = g.away === null ? 'Unknown opponent' : teamName(DATA.teams, g.league, g.away, yr);
     var vk = venueKeyOf(g, DATA.venues);
     var venue = vk ? DATA.venues.venues[vk] : null;
@@ -550,7 +587,11 @@ if (typeof module !== 'undefined') {
     html += '<div class="top"><span>' + esc(fmtDate(g)) + seasonTag(g) +
       (g.neutralSite ? '<span class="badge">Neutral site</span>' : '') + '</span>' +
       '<span class="lg ' + g.league + '">' + LEAGUE_LABELS[g.league] + '</span></div>';
-    html += '<div class="matchup">' + esc(awayName) + ' <span class="at">at</span> ' + esc(homeName) + '</div>';
+    if (g.event) {
+      html += '<div class="matchup">' + esc(g.event.title) + '</div>';
+    } else {
+      html += '<div class="matchup">' + esc(awayName) + ' <span class="at">at</span> ' + esc(homeName) + '</div>';
+    }
     if (typeof s.homeScore === 'number' && typeof s.awayScore === 'number') {
       var a = esc(awayName) + ' ' + s.awayScore, h = esc(homeName) + ' ' + s.homeScore;
       html += '<div class="score">' +
@@ -777,7 +818,7 @@ if (typeof module !== 'undefined') {
   }
 
   function renderVenues() {
-    var html = '';
+    var html = renderMap();
     LEAGUE_ORDER.forEach(function (l) {
       var rows = STATS.venueRows.filter(function (v) { return v.leagues.indexOf(l) !== -1; });
       if (!rows.length) return;
@@ -804,7 +845,75 @@ if (typeof module !== 'undefined') {
     view.innerHTML = html;
   }
 
-  var ROUTES = { timeline: renderTimeline, records: renderRecords, venues: renderVenues };
+  var PLAYER_TABLES = [
+    ['mlbBatting', 'mlb', 'MLB batting', [['h', 'H'], ['hr', 'HR'], ['rbi', 'RBI'], ['r', 'R']]],
+    ['mlbPitching', 'mlb', 'MLB pitching', [['k', 'K']]],
+    ['nflPassing', 'nfl', 'NFL passing', [['yds', 'Yds'], ['td', 'TD']]],
+    ['nflRushing', 'nfl', 'NFL rushing', [['yds', 'Yds'], ['td', 'TD']]],
+    ['nflReceiving', 'nfl', 'NFL receiving', [['rec', 'Rec'], ['yds', 'Yds'], ['td', 'TD']]],
+    ['nbaScoring', 'nba', 'NBA scoring', [['pts', 'Pts'], ['reb', 'Reb'], ['ast', 'Ast']]],
+    ['nhlScoring', 'nhl', 'NHL scoring', [['goals', 'G'], ['assists', 'A'], ['pts', 'Pts']]],
+  ];
+
+  function renderPlayers() {
+    if (!DATA.players) {
+      view.innerHTML = '<p class="muted" style="margin-top:20px">No player data yet — run <code>node tools/enrich.js --players</code> after enriching games.</p>';
+      return;
+    }
+    var html = '<p class="muted" style="margin-top:14px">Career lines accumulated only in the ' + DATA.players.games + ' games I was in the building for.</p>';
+    PLAYER_TABLES.forEach(function (t) {
+      var rows = DATA.players.tables[t[0]] || [];
+      if (!rows.length) return;
+      html += '<h2 class="sec"><span class="lg ' + t[1] + '">' + LEAGUE_LABELS[t[1]] + '</span> — ' + esc(t[2].replace(/^\w+ /, '')) + '</h2>';
+      html += '<div class="tablewrap"><table><thead><tr><th>Player</th><th class="num">Games</th>' +
+        t[3].map(function (c) { return '<th class="num">' + c[1] + '</th>'; }).join('') + '</tr></thead><tbody>';
+      rows.slice(0, 12).forEach(function (r) {
+        html += '<tr><td>' + esc(r.name) + '</td><td class="num">' + r.g + '</td>' +
+          t[3].map(function (c, i) { return '<td class="num">' + (i === 0 ? '<b>' + r[c[0]] + '</b>' : r[c[0]]) + '</td>'; }).join('') + '</tr>';
+      });
+      html += '</tbody></table></div>';
+    });
+    view.innerHTML = html;
+  }
+
+  // Hand-simplified continental US outline (lon,lat pairs), recessive backdrop
+  // for the city dots — decorative, the metro table below is the real data.
+  var US_OUTLINE = [[-124.7,48.4],[-124,46.3],[-124.1,43.5],[-124.4,40.4],[-122.4,37.2],[-120.6,34.6],[-117.1,32.5],[-114.7,32.7],[-111,31.3],[-108.2,31.3],[-106.5,31.8],[-104.9,30.6],[-103.2,28.9],[-101.4,29.8],[-99.5,27.5],[-97.1,25.9],[-97.3,27.9],[-93.8,29.7],[-90.1,29.2],[-89,30.4],[-85,29.7],[-84,30.1],[-82.7,27.5],[-80.9,25.2],[-80,26.8],[-81.4,30.7],[-79,33.8],[-75.5,35.2],[-76,37],[-74,40.5],[-70,41.7],[-70.8,42.7],[-67,44.8],[-67.8,47.1],[-69.2,47.5],[-71.5,45],[-75,45],[-76.8,43.6],[-79,43.3],[-79,42.7],[-82.4,41.7],[-83.5,45.8],[-88.4,48.3],[-95.2,49],[-123,49]];
+
+  function renderMap() {
+    var dots = cityDots(DATA.games, DATA.venues);
+    var us = dots.filter(function (d) { return d.country !== 'GB'; });
+    var abroad = dots.filter(function (d) { return d.country === 'GB'; });
+    var W = 680, H = 420;
+    var px = function (lng) { return (lng + 126) / 60 * W; };
+    var py = function (lat) { return (50.5 - lat) / 26 * H; };
+    var path = US_OUTLINE.map(function (p, i) { return (i ? 'L' : 'M') + px(p[0]).toFixed(1) + ' ' + py(p[1]).toFixed(1); }).join('') + 'Z';
+    var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Games attended by city"><path class="outline" d="' + path + '"/>';
+    var placed = us.map(function (d) {
+      return { d: d, x: px(d.lng), y: py(d.lat), r: 5 + Math.sqrt(d.games) * 3.2 };
+    });
+    placed.forEach(function (p) {
+      svg += '<circle class="dot" cx="' + p.x.toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="' + p.r.toFixed(1) + '"><title>' + esc(p.d.name) + ' · ' + p.d.games + '</title></circle>';
+      if (p.d.games >= 4) svg += '<text class="dot-count" x="' + p.x.toFixed(1) + '" y="' + (p.y + 4).toFixed(1) + '" font-size="' + Math.min(13, 8 + p.r / 3).toFixed(0) + '">' + p.d.games + '</text>';
+      // Crowded metros (think the NE corridor) skip their name label rather
+      // than colliding with a bigger neighbor; the table below has them all.
+      var crowded = placed.some(function (q) {
+        return q !== p && q.d.games > p.d.games &&
+          Math.abs(q.x - p.x) < 55 && Math.abs(q.y - p.y) < 40;
+      });
+      if (!crowded) svg += '<text class="dot-name" x="' + p.x.toFixed(1) + '" y="' + (p.y + p.r + 12).toFixed(1) + '">' + esc(p.d.name) + '</text>';
+    });
+    svg += '</svg>';
+    var html = '<h2 class="sec">Where I\u2019ve watched</h2><div class="mapwrap">' + svg;
+    abroad.forEach(function (d) { html += '<div class="inset">🇬🇧 ' + esc(d.name) + ' · ' + d.games + '</div>'; });
+    html += '</div>';
+    html += '<div class="tablewrap"><table><thead><tr><th>Metro</th><th class="num">Games</th></tr></thead><tbody>' +
+      dots.map(function (d) { return '<tr><td>' + esc(d.name) + '</td><td class="num"><b>' + d.games + '</b></td></tr>'; }).join('') +
+      '</tbody></table></div>';
+    return html;
+  }
+
+  var ROUTES = { timeline: renderTimeline, records: renderRecords, players: renderPlayers, venues: renderVenues };
 
   function route() {
     var name = (location.hash.replace('#/', '') || 'timeline');

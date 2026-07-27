@@ -20,7 +20,9 @@ function build({ root = ROOT, outFile = path.join(ROOT, 'index.html') } = {}) {
   for (const w of warnings) console.warn(`warn: ${w}`);
 
   games.sort((a, b) => (a.id < b.id ? -1 : 1));
-  const data = { games, teams: ref.teams, venues: ref.venues };
+  const playersPath = path.join(root, 'data/derived/players.json');
+  const players = fs.existsSync(playersPath) ? JSON.parse(fs.readFileSync(playersPath, 'utf8')) : null;
+  const data = { games, teams: ref.teams, venues: ref.venues, players };
   // <-escape so "</script>" can never terminate the data block.
   const json = JSON.stringify(data).replace(/</g, '\\u003c');
 

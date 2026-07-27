@@ -1,340 +1,1308 @@
 {
   "mlb": {
     "nym": {
-      "eras": [{ "from": 1962, "to": null, "name": "New York Mets" }],
-      "sportsref": [{ "from": 1962, "to": null, "code": "NYN" }],
-      "api": { "statsapiId": 121 },
-      "aliases": ["new york mets", "mets", "nym"]
+      "eras": [
+        {
+          "from": 1962,
+          "to": null,
+          "name": "New York Mets"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1962,
+          "to": null,
+          "code": "NYN"
+        }
+      ],
+      "api": {
+        "statsapiId": 121
+      },
+      "aliases": [
+        "new york mets",
+        "mets",
+        "nym"
+      ]
     },
     "atl": {
-      "eras": [{ "from": 1966, "to": null, "name": "Atlanta Braves" }],
-      "sportsref": [{ "from": 1966, "to": null, "code": "ATL" }],
-      "api": { "statsapiId": 144 },
-      "aliases": ["atlanta braves", "braves", "atl"]
+      "eras": [
+        {
+          "from": 1966,
+          "to": null,
+          "name": "Atlanta Braves"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1966,
+          "to": null,
+          "code": "ATL"
+        }
+      ],
+      "api": {
+        "statsapiId": 144
+      },
+      "aliases": [
+        "atlanta braves",
+        "braves",
+        "atl"
+      ]
     },
     "ari": {
-      "eras": [{ "from": 1998, "to": null, "name": "Arizona Diamondbacks" }],
-      "sportsref": [{ "from": 1998, "to": null, "code": "ARI" }],
-      "api": { "statsapiId": 109 },
-      "aliases": ["arizona diamondbacks", "diamondbacks", "dbacks", "d-backs", "ari"]
+      "eras": [
+        {
+          "from": 1998,
+          "to": null,
+          "name": "Arizona Diamondbacks"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1998,
+          "to": null,
+          "code": "ARI"
+        }
+      ],
+      "api": {
+        "statsapiId": 109
+      },
+      "aliases": [
+        "arizona diamondbacks",
+        "diamondbacks",
+        "dbacks",
+        "d-backs",
+        "ari"
+      ]
     },
     "bos": {
-      "eras": [{ "from": 1908, "to": null, "name": "Boston Red Sox" }],
-      "sportsref": [{ "from": 1908, "to": null, "code": "BOS" }],
-      "api": { "statsapiId": 111 },
-      "aliases": ["boston red sox", "boston redsox", "red sox", "redsox", "bos"]
+      "eras": [
+        {
+          "from": 1908,
+          "to": null,
+          "name": "Boston Red Sox"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1908,
+          "to": null,
+          "code": "BOS"
+        }
+      ],
+      "api": {
+        "statsapiId": 111
+      },
+      "aliases": [
+        "boston red sox",
+        "boston redsox",
+        "red sox",
+        "redsox",
+        "bos"
+      ]
     },
     "mil": {
-      "eras": [{ "from": 1970, "to": null, "name": "Milwaukee Brewers" }],
-      "sportsref": [{ "from": 1970, "to": null, "code": "MIL" }],
-      "api": { "statsapiId": 158 },
-      "aliases": ["milwaukee brewers", "brewers", "mil"]
+      "eras": [
+        {
+          "from": 1970,
+          "to": null,
+          "name": "Milwaukee Brewers"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1970,
+          "to": null,
+          "code": "MIL"
+        }
+      ],
+      "api": {
+        "statsapiId": 158
+      },
+      "aliases": [
+        "milwaukee brewers",
+        "brewers",
+        "mil"
+      ]
     },
     "ath": {
       "eras": [
-        { "from": 1968, "to": 2024, "name": "Oakland Athletics" },
-        { "from": 2025, "to": null, "name": "Athletics" }
+        {
+          "from": 1968,
+          "to": 2024,
+          "name": "Oakland Athletics"
+        },
+        {
+          "from": 2025,
+          "to": null,
+          "name": "Athletics"
+        }
       ],
       "sportsref": [
-        { "from": 1968, "to": 2024, "code": "OAK" },
-        { "from": 2025, "to": null, "code": "ATH" }
+        {
+          "from": 1968,
+          "to": 2024,
+          "code": "OAK"
+        },
+        {
+          "from": 2025,
+          "to": null,
+          "code": "ATH"
+        }
       ],
-      "api": { "statsapiId": 133 },
-      "aliases": ["oakland athletics", "oakland a's", "athletics", "a's", "oak", "ath"]
+      "api": {
+        "statsapiId": 133
+      },
+      "aliases": [
+        "oakland athletics",
+        "oakland a's",
+        "athletics",
+        "a's",
+        "oak",
+        "ath"
+      ]
     },
     "tor": {
-      "eras": [{ "from": 1977, "to": null, "name": "Toronto Blue Jays" }],
-      "sportsref": [{ "from": 1977, "to": null, "code": "TOR" }],
-      "api": { "statsapiId": 141 },
-      "aliases": ["toronto blue jays", "blue jays", "tor"]
+      "eras": [
+        {
+          "from": 1977,
+          "to": null,
+          "name": "Toronto Blue Jays"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1977,
+          "to": null,
+          "code": "TOR"
+        }
+      ],
+      "api": {
+        "statsapiId": 141
+      },
+      "aliases": [
+        "toronto blue jays",
+        "blue jays",
+        "tor"
+      ]
     },
     "bal": {
-      "eras": [{ "from": 1954, "to": null, "name": "Baltimore Orioles" }],
-      "sportsref": [{ "from": 1954, "to": null, "code": "BAL" }],
-      "api": { "statsapiId": 110 },
-      "aliases": ["baltimore orioles", "orioles", "bal"]
+      "eras": [
+        {
+          "from": 1954,
+          "to": null,
+          "name": "Baltimore Orioles"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1954,
+          "to": null,
+          "code": "BAL"
+        }
+      ],
+      "api": {
+        "statsapiId": 110
+      },
+      "aliases": [
+        "baltimore orioles",
+        "orioles",
+        "bal"
+      ]
     },
     "pit": {
-      "eras": [{ "from": 1887, "to": null, "name": "Pittsburgh Pirates" }],
-      "sportsref": [{ "from": 1887, "to": null, "code": "PIT" }],
-      "api": { "statsapiId": 134 },
-      "aliases": ["pittsburgh pirates", "pirates", "pit"]
+      "eras": [
+        {
+          "from": 1887,
+          "to": null,
+          "name": "Pittsburgh Pirates"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1887,
+          "to": null,
+          "code": "PIT"
+        }
+      ],
+      "api": {
+        "statsapiId": 134
+      },
+      "aliases": [
+        "pittsburgh pirates",
+        "pirates",
+        "pit"
+      ]
     },
     "chc": {
-      "eras": [{ "from": 1903, "to": null, "name": "Chicago Cubs" }],
-      "sportsref": [{ "from": 1903, "to": null, "code": "CHN" }],
-      "api": { "statsapiId": 112 },
-      "aliases": ["chicago cubs", "cubs", "chc"]
+      "eras": [
+        {
+          "from": 1903,
+          "to": null,
+          "name": "Chicago Cubs"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1903,
+          "to": null,
+          "code": "CHN"
+        }
+      ],
+      "api": {
+        "statsapiId": 112
+      },
+      "aliases": [
+        "chicago cubs",
+        "cubs",
+        "chc"
+      ]
     },
     "cin": {
-      "eras": [{ "from": 1890, "to": null, "name": "Cincinnati Reds" }],
-      "sportsref": [{ "from": 1890, "to": null, "code": "CIN" }],
-      "api": { "statsapiId": 113 },
-      "aliases": ["cincinnati reds", "reds", "cin"]
+      "eras": [
+        {
+          "from": 1890,
+          "to": null,
+          "name": "Cincinnati Reds"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1890,
+          "to": null,
+          "code": "CIN"
+        }
+      ],
+      "api": {
+        "statsapiId": 113
+      },
+      "aliases": [
+        "cincinnati reds",
+        "reds",
+        "cin"
+      ]
     },
     "nyy": {
-      "eras": [{ "from": 1913, "to": null, "name": "New York Yankees" }],
-      "sportsref": [{ "from": 1913, "to": null, "code": "NYA" }],
-      "api": { "statsapiId": 147 },
-      "aliases": ["new york yankees", "yankees", "nyy"]
+      "eras": [
+        {
+          "from": 1913,
+          "to": null,
+          "name": "New York Yankees"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1913,
+          "to": null,
+          "code": "NYA"
+        }
+      ],
+      "api": {
+        "statsapiId": 147
+      },
+      "aliases": [
+        "new york yankees",
+        "yankees",
+        "nyy"
+      ]
     },
     "min": {
-      "eras": [{ "from": 1961, "to": null, "name": "Minnesota Twins" }],
-      "sportsref": [{ "from": 1961, "to": null, "code": "MIN" }],
-      "api": { "statsapiId": 142 },
-      "aliases": ["minnesota twins", "twins", "min"]
+      "eras": [
+        {
+          "from": 1961,
+          "to": null,
+          "name": "Minnesota Twins"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1961,
+          "to": null,
+          "code": "MIN"
+        }
+      ],
+      "api": {
+        "statsapiId": 142
+      },
+      "aliases": [
+        "minnesota twins",
+        "twins",
+        "min"
+      ]
     },
     "phi": {
-      "eras": [{ "from": 1890, "to": null, "name": "Philadelphia Phillies" }],
-      "sportsref": [{ "from": 1890, "to": null, "code": "PHI" }],
-      "api": { "statsapiId": 143 },
-      "aliases": ["philadelphia phillies", "phillies", "phi"]
+      "eras": [
+        {
+          "from": 1890,
+          "to": null,
+          "name": "Philadelphia Phillies"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1890,
+          "to": null,
+          "code": "PHI"
+        }
+      ],
+      "api": {
+        "statsapiId": 143
+      },
+      "aliases": [
+        "philadelphia phillies",
+        "phillies",
+        "phi"
+      ]
     },
     "stl": {
-      "eras": [{ "from": 1900, "to": null, "name": "St. Louis Cardinals" }],
-      "sportsref": [{ "from": 1900, "to": null, "code": "SLN" }],
-      "api": { "statsapiId": 138 },
-      "aliases": ["st. louis cardinals", "st louis cardinals", "cardinals", "stl"]
+      "eras": [
+        {
+          "from": 1900,
+          "to": null,
+          "name": "St. Louis Cardinals"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1900,
+          "to": null,
+          "code": "SLN"
+        }
+      ],
+      "api": {
+        "statsapiId": 138
+      },
+      "aliases": [
+        "st. louis cardinals",
+        "st louis cardinals",
+        "cardinals",
+        "stl"
+      ]
     },
     "sf": {
-      "eras": [{ "from": 1958, "to": null, "name": "San Francisco Giants" }],
-      "sportsref": [{ "from": 1958, "to": null, "code": "SFN" }],
-      "api": { "statsapiId": 137 },
-      "aliases": ["san francisco giants", "sf giants", "sfg", "sf"]
+      "eras": [
+        {
+          "from": 1958,
+          "to": null,
+          "name": "San Francisco Giants"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1958,
+          "to": null,
+          "code": "SFN"
+        }
+      ],
+      "api": {
+        "statsapiId": 137
+      },
+      "aliases": [
+        "san francisco giants",
+        "sf giants",
+        "sfg",
+        "sf"
+      ]
     },
     "cle": {
       "eras": [
-        { "from": 1915, "to": 2021, "name": "Cleveland Indians" },
-        { "from": 2022, "to": null, "name": "Cleveland Guardians" }
+        {
+          "from": 1915,
+          "to": 2021,
+          "name": "Cleveland Indians"
+        },
+        {
+          "from": 2022,
+          "to": null,
+          "name": "Cleveland Guardians"
+        }
       ],
-      "sportsref": [{ "from": 1915, "to": null, "code": "CLE" }],
-      "api": { "statsapiId": 114 },
-      "aliases": ["cleveland indians", "cleveland guardians", "indians", "guardians", "cle"]
+      "sportsref": [
+        {
+          "from": 1915,
+          "to": null,
+          "code": "CLE"
+        }
+      ],
+      "api": {
+        "statsapiId": 114
+      },
+      "aliases": [
+        "cleveland indians",
+        "cleveland guardians",
+        "indians",
+        "guardians",
+        "cle"
+      ]
     },
     "col": {
-      "eras": [{ "from": 1993, "to": null, "name": "Colorado Rockies" }],
-      "sportsref": [{ "from": 1993, "to": null, "code": "COL" }],
-      "api": { "statsapiId": 115 },
-      "aliases": ["colorado rockies", "rockies", "col"]
+      "eras": [
+        {
+          "from": 1993,
+          "to": null,
+          "name": "Colorado Rockies"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1993,
+          "to": null,
+          "code": "COL"
+        }
+      ],
+      "api": {
+        "statsapiId": 115
+      },
+      "aliases": [
+        "colorado rockies",
+        "rockies",
+        "col"
+      ]
     }
   },
   "nfl": {
     "nyj": {
-      "eras": [{ "from": 1963, "to": null, "name": "New York Jets" }],
-      "sportsref": [{ "from": 1963, "to": null, "code": "nyj" }],
-      "api": { "espnAbbr": "NYJ" },
-      "aliases": ["new york jets", "jets", "nyj"]
+      "eras": [
+        {
+          "from": 1963,
+          "to": null,
+          "name": "New York Jets"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1963,
+          "to": null,
+          "code": "nyj"
+        }
+      ],
+      "api": {
+        "espnAbbr": "NYJ"
+      },
+      "aliases": [
+        "new york jets",
+        "jets",
+        "nyj"
+      ]
     },
     "ne": {
-      "eras": [{ "from": 1971, "to": null, "name": "New England Patriots" }],
-      "sportsref": [{ "from": 1971, "to": null, "code": "nwe" }],
-      "api": { "espnAbbr": "NE" },
-      "aliases": ["new england patriots", "patriots", "ne", "nwe"]
+      "eras": [
+        {
+          "from": 1971,
+          "to": null,
+          "name": "New England Patriots"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1971,
+          "to": null,
+          "code": "nwe"
+        }
+      ],
+      "api": {
+        "espnAbbr": "NE"
+      },
+      "aliases": [
+        "new england patriots",
+        "patriots",
+        "ne",
+        "nwe"
+      ]
     },
     "hou": {
-      "eras": [{ "from": 2002, "to": null, "name": "Houston Texans" }],
-      "sportsref": [{ "from": 2002, "to": null, "code": "htx" }],
-      "api": { "espnAbbr": "HOU" },
-      "aliases": ["houston texans", "texans", "hou"]
+      "eras": [
+        {
+          "from": 2002,
+          "to": null,
+          "name": "Houston Texans"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 2002,
+          "to": null,
+          "code": "htx"
+        }
+      ],
+      "api": {
+        "espnAbbr": "HOU"
+      },
+      "aliases": [
+        "houston texans",
+        "texans",
+        "hou"
+      ]
     },
     "nyg": {
-      "eras": [{ "from": 1925, "to": null, "name": "New York Giants" }],
-      "sportsref": [{ "from": 1925, "to": null, "code": "nyg" }],
-      "api": { "espnAbbr": "NYG" },
-      "aliases": ["new york giants", "ny giants", "nyg"]
+      "eras": [
+        {
+          "from": 1925,
+          "to": null,
+          "name": "New York Giants"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1925,
+          "to": null,
+          "code": "nyg"
+        }
+      ],
+      "api": {
+        "espnAbbr": "NYG"
+      },
+      "aliases": [
+        "new york giants",
+        "ny giants",
+        "nyg"
+      ]
     },
     "was": {
       "eras": [
-        { "from": 1937, "to": 2019, "name": "Washington Redskins" },
-        { "from": 2020, "to": 2021, "name": "Washington Football Team" },
-        { "from": 2022, "to": null, "name": "Washington Commanders" }
+        {
+          "from": 1937,
+          "to": 2019,
+          "name": "Washington Redskins"
+        },
+        {
+          "from": 2020,
+          "to": 2021,
+          "name": "Washington Football Team"
+        },
+        {
+          "from": 2022,
+          "to": null,
+          "name": "Washington Commanders"
+        }
       ],
-      "sportsref": [{ "from": 1937, "to": null, "code": "was" }],
-      "api": { "espnAbbr": "WSH" },
-      "aliases": ["washington redskins", "washington football team", "washington commanders", "redskins", "commanders", "was", "wsh"]
+      "sportsref": [
+        {
+          "from": 1937,
+          "to": null,
+          "code": "was"
+        }
+      ],
+      "api": {
+        "espnAbbr": "WSH"
+      },
+      "aliases": [
+        "washington redskins",
+        "washington football team",
+        "washington commanders",
+        "redskins",
+        "commanders",
+        "was",
+        "wsh"
+      ]
     },
     "car": {
-      "eras": [{ "from": 1995, "to": null, "name": "Carolina Panthers" }],
-      "sportsref": [{ "from": 1995, "to": null, "code": "car" }],
-      "api": { "espnAbbr": "CAR" },
-      "aliases": ["carolina panthers", "panthers", "car"]
+      "eras": [
+        {
+          "from": 1995,
+          "to": null,
+          "name": "Carolina Panthers"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1995,
+          "to": null,
+          "code": "car"
+        }
+      ],
+      "api": {
+        "espnAbbr": "CAR"
+      },
+      "aliases": [
+        "carolina panthers",
+        "panthers",
+        "car"
+      ]
     },
     "pit": {
-      "eras": [{ "from": 1933, "to": null, "name": "Pittsburgh Steelers" }],
-      "sportsref": [{ "from": 1933, "to": null, "code": "pit" }],
-      "api": { "espnAbbr": "PIT" },
-      "aliases": ["pittsburgh steelers", "steelers", "pit"]
+      "eras": [
+        {
+          "from": 1933,
+          "to": null,
+          "name": "Pittsburgh Steelers"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1933,
+          "to": null,
+          "code": "pit"
+        }
+      ],
+      "api": {
+        "espnAbbr": "PIT"
+      },
+      "aliases": [
+        "pittsburgh steelers",
+        "steelers",
+        "pit"
+      ]
     },
     "ten": {
-      "eras": [{ "from": 1999, "to": null, "name": "Tennessee Titans" }],
-      "sportsref": [{ "from": 1999, "to": null, "code": "oti" }],
-      "api": { "espnAbbr": "TEN" },
-      "aliases": ["tennessee titans", "tennesee titans", "titans", "ten"]
+      "eras": [
+        {
+          "from": 1999,
+          "to": null,
+          "name": "Tennessee Titans"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1999,
+          "to": null,
+          "code": "oti"
+        }
+      ],
+      "api": {
+        "espnAbbr": "TEN"
+      },
+      "aliases": [
+        "tennessee titans",
+        "tennesee titans",
+        "titans",
+        "ten"
+      ]
     },
     "buf": {
-      "eras": [{ "from": 1960, "to": null, "name": "Buffalo Bills" }],
-      "sportsref": [{ "from": 1960, "to": null, "code": "buf" }],
-      "api": { "espnAbbr": "BUF" },
-      "aliases": ["buffalo bills", "bills", "buf"]
+      "eras": [
+        {
+          "from": 1960,
+          "to": null,
+          "name": "Buffalo Bills"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1960,
+          "to": null,
+          "code": "buf"
+        }
+      ],
+      "api": {
+        "espnAbbr": "BUF"
+      },
+      "aliases": [
+        "buffalo bills",
+        "bills",
+        "buf"
+      ]
     },
     "phi": {
-      "eras": [{ "from": 1933, "to": null, "name": "Philadelphia Eagles" }],
-      "sportsref": [{ "from": 1933, "to": null, "code": "phi" }],
-      "api": { "espnAbbr": "PHI" },
-      "aliases": ["philadelphia eagles", "eagles", "phi"]
+      "eras": [
+        {
+          "from": 1933,
+          "to": null,
+          "name": "Philadelphia Eagles"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1933,
+          "to": null,
+          "code": "phi"
+        }
+      ],
+      "api": {
+        "espnAbbr": "PHI"
+      },
+      "aliases": [
+        "philadelphia eagles",
+        "eagles",
+        "phi"
+      ]
     },
     "mia": {
-      "eras": [{ "from": 1966, "to": null, "name": "Miami Dolphins" }],
-      "sportsref": [{ "from": 1966, "to": null, "code": "mia" }],
-      "api": { "espnAbbr": "MIA" },
-      "aliases": ["miami dolphins", "dolphins", "mia"]
+      "eras": [
+        {
+          "from": 1966,
+          "to": null,
+          "name": "Miami Dolphins"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1966,
+          "to": null,
+          "code": "mia"
+        }
+      ],
+      "api": {
+        "espnAbbr": "MIA"
+      },
+      "aliases": [
+        "miami dolphins",
+        "dolphins",
+        "mia"
+      ]
     },
     "lac": {
       "eras": [
-        { "from": 1961, "to": 2016, "name": "San Diego Chargers" },
-        { "from": 2017, "to": null, "name": "Los Angeles Chargers" }
+        {
+          "from": 1961,
+          "to": 2016,
+          "name": "San Diego Chargers"
+        },
+        {
+          "from": 2017,
+          "to": null,
+          "name": "Los Angeles Chargers"
+        }
       ],
-      "sportsref": [{ "from": 1961, "to": null, "code": "sdg" }],
-      "api": { "espnAbbr": "LAC" },
-      "aliases": ["san diego chargers", "los angeles chargers", "chargers", "lac", "sd"]
+      "sportsref": [
+        {
+          "from": 1961,
+          "to": null,
+          "code": "sdg"
+        }
+      ],
+      "api": {
+        "espnAbbr": "LAC"
+      },
+      "aliases": [
+        "san diego chargers",
+        "los angeles chargers",
+        "chargers",
+        "lac",
+        "sd"
+      ]
     },
     "cle": {
-      "eras": [{ "from": 1946, "to": null, "name": "Cleveland Browns" }],
-      "sportsref": [{ "from": 1946, "to": null, "code": "cle" }],
-      "api": { "espnAbbr": "CLE" },
-      "aliases": ["cleveland browns", "browns", "cle"]
+      "eras": [
+        {
+          "from": 1946,
+          "to": null,
+          "name": "Cleveland Browns"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1946,
+          "to": null,
+          "code": "cle"
+        }
+      ],
+      "api": {
+        "espnAbbr": "CLE"
+      },
+      "aliases": [
+        "cleveland browns",
+        "browns",
+        "cle"
+      ]
     },
     "no": {
-      "eras": [{ "from": 1967, "to": null, "name": "New Orleans Saints" }],
-      "sportsref": [{ "from": 1967, "to": null, "code": "nor" }],
-      "api": { "espnAbbr": "NO" },
-      "aliases": ["new orleans saints", "saints", "no", "nor"]
+      "eras": [
+        {
+          "from": 1967,
+          "to": null,
+          "name": "New Orleans Saints"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1967,
+          "to": null,
+          "code": "nor"
+        }
+      ],
+      "api": {
+        "espnAbbr": "NO"
+      },
+      "aliases": [
+        "new orleans saints",
+        "saints",
+        "no",
+        "nor"
+      ]
     },
     "den": {
-      "eras": [{ "from": 1960, "to": null, "name": "Denver Broncos" }],
-      "sportsref": [{ "from": 1960, "to": null, "code": "den" }],
-      "api": { "espnAbbr": "DEN" },
-      "aliases": ["denver broncos", "broncos", "den"]
+      "eras": [
+        {
+          "from": 1960,
+          "to": null,
+          "name": "Denver Broncos"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1960,
+          "to": null,
+          "code": "den"
+        }
+      ],
+      "api": {
+        "espnAbbr": "DEN"
+      },
+      "aliases": [
+        "denver broncos",
+        "broncos",
+        "den"
+      ]
     }
   },
   "nhl": {
     "pit": {
-      "eras": [{ "from": 1967, "to": null, "name": "Pittsburgh Penguins" }],
-      "sportsref": [{ "from": 1967, "to": null, "code": "PIT" }],
-      "api": { "nhlAbbr": "PIT" },
-      "aliases": ["pittsburgh penguins", "penguins", "pit"]
+      "eras": [
+        {
+          "from": 1967,
+          "to": null,
+          "name": "Pittsburgh Penguins"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1967,
+          "to": null,
+          "code": "PIT"
+        }
+      ],
+      "api": {
+        "nhlAbbr": "PIT"
+      },
+      "aliases": [
+        "pittsburgh penguins",
+        "penguins",
+        "pit"
+      ]
     },
     "wsh": {
-      "eras": [{ "from": 1974, "to": null, "name": "Washington Capitals" }],
-      "sportsref": [{ "from": 1974, "to": null, "code": "WSH" }],
-      "api": { "nhlAbbr": "WSH" },
-      "aliases": ["washington capitals", "capitals", "wsh"]
+      "eras": [
+        {
+          "from": 1974,
+          "to": null,
+          "name": "Washington Capitals"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1974,
+          "to": null,
+          "code": "WSH"
+        }
+      ],
+      "api": {
+        "nhlAbbr": "WSH"
+      },
+      "aliases": [
+        "washington capitals",
+        "capitals",
+        "wsh"
+      ]
     },
     "njd": {
-      "eras": [{ "from": 1982, "to": null, "name": "New Jersey Devils" }],
-      "sportsref": [{ "from": 1982, "to": null, "code": "NJD" }],
-      "api": { "nhlAbbr": "NJD" },
-      "aliases": ["new jersey devils", "devils", "njd", "nj devils"]
+      "eras": [
+        {
+          "from": 1982,
+          "to": null,
+          "name": "New Jersey Devils"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1982,
+          "to": null,
+          "code": "NJD"
+        }
+      ],
+      "api": {
+        "nhlAbbr": "NJD"
+      },
+      "aliases": [
+        "new jersey devils",
+        "devils",
+        "njd",
+        "nj devils"
+      ]
     },
     "wpg": {
-      "eras": [{ "from": 2011, "to": null, "name": "Winnipeg Jets" }],
-      "sportsref": [{ "from": 2011, "to": null, "code": "WPG" }],
-      "api": { "nhlAbbr": "WPG" },
-      "aliases": ["winnipeg jets", "winnipeg", "wpg"]
+      "eras": [
+        {
+          "from": 2011,
+          "to": null,
+          "name": "Winnipeg Jets"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 2011,
+          "to": null,
+          "code": "WPG"
+        }
+      ],
+      "api": {
+        "nhlAbbr": "WPG"
+      },
+      "aliases": [
+        "winnipeg jets",
+        "winnipeg",
+        "wpg"
+      ]
     },
     "nyi": {
-      "eras": [{ "from": 1972, "to": null, "name": "New York Islanders" }],
-      "sportsref": [{ "from": 1972, "to": null, "code": "NYI" }],
-      "api": { "nhlAbbr": "NYI" },
-      "aliases": ["new york islanders", "islanders", "nyi"]
+      "eras": [
+        {
+          "from": 1972,
+          "to": null,
+          "name": "New York Islanders"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1972,
+          "to": null,
+          "code": "NYI"
+        }
+      ],
+      "api": {
+        "nhlAbbr": "NYI"
+      },
+      "aliases": [
+        "new york islanders",
+        "islanders",
+        "nyi"
+      ]
     },
     "bos": {
-      "eras": [{ "from": 1924, "to": null, "name": "Boston Bruins" }],
-      "sportsref": [{ "from": 1924, "to": null, "code": "BOS" }],
-      "api": { "nhlAbbr": "BOS" },
-      "aliases": ["boston bruins", "bruins", "bos"]
+      "eras": [
+        {
+          "from": 1924,
+          "to": null,
+          "name": "Boston Bruins"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1924,
+          "to": null,
+          "code": "BOS"
+        }
+      ],
+      "api": {
+        "nhlAbbr": "BOS"
+      },
+      "aliases": [
+        "boston bruins",
+        "bruins",
+        "bos"
+      ]
     },
     "nyr": {
-      "eras": [{ "from": 1926, "to": null, "name": "New York Rangers" }],
-      "sportsref": [{ "from": 1926, "to": null, "code": "NYR" }],
-      "api": { "nhlAbbr": "NYR" },
-      "aliases": ["new york rangers", "rangers", "nyr"]
+      "eras": [
+        {
+          "from": 1926,
+          "to": null,
+          "name": "New York Rangers"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1926,
+          "to": null,
+          "code": "NYR"
+        }
+      ],
+      "api": {
+        "nhlAbbr": "NYR"
+      },
+      "aliases": [
+        "new york rangers",
+        "rangers",
+        "nyr"
+      ]
     }
   },
   "nba": {
     "phi": {
-      "eras": [{ "from": 1963, "to": null, "name": "Philadelphia 76ers" }],
-      "sportsref": [{ "from": 1963, "to": null, "code": "PHI" }],
-      "api": { "espnAbbr": "PHI" },
-      "aliases": ["philadelphia 76ers", "76ers", "sixers", "phi"]
+      "eras": [
+        {
+          "from": 1963,
+          "to": null,
+          "name": "Philadelphia 76ers"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1963,
+          "to": null,
+          "code": "PHI"
+        }
+      ],
+      "api": {
+        "espnAbbr": "PHI"
+      },
+      "aliases": [
+        "philadelphia 76ers",
+        "76ers",
+        "sixers",
+        "phi"
+      ]
     },
     "cle": {
-      "eras": [{ "from": 1970, "to": null, "name": "Cleveland Cavaliers" }],
-      "sportsref": [{ "from": 1970, "to": null, "code": "CLE" }],
-      "api": { "espnAbbr": "CLE" },
-      "aliases": ["cleveland cavaliers", "cavaliers", "cavs", "cle"]
+      "eras": [
+        {
+          "from": 1970,
+          "to": null,
+          "name": "Cleveland Cavaliers"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1970,
+          "to": null,
+          "code": "CLE"
+        }
+      ],
+      "api": {
+        "espnAbbr": "CLE"
+      },
+      "aliases": [
+        "cleveland cavaliers",
+        "cavaliers",
+        "cavs",
+        "cle"
+      ]
     },
     "mia": {
-      "eras": [{ "from": 1988, "to": null, "name": "Miami Heat" }],
-      "sportsref": [{ "from": 1988, "to": null, "code": "MIA" }],
-      "api": { "espnAbbr": "MIA" },
-      "aliases": ["miami heat", "heat", "mia"]
+      "eras": [
+        {
+          "from": 1988,
+          "to": null,
+          "name": "Miami Heat"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1988,
+          "to": null,
+          "code": "MIA"
+        }
+      ],
+      "api": {
+        "espnAbbr": "MIA"
+      },
+      "aliases": [
+        "miami heat",
+        "heat",
+        "mia"
+      ]
     },
     "nyk": {
-      "eras": [{ "from": 1946, "to": null, "name": "New York Knicks" }],
-      "sportsref": [{ "from": 1946, "to": null, "code": "NYK" }],
-      "api": { "espnAbbr": "NY" },
-      "aliases": ["new york knicks", "knicks", "nyk"]
+      "eras": [
+        {
+          "from": 1946,
+          "to": null,
+          "name": "New York Knicks"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1946,
+          "to": null,
+          "code": "NYK"
+        }
+      ],
+      "api": {
+        "espnAbbr": "NY"
+      },
+      "aliases": [
+        "new york knicks",
+        "knicks",
+        "nyk"
+      ]
     },
     "tor": {
-      "eras": [{ "from": 1995, "to": null, "name": "Toronto Raptors" }],
-      "sportsref": [{ "from": 1995, "to": null, "code": "TOR" }],
-      "api": { "espnAbbr": "TOR" },
-      "aliases": ["toronto raptors", "raptors", "tor"]
+      "eras": [
+        {
+          "from": 1995,
+          "to": null,
+          "name": "Toronto Raptors"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1995,
+          "to": null,
+          "code": "TOR"
+        }
+      ],
+      "api": {
+        "espnAbbr": "TOR"
+      },
+      "aliases": [
+        "toronto raptors",
+        "raptors",
+        "tor"
+      ]
     },
     "bkn": {
       "eras": [
-        { "from": 1977, "to": 2011, "name": "New Jersey Nets" },
-        { "from": 2012, "to": null, "name": "Brooklyn Nets" }
+        {
+          "from": 1977,
+          "to": 2011,
+          "name": "New Jersey Nets"
+        },
+        {
+          "from": 2012,
+          "to": null,
+          "name": "Brooklyn Nets"
+        }
       ],
       "sportsref": [
-        { "from": 1977, "to": 2011, "code": "NJN" },
-        { "from": 2012, "to": null, "code": "BRK" }
+        {
+          "from": 1977,
+          "to": 2011,
+          "code": "NJN"
+        },
+        {
+          "from": 2012,
+          "to": null,
+          "code": "BRK"
+        }
       ],
-      "api": { "espnAbbr": "BKN" },
-      "aliases": ["brooklyn nets", "new jersey nets", "nets", "bkn", "njn"]
+      "api": {
+        "espnAbbr": "BKN"
+      },
+      "aliases": [
+        "brooklyn nets",
+        "new jersey nets",
+        "nets",
+        "bkn",
+        "njn"
+      ]
     },
     "atl": {
-      "eras": [{ "from": 1968, "to": null, "name": "Atlanta Hawks" }],
-      "sportsref": [{ "from": 1968, "to": null, "code": "ATL" }],
-      "api": { "espnAbbr": "ATL" },
-      "aliases": ["atlanta hawks", "hawks", "atl"]
+      "eras": [
+        {
+          "from": 1968,
+          "to": null,
+          "name": "Atlanta Hawks"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1968,
+          "to": null,
+          "code": "ATL"
+        }
+      ],
+      "api": {
+        "espnAbbr": "ATL"
+      },
+      "aliases": [
+        "atlanta hawks",
+        "hawks",
+        "atl"
+      ]
     },
     "bos": {
-      "eras": [{ "from": 1946, "to": null, "name": "Boston Celtics" }],
-      "sportsref": [{ "from": 1946, "to": null, "code": "BOS" }],
-      "api": { "espnAbbr": "BOS" },
-      "aliases": ["boston celtics", "celtics", "bos"]
+      "eras": [
+        {
+          "from": 1946,
+          "to": null,
+          "name": "Boston Celtics"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1946,
+          "to": null,
+          "code": "BOS"
+        }
+      ],
+      "api": {
+        "espnAbbr": "BOS"
+      },
+      "aliases": [
+        "boston celtics",
+        "celtics",
+        "bos"
+      ]
     },
     "dal": {
-      "eras": [{ "from": 1980, "to": null, "name": "Dallas Mavericks" }],
-      "sportsref": [{ "from": 1980, "to": null, "code": "DAL" }],
-      "api": { "espnAbbr": "DAL" },
-      "aliases": ["dallas mavericks", "mavericks", "mavs", "dal"]
+      "eras": [
+        {
+          "from": 1980,
+          "to": null,
+          "name": "Dallas Mavericks"
+        }
+      ],
+      "sportsref": [
+        {
+          "from": 1980,
+          "to": null,
+          "code": "DAL"
+        }
+      ],
+      "api": {
+        "espnAbbr": "DAL"
+      },
+      "aliases": [
+        "dallas mavericks",
+        "mavericks",
+        "mavs",
+        "dal"
+      ]
     },
     "east": {
       "allstar": true,
-      "eras": [{ "from": 1951, "to": null, "name": "East" }],
+      "eras": [
+        {
+          "from": 1951,
+          "to": null,
+          "name": "East"
+        }
+      ],
       "sportsref": [],
       "api": {},
-      "aliases": ["east", "team east", "eastern conference"]
+      "aliases": [
+        "east",
+        "team east",
+        "eastern conference"
+      ]
     },
     "west": {
       "allstar": true,
-      "eras": [{ "from": 1951, "to": null, "name": "West" }],
+      "eras": [
+        {
+          "from": 1951,
+          "to": null,
+          "name": "West"
+        }
+      ],
       "sportsref": [],
       "api": {},
-      "aliases": ["west", "team west", "western conference"]
+      "aliases": [
+        "west",
+        "team west",
+        "western conference"
+      ]
+    }
+  },
+  "mls": {},
+  "usmnt": {
+    "usa": {
+      "eras": [
+        {
+          "from": 1913,
+          "to": null,
+          "name": "USMNT"
+        }
+      ],
+      "sportsref": [],
+      "api": {
+        "espnAbbr": "USA"
+      },
+      "aliases": [
+        "usmnt",
+        "usa",
+        "united states",
+        "us mens national team"
+      ]
     }
   }
 }

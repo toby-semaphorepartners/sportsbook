@@ -8,7 +8,16 @@
 const MLB = 'https://statsapi.mlb.com/api/v1';
 const NHL = 'https://api-web.nhle.com/v1';
 const ESPN = 'https://site.api.espn.com/apis/site/v2/sports';
-const ESPN_PATH = { nfl: 'football/nfl', nba: 'basketball/nba', nhl: 'hockey/nhl' };
+const ESPN_PATH = { nfl: 'football/nfl', nba: 'basketball/nba', nhl: 'hockey/nhl', mls: 'soccer/usa.1' };
+
+// Soccer competitions vary per record (MLS vs friendlies vs qualifiers):
+// an explicit espnLeague field wins, then the per-league default.
+function espnPath(game) {
+  if (game.espnLeague) return `soccer/${game.espnLeague}`;
+  const p = ESPN_PATH[game.league];
+  if (!p) throw new Error(`${game.id || game.league}: no ESPN route — set "espnLeague" on the record (e.g. "fifa.friendly")`);
+  return p;
+}
 const UA = 'stub-book/1.0 (personal attendance tracker; one-time backfill)';
 
 class ProxyBlockedError extends Error {
@@ -118,7 +127,7 @@ async function resolveNhlOnDate(game, teams, date) {
 }
 
 async function resolveEspnOnDate(game, teams, date, extra = '') {
-  const sb = await fetchJson(`${ESPN}/${ESPN_PATH[game.league]}/scoreboard?dates=${compact(date)}${extra}`);
+  const sb = await fetchJson(`${ESPN}/${espnPath(game)}/scoreboard?dates=${compact(date)}${extra}`);
   const events = sb.events || [];
   // All-Star rosters carry sponsor-era names (2022 was "Team LeBron vs Team
   // Durant"), so East/West can never match by name — a lone event on the
@@ -147,7 +156,8 @@ async function resolveEspnOnDate(game, teams, date, extra = '') {
 // Exact-date resolve with a ±1-day window for timezone skew (London games,
 // late West Coast starts). The record's own date is never rewritten by this.
 async function resolveGame(game, teams) {
-  const onDate = { mlb: resolveMlbOnDate, nhl: resolveNhlOnDate, nfl: resolveEspnOnDate, nba: resolveEspnOnDate }[game.league];
+  const onDate = { mlb: resolveMlbOnDate, nhl: resolveNhlOnDate, nfl: resolveEspnOnDate, nba: resolveEspnOnDate, mls: resolveEspnOnDate, usmnt: resolveEspnOnDate }[game.league];
+  if (game.event) return null; // drafts etc. have nothing to resolve
   for (const shift of [0, 1, -1]) {
     const date = shift === 0 ? game.date : isoShift(game.date, shift);
     let hit = await onDate(game, teams, date);
@@ -209,7 +219,7 @@ async function fetchSnapshot(game, sourceGameId, teams) {
     }
   } else {
     source = 'espn';
-    const summary = await fetchJson(`${ESPN}/${ESPN_PATH[game.league]}/summary?event=${sourceGameId}`);
+    const summary = await fetchJson(`${ESPN}/${espnPath(game)}/summary?event=${sourceGameId}`);
     pruned = prune(summary, ['plays', 'drives', 'winprobability', 'videos', 'article', 'news', 'standings']);
     endpoints.summary = summary;
   }

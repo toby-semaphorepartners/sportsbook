@@ -15,6 +15,8 @@
 //   node tools/enrich.js --renormalize      # recompute summaries from committed
 //                                           #   snapshots (offline, no fetching)
 //   node tools/enrich.js --weather-nfl      # fill NFL weather from nflverse games.csv
+//   node tools/enrich.js --players          # rebuild data/derived/players.json from
+//                                           #   snapshots (offline "in my presence" stats)
 
 const fs = require('fs');
 const path = require('path');
@@ -130,6 +132,20 @@ async function main() {
   };
 
   try {
+    if (flag('--players')) {
+      const { aggregate } = require('./lib/players');
+      const result = aggregate(enrichedGames(), (g) =>
+        JSON.parse(fs.readFileSync(path.join(ROOT, g.enrichment.snapshot), 'utf8')));
+      const outPath = path.join(ROOT, 'data/derived/players.json');
+      fs.mkdirSync(path.dirname(outPath), { recursive: true });
+      fs.writeFileSync(outPath, JSON.stringify(result, null, 2) + '\n');
+      for (const [table, rows] of Object.entries(result.tables)) {
+        console.log(`  ${table}: ${rows.length} players${rows[0] ? ` (top: ${rows[0].name})` : ''}`);
+      }
+      console.log(`players.json rebuilt from ${result.games} snapshots. Now run: node tools/build.js`);
+      return;
+    }
+
     if (flag('--renormalize')) {
       let changed = 0, total = 0;
       for (const game of enrichedGames()) {

@@ -26,9 +26,14 @@ Three views, hash-routed so they're linkable:
   enriched, two more sections light up automatically: **Superlatives**
   (biggest crowd, longest game, hottest/coldest, biggest blowout, extra-time
   count) and **longest win streaks while I was there**.
-- **`#/venues`** — per-league venue table with visit counts and years,
-  completion bars against each league's active venues, and the buildings I've
-  seen games in that no longer host.
+- **`#/players`** — "in my presence" career lines, extracted from the
+  committed box-score snapshots: batting/pitching, passing/rushing/receiving,
+  scoring leaders — accumulated only across games I attended. Rebuild with
+  `node tools/enrich.js --players` (offline).
+- **`#/venues`** — a dot map of every metro I've watched a game in (dot size
+  = games; London gets an inset), then per-league venue tables with visit
+  counts and years, completion bars against each league's active venues, and
+  the buildings I've seen games in that no longer host.
 
 ## Data model
 
@@ -50,6 +55,12 @@ and are excluded where they can't (W–L, box-score links).
 
 Neutral sites (Super Bowl, London, All-Star) set `neutralSite: true` plus a
 `venueOverride`, so "home team" stays a designation, not a location.
+
+Beyond the four core leagues, `mls` and `usmnt` are first-class (ESPN soccer
+enrichment; set `espnLeague` per record for national-team competitions, e.g.
+`"fifa.friendly"` or `"fifa.worldq.concacaf"`). Non-game **events** — drafts,
+etc. — set `event: {kind, title}` and may have no teams at all: they show on
+the timeline and count toward totals, venues, and the map, but never W–L.
 
 ## Adding a game
 
@@ -85,6 +96,8 @@ node tools/enrich.js --renormalize   # recompute summaries from committed
                                      #   normalizer improvement, no refetching
 node tools/enrich.js --weather-nfl   # fill NFL weather (temp/wind/dome) from
                                      #   the nflverse games.csv dataset
+node tools/enrich.js --players       # rebuild data/derived/players.json from
+                                     #   snapshots (offline player leaderboards)
 ```
 
 It sleeps ≥1s between requests and is idempotent. Corporate/CI proxies often
@@ -122,7 +135,6 @@ fixtures in `test/fixtures/`.
 
 ## Roadmap
 
-- **Stretch**: per-player stats accumulated only in games I attended, a venue
-  map, milestone tags for moments witnessed (a free-form `tags: []` field
-  already renders as badges), stub photo support (`images: []` per game is an
-  easy schema add).
+- **Stretch**: milestone tags for moments witnessed (a free-form `tags: []`
+  field already renders as badges), stub photo support (`images: []` per game
+  is an easy schema add), MiLB/college tiers.

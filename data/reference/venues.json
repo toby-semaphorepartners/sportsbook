@@ -1,166 +1,649 @@
 {
   "meta": {
-    "activeVenues": { "mlb": 30, "nfl": 30, "nhl": 32, "nba": 30 }
+    "activeVenues": {
+      "mlb": 30,
+      "nfl": 30,
+      "nhl": 32,
+      "nba": 30
+    }
   },
   "venues": {
     "fenway-park": {
-      "name": "Fenway Park", "city": "Boston, MA", "country": "US",
-      "leagues": ["mlb"], "opened": 1912, "closed": null, "aka": [],
-      "apiNames": ["Fenway Park"],
-      "homeOf": [{ "league": "mlb", "team": "bos", "from": 1912, "to": null }]
+      "name": "Fenway Park",
+      "city": "Boston, MA",
+      "country": "US",
+      "leagues": [
+        "mlb"
+      ],
+      "opened": 1912,
+      "closed": null,
+      "aka": [],
+      "apiNames": [
+        "Fenway Park"
+      ],
+      "homeOf": [
+        {
+          "league": "mlb",
+          "team": "bos",
+          "from": 1912,
+          "to": null
+        }
+      ],
+      "lat": 42.3467,
+      "lng": -71.0972,
+      "metro": "Boston"
     },
     "shea-stadium": {
-      "name": "Shea Stadium", "city": "Queens, NY", "country": "US",
-      "leagues": ["mlb"], "opened": 1964, "closed": 2008, "aka": [],
-      "apiNames": ["Shea Stadium"],
-      "homeOf": [{ "league": "mlb", "team": "nym", "from": 1964, "to": 2008 }]
+      "name": "Shea Stadium",
+      "city": "Queens, NY",
+      "country": "US",
+      "leagues": [
+        "mlb"
+      ],
+      "opened": 1964,
+      "closed": 2008,
+      "aka": [],
+      "apiNames": [
+        "Shea Stadium"
+      ],
+      "homeOf": [
+        {
+          "league": "mlb",
+          "team": "nym",
+          "from": 1964,
+          "to": 2008
+        }
+      ],
+      "lat": 40.7571,
+      "lng": -73.8458,
+      "metro": "New York"
     },
     "citi-field": {
-      "name": "Citi Field", "city": "Queens, NY", "country": "US",
-      "leagues": ["mlb"], "opened": 2009, "closed": null, "aka": [],
-      "apiNames": ["Citi Field"],
-      "homeOf": [{ "league": "mlb", "team": "nym", "from": 2009, "to": null }]
+      "name": "Citi Field",
+      "city": "Queens, NY",
+      "country": "US",
+      "leagues": [
+        "mlb"
+      ],
+      "opened": 2009,
+      "closed": null,
+      "aka": [],
+      "apiNames": [
+        "Citi Field"
+      ],
+      "homeOf": [
+        {
+          "league": "mlb",
+          "team": "nym",
+          "from": 2009,
+          "to": null
+        }
+      ],
+      "lat": 40.7571,
+      "lng": -73.8458,
+      "metro": "New York"
     },
     "turner-field": {
-      "name": "Turner Field", "city": "Atlanta, GA", "country": "US",
-      "leagues": ["mlb"], "opened": 1997, "closed": 2016, "aka": [],
-      "apiNames": ["Turner Field"],
-      "homeOf": [{ "league": "mlb", "team": "atl", "from": 1997, "to": 2016 }]
+      "name": "Turner Field",
+      "city": "Atlanta, GA",
+      "country": "US",
+      "leagues": [
+        "mlb"
+      ],
+      "opened": 1997,
+      "closed": 2016,
+      "aka": [],
+      "apiNames": [
+        "Turner Field"
+      ],
+      "homeOf": [
+        {
+          "league": "mlb",
+          "team": "atl",
+          "from": 1997,
+          "to": 2016
+        }
+      ],
+      "lat": 33.735,
+      "lng": -84.39,
+      "metro": "Atlanta"
     },
     "camden-yards": {
-      "name": "Oriole Park at Camden Yards", "city": "Baltimore, MD", "country": "US",
-      "leagues": ["mlb"], "opened": 1992, "closed": null, "aka": ["Camden Yards"],
-      "apiNames": ["Oriole Park at Camden Yards", "Camden Yards"],
-      "homeOf": [{ "league": "mlb", "team": "bal", "from": 1992, "to": null }]
+      "name": "Oriole Park at Camden Yards",
+      "city": "Baltimore, MD",
+      "country": "US",
+      "leagues": [
+        "mlb"
+      ],
+      "opened": 1992,
+      "closed": null,
+      "aka": [
+        "Camden Yards"
+      ],
+      "apiNames": [
+        "Oriole Park at Camden Yards",
+        "Camden Yards"
+      ],
+      "homeOf": [
+        {
+          "league": "mlb",
+          "team": "bal",
+          "from": 1992,
+          "to": null
+        }
+      ],
+      "lat": 39.2839,
+      "lng": -76.6218,
+      "metro": "Baltimore"
     },
     "pnc-park": {
-      "name": "PNC Park", "city": "Pittsburgh, PA", "country": "US",
-      "leagues": ["mlb"], "opened": 2001, "closed": null, "aka": [],
-      "apiNames": ["PNC Park"],
-      "homeOf": [{ "league": "mlb", "team": "pit", "from": 2001, "to": null }]
+      "name": "PNC Park",
+      "city": "Pittsburgh, PA",
+      "country": "US",
+      "leagues": [
+        "mlb"
+      ],
+      "opened": 2001,
+      "closed": null,
+      "aka": [],
+      "apiNames": [
+        "PNC Park"
+      ],
+      "homeOf": [
+        {
+          "league": "mlb",
+          "team": "pit",
+          "from": 2001,
+          "to": null
+        }
+      ],
+      "lat": 40.4469,
+      "lng": -80.0057,
+      "metro": "Pittsburgh"
     },
     "yankee-stadium": {
-      "name": "Yankee Stadium", "city": "Bronx, NY", "country": "US",
-      "leagues": ["mlb"], "opened": 2009, "closed": null, "aka": [],
-      "apiNames": ["Yankee Stadium"],
-      "homeOf": [{ "league": "mlb", "team": "nyy", "from": 2009, "to": null }]
+      "name": "Yankee Stadium",
+      "city": "Bronx, NY",
+      "country": "US",
+      "leagues": [
+        "mlb"
+      ],
+      "opened": 2009,
+      "closed": null,
+      "aka": [],
+      "apiNames": [
+        "Yankee Stadium"
+      ],
+      "homeOf": [
+        {
+          "league": "mlb",
+          "team": "nyy",
+          "from": 2009,
+          "to": null
+        }
+      ],
+      "lat": 40.8296,
+      "lng": -73.9262,
+      "metro": "New York"
     },
     "wrigley-field": {
-      "name": "Wrigley Field", "city": "Chicago, IL", "country": "US",
-      "leagues": ["mlb"], "opened": 1914, "closed": null, "aka": [],
-      "apiNames": ["Wrigley Field"],
-      "homeOf": [{ "league": "mlb", "team": "chc", "from": 1916, "to": null }]
+      "name": "Wrigley Field",
+      "city": "Chicago, IL",
+      "country": "US",
+      "leagues": [
+        "mlb"
+      ],
+      "opened": 1914,
+      "closed": null,
+      "aka": [],
+      "apiNames": [
+        "Wrigley Field"
+      ],
+      "homeOf": [
+        {
+          "league": "mlb",
+          "team": "chc",
+          "from": 1916,
+          "to": null
+        }
+      ],
+      "lat": 41.9484,
+      "lng": -87.6553,
+      "metro": "Chicago"
     },
     "metlife-stadium": {
-      "name": "MetLife Stadium", "city": "East Rutherford, NJ", "country": "US",
-      "leagues": ["nfl"], "opened": 2010, "closed": null, "aka": ["New Meadowlands Stadium"],
-      "apiNames": ["MetLife Stadium", "New Meadowlands Stadium"],
+      "name": "MetLife Stadium",
+      "city": "East Rutherford, NJ",
+      "country": "US",
+      "leagues": [
+        "nfl"
+      ],
+      "opened": 2010,
+      "closed": null,
+      "aka": [
+        "New Meadowlands Stadium"
+      ],
+      "apiNames": [
+        "MetLife Stadium",
+        "New Meadowlands Stadium"
+      ],
       "homeOf": [
-        { "league": "nfl", "team": "nyj", "from": 2010, "to": null },
-        { "league": "nfl", "team": "nyg", "from": 2010, "to": null }
-      ]
+        {
+          "league": "nfl",
+          "team": "nyj",
+          "from": 2010,
+          "to": null
+        },
+        {
+          "league": "nfl",
+          "team": "nyg",
+          "from": 2010,
+          "to": null
+        }
+      ],
+      "lat": 40.8135,
+      "lng": -74.0745,
+      "metro": "New York"
     },
     "gillette-stadium": {
-      "name": "Gillette Stadium", "city": "Foxborough, MA", "country": "US",
-      "leagues": ["nfl"], "opened": 2002, "closed": null, "aka": [],
-      "apiNames": ["Gillette Stadium"],
-      "homeOf": [{ "league": "nfl", "team": "ne", "from": 2002, "to": null }]
+      "name": "Gillette Stadium",
+      "city": "Foxborough, MA",
+      "country": "US",
+      "leagues": [
+        "nfl"
+      ],
+      "opened": 2002,
+      "closed": null,
+      "aka": [],
+      "apiNames": [
+        "Gillette Stadium"
+      ],
+      "homeOf": [
+        {
+          "league": "nfl",
+          "team": "ne",
+          "from": 2002,
+          "to": null
+        }
+      ],
+      "lat": 42.091,
+      "lng": -71.2643,
+      "metro": "Boston"
     },
     "bank-of-america-stadium": {
-      "name": "Bank of America Stadium", "city": "Charlotte, NC", "country": "US",
-      "leagues": ["nfl"], "opened": 1996, "closed": null, "aka": [],
-      "apiNames": ["Bank of America Stadium"],
-      "homeOf": [{ "league": "nfl", "team": "car", "from": 1996, "to": null }]
+      "name": "Bank of America Stadium",
+      "city": "Charlotte, NC",
+      "country": "US",
+      "leagues": [
+        "nfl"
+      ],
+      "opened": 1996,
+      "closed": null,
+      "aka": [],
+      "apiNames": [
+        "Bank of America Stadium"
+      ],
+      "homeOf": [
+        {
+          "league": "nfl",
+          "team": "car",
+          "from": 1996,
+          "to": null
+        }
+      ],
+      "lat": 35.2258,
+      "lng": -80.8528,
+      "metro": "Charlotte"
     },
     "acrisure-stadium": {
-      "name": "Acrisure Stadium", "city": "Pittsburgh, PA", "country": "US",
-      "leagues": ["nfl"], "opened": 2001, "closed": null, "aka": ["Heinz Field"],
-      "apiNames": ["Acrisure Stadium", "Heinz Field"],
-      "homeOf": [{ "league": "nfl", "team": "pit", "from": 2001, "to": null }]
+      "name": "Acrisure Stadium",
+      "city": "Pittsburgh, PA",
+      "country": "US",
+      "leagues": [
+        "nfl"
+      ],
+      "opened": 2001,
+      "closed": null,
+      "aka": [
+        "Heinz Field"
+      ],
+      "apiNames": [
+        "Acrisure Stadium",
+        "Heinz Field"
+      ],
+      "homeOf": [
+        {
+          "league": "nfl",
+          "team": "pit",
+          "from": 2001,
+          "to": null
+        }
+      ],
+      "lat": 40.4468,
+      "lng": -80.0158,
+      "metro": "Pittsburgh"
     },
     "hard-rock-stadium": {
-      "name": "Hard Rock Stadium", "city": "Miami Gardens, FL", "country": "US",
-      "leagues": ["nfl"], "opened": 1987, "closed": null, "aka": ["Sun Life Stadium", "Joe Robbie Stadium"],
-      "apiNames": ["Hard Rock Stadium"],
-      "homeOf": [{ "league": "nfl", "team": "mia", "from": 1987, "to": null }]
+      "name": "Hard Rock Stadium",
+      "city": "Miami Gardens, FL",
+      "country": "US",
+      "leagues": [
+        "nfl"
+      ],
+      "opened": 1987,
+      "closed": null,
+      "aka": [
+        "Sun Life Stadium",
+        "Joe Robbie Stadium"
+      ],
+      "apiNames": [
+        "Hard Rock Stadium"
+      ],
+      "homeOf": [
+        {
+          "league": "nfl",
+          "team": "mia",
+          "from": 1987,
+          "to": null
+        }
+      ],
+      "lat": 25.958,
+      "lng": -80.2389,
+      "metro": "Miami"
     },
     "us-bank-stadium": {
-      "name": "U.S. Bank Stadium", "city": "Minneapolis, MN", "country": "US",
-      "leagues": ["nfl"], "opened": 2016, "closed": null, "aka": [],
-      "apiNames": ["U.S. Bank Stadium"],
-      "homeOf": []
+      "name": "U.S. Bank Stadium",
+      "city": "Minneapolis, MN",
+      "country": "US",
+      "leagues": [
+        "nfl"
+      ],
+      "opened": 2016,
+      "closed": null,
+      "aka": [],
+      "apiNames": [
+        "U.S. Bank Stadium"
+      ],
+      "homeOf": [],
+      "lat": 44.9738,
+      "lng": -93.2577,
+      "metro": "Minneapolis"
     },
     "tottenham-hotspur-stadium": {
-      "name": "Tottenham Hotspur Stadium", "city": "London", "country": "GB",
-      "leagues": ["nfl"], "opened": 2019, "closed": null, "aka": [],
-      "apiNames": ["Tottenham Hotspur Stadium"],
-      "homeOf": []
+      "name": "Tottenham Hotspur Stadium",
+      "city": "London",
+      "country": "GB",
+      "leagues": [
+        "nfl"
+      ],
+      "opened": 2019,
+      "closed": null,
+      "aka": [],
+      "apiNames": [
+        "Tottenham Hotspur Stadium"
+      ],
+      "homeOf": [],
+      "lat": 51.6043,
+      "lng": -0.0664,
+      "metro": "London"
     },
     "prudential-center": {
-      "name": "Prudential Center", "city": "Newark, NJ", "country": "US",
-      "leagues": ["nhl"], "opened": 2007, "closed": null, "aka": [],
-      "apiNames": ["Prudential Center"],
-      "homeOf": [{ "league": "nhl", "team": "njd", "from": 2007, "to": null }]
+      "name": "Prudential Center",
+      "city": "Newark, NJ",
+      "country": "US",
+      "leagues": [
+        "nhl"
+      ],
+      "opened": 2007,
+      "closed": null,
+      "aka": [],
+      "apiNames": [
+        "Prudential Center"
+      ],
+      "homeOf": [
+        {
+          "league": "nhl",
+          "team": "njd",
+          "from": 2007,
+          "to": null
+        }
+      ],
+      "lat": 40.7336,
+      "lng": -74.1711,
+      "metro": "New York"
     },
     "nassau-coliseum": {
-      "name": "Nassau Veterans Memorial Coliseum", "city": "Uniondale, NY", "country": "US",
-      "leagues": ["nhl"], "opened": 1972, "closed": 2021, "aka": ["Nassau Coliseum"],
-      "apiNames": ["Nassau Veterans Memorial Coliseum", "Nassau Coliseum"],
-      "homeOf": [{ "league": "nhl", "team": "nyi", "from": 1972, "to": 2014 }]
+      "name": "Nassau Veterans Memorial Coliseum",
+      "city": "Uniondale, NY",
+      "country": "US",
+      "leagues": [
+        "nhl"
+      ],
+      "opened": 1972,
+      "closed": 2021,
+      "aka": [
+        "Nassau Coliseum"
+      ],
+      "apiNames": [
+        "Nassau Veterans Memorial Coliseum",
+        "Nassau Coliseum"
+      ],
+      "homeOf": [
+        {
+          "league": "nhl",
+          "team": "nyi",
+          "from": 1972,
+          "to": 2014
+        }
+      ],
+      "lat": 40.723,
+      "lng": -73.5907,
+      "metro": "New York"
     },
     "barclays-center": {
-      "name": "Barclays Center", "city": "Brooklyn, NY", "country": "US",
-      "leagues": ["nba", "nhl"], "opened": 2012, "closed": null, "aka": [],
-      "apiNames": ["Barclays Center"],
+      "name": "Barclays Center",
+      "city": "Brooklyn, NY",
+      "country": "US",
+      "leagues": [
+        "nba",
+        "nhl"
+      ],
+      "opened": 2012,
+      "closed": null,
+      "aka": [],
+      "apiNames": [
+        "Barclays Center"
+      ],
       "homeOf": [
-        { "league": "nba", "team": "bkn", "from": 2012, "to": null },
-        { "league": "nhl", "team": "nyi", "from": 2015, "to": 2019 }
-      ]
+        {
+          "league": "nba",
+          "team": "bkn",
+          "from": 2012,
+          "to": null
+        },
+        {
+          "league": "nhl",
+          "team": "nyi",
+          "from": 2015,
+          "to": 2019
+        }
+      ],
+      "lat": 40.6826,
+      "lng": -73.9754,
+      "metro": "New York"
     },
     "ubs-arena": {
-      "name": "UBS Arena", "city": "Elmont, NY", "country": "US",
-      "leagues": ["nhl"], "opened": 2021, "closed": null, "aka": [],
-      "apiNames": ["UBS Arena"],
-      "homeOf": [{ "league": "nhl", "team": "nyi", "from": 2021, "to": null }]
+      "name": "UBS Arena",
+      "city": "Elmont, NY",
+      "country": "US",
+      "leagues": [
+        "nhl"
+      ],
+      "opened": 2021,
+      "closed": null,
+      "aka": [],
+      "apiNames": [
+        "UBS Arena"
+      ],
+      "homeOf": [
+        {
+          "league": "nhl",
+          "team": "nyi",
+          "from": 2021,
+          "to": null
+        }
+      ],
+      "lat": 40.712,
+      "lng": -73.726,
+      "metro": "New York"
     },
     "madison-square-garden": {
-      "name": "Madison Square Garden", "city": "New York, NY", "country": "US",
-      "leagues": ["nba", "nhl"], "opened": 1968, "closed": null, "aka": ["MSG"],
-      "apiNames": ["Madison Square Garden"],
+      "name": "Madison Square Garden",
+      "city": "New York, NY",
+      "country": "US",
+      "leagues": [
+        "nba",
+        "nhl"
+      ],
+      "opened": 1968,
+      "closed": null,
+      "aka": [
+        "MSG"
+      ],
+      "apiNames": [
+        "Madison Square Garden"
+      ],
       "homeOf": [
-        { "league": "nba", "team": "nyk", "from": 1968, "to": null },
-        { "league": "nhl", "team": "nyr", "from": 1968, "to": null }
-      ]
+        {
+          "league": "nba",
+          "team": "nyk",
+          "from": 1968,
+          "to": null
+        },
+        {
+          "league": "nhl",
+          "team": "nyr",
+          "from": 1968,
+          "to": null
+        }
+      ],
+      "lat": 40.7505,
+      "lng": -73.9934,
+      "metro": "New York"
     },
     "wells-fargo-center": {
-      "name": "Wells Fargo Center", "city": "Philadelphia, PA", "country": "US",
-      "leagues": ["nba", "nhl"], "opened": 1996, "closed": null,
-      "aka": ["Wachovia Center", "Xfinity Mobile Arena"],
-      "apiNames": ["Wells Fargo Center", "Wachovia Center", "Xfinity Mobile Arena"],
-      "homeOf": [{ "league": "nba", "team": "phi", "from": 1996, "to": null }]
+      "name": "Wells Fargo Center",
+      "city": "Philadelphia, PA",
+      "country": "US",
+      "leagues": [
+        "nba",
+        "nhl"
+      ],
+      "opened": 1996,
+      "closed": null,
+      "aka": [
+        "Wachovia Center",
+        "Xfinity Mobile Arena"
+      ],
+      "apiNames": [
+        "Wells Fargo Center",
+        "Wachovia Center",
+        "Xfinity Mobile Arena"
+      ],
+      "homeOf": [
+        {
+          "league": "nba",
+          "team": "phi",
+          "from": 1996,
+          "to": null
+        }
+      ],
+      "lat": 39.9012,
+      "lng": -75.172,
+      "metro": "Philadelphia"
     },
     "rocket-arena": {
-      "name": "Rocket Arena", "city": "Cleveland, OH", "country": "US",
-      "leagues": ["nba"], "opened": 1994, "closed": null,
-      "aka": ["Rocket Mortgage FieldHouse", "Quicken Loans Arena"],
-      "apiNames": ["Rocket Arena", "Rocket Mortgage FieldHouse", "Quicken Loans Arena"],
-      "homeOf": [{ "league": "nba", "team": "cle", "from": 1994, "to": null }]
+      "name": "Rocket Arena",
+      "city": "Cleveland, OH",
+      "country": "US",
+      "leagues": [
+        "nba"
+      ],
+      "opened": 1994,
+      "closed": null,
+      "aka": [
+        "Rocket Mortgage FieldHouse",
+        "Quicken Loans Arena"
+      ],
+      "apiNames": [
+        "Rocket Arena",
+        "Rocket Mortgage FieldHouse",
+        "Quicken Loans Arena"
+      ],
+      "homeOf": [
+        {
+          "league": "nba",
+          "team": "cle",
+          "from": 1994,
+          "to": null
+        }
+      ],
+      "lat": 41.4965,
+      "lng": -81.6882,
+      "metro": "Cleveland"
     },
     "gainbridge-fieldhouse": {
-      "name": "Gainbridge Fieldhouse", "city": "Indianapolis, IN", "country": "US",
-      "leagues": ["nba"], "opened": 1999, "closed": null,
-      "aka": ["Bankers Life Fieldhouse", "Conseco Fieldhouse"],
-      "apiNames": ["Gainbridge Fieldhouse"],
-      "homeOf": []
+      "name": "Gainbridge Fieldhouse",
+      "city": "Indianapolis, IN",
+      "country": "US",
+      "leagues": [
+        "nba"
+      ],
+      "opened": 1999,
+      "closed": null,
+      "aka": [
+        "Bankers Life Fieldhouse",
+        "Conseco Fieldhouse"
+      ],
+      "apiNames": [
+        "Gainbridge Fieldhouse"
+      ],
+      "homeOf": [],
+      "lat": 39.764,
+      "lng": -86.1555,
+      "metro": "Indianapolis"
     },
     "td-garden": {
-      "name": "TD Garden", "city": "Boston, MA", "country": "US",
-      "leagues": ["nba", "nhl"], "opened": 1995, "closed": null, "aka": [],
-      "apiNames": ["TD Garden"],
+      "name": "TD Garden",
+      "city": "Boston, MA",
+      "country": "US",
+      "leagues": [
+        "nba",
+        "nhl"
+      ],
+      "opened": 1995,
+      "closed": null,
+      "aka": [],
+      "apiNames": [
+        "TD Garden"
+      ],
       "homeOf": [
-        { "league": "nba", "team": "bos", "from": 1995, "to": null },
-        { "league": "nhl", "team": "bos", "from": 1995, "to": null }
-      ]
+        {
+          "league": "nba",
+          "team": "bos",
+          "from": 1995,
+          "to": null
+        },
+        {
+          "league": "nhl",
+          "team": "bos",
+          "from": 1995,
+          "to": null
+        }
+      ],
+      "lat": 42.3662,
+      "lng": -71.0621,
+      "metro": "Boston"
     }
   }
 }
