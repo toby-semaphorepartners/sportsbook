@@ -654,9 +654,12 @@
       ],
       "opened": 2010,
       "closed": null,
-      "aka": [],
+      "aka": [
+        "Sports Illustrated Stadium"
+      ],
       "apiNames": [
-        "Red Bull Arena"
+        "Red Bull Arena",
+        "Sports Illustrated Stadium"
       ],
       "homeOf": [
         {
