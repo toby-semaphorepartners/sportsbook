@@ -1,10 +1,10 @@
 {
-  "id": "mls-2014-10-11-unk-rbny",
+  "id": "mls-2014-10-11-tfc-rbny",
   "league": "mls",
   "date": "2014-10-11",
   "datePrecision": "day",
   "home": "rbny",
-  "away": null,
+  "away": "tfc",
   "neutralSite": false,
   "seasonType": "regular",
   "doubleheaderGame": 0,

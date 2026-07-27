@@ -46,6 +46,24 @@ function canonicalId(game) {
   return game.id;
 }
 
+// For away:null records the resolver matches by home team alone; the
+// snapshot still names the opponent — surface it so the record can be fixed.
+function opponentHint(snap) {
+  try {
+    if (snap.source === 'espn') {
+      const comp = snap.endpoints.summary.header.competitions[0];
+      const away = comp.competitors.find((c) => c.homeAway === 'away');
+      return away.team.displayName;
+    }
+    if (snap.source === 'mlb') return snap.endpoints.feed.gameData.teams.away.name;
+    if (snap.source === 'nhl') {
+      const a = snap.endpoints.boxscore.awayTeam;
+      return (a.commonName && a.commonName.default) || a.abbrev;
+    }
+  } catch (err) { /* hint only — never block enrichment */ }
+  return null;
+}
+
 function weekday(iso) {
   return ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new Date(iso + 'T12:00:00Z').getUTCDay()];
 }
@@ -107,6 +125,10 @@ async function enrichOne(game, teams, venues, opts) {
   writeGame(game, oldId);
   const score = summary.awayScore !== null ? ` ${summary.awayScore}–${summary.homeScore} (${summary.finalType})` : '';
   console.log(`  ✓ ${game.id}:${score} snapshot ${snapRel}`);
+  if (game.away === null) {
+    const hint = opponentHint(snap);
+    if (hint) console.log(`  i ${game.id}: the opponent was ${hint} — add them to teams.json, set "away", and rename the record`);
+  }
   return true;
 }
 

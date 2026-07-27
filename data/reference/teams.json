@@ -1304,6 +1304,23 @@
         "nyrb",
         "ny"
       ]
+    },
+    "tfc": {
+      "eras": [
+        {
+          "from": 2007,
+          "to": null,
+          "name": "Toronto FC"
+        }
+      ],
+      "sportsref": [],
+      "api": {
+        "espnAbbr": "TOR"
+      },
+      "aliases": [
+        "toronto fc",
+        "tfc"
+      ]
     }
   },
   "usmnt": {
