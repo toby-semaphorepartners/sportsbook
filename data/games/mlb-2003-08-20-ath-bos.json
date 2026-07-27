@@ -1,0 +1,71 @@
+{
+  "id": "mlb-2003-08-20-ath-bos",
+  "league": "mlb",
+  "date": "2003-08-20",
+  "datePrecision": "day",
+  "home": "bos",
+  "away": "ath",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": null,
+  "overrides": {},
+  "enrichment": {
+    "status": "enriched",
+    "source": "mlb",
+    "sourceGameId": "15143",
+    "snapshot": "data/snapshots/mlb/15143.json",
+    "fetchedAt": "2026-07-27T01:04:35.810Z",
+    "candidates": null,
+    "summary": {
+      "homeScore": 6,
+      "awayScore": 8,
+      "linescore": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "finalType": "F",
+      "venue": "fenway-park",
+      "attendance": 34798,
+      "weather": "Cloudy, 88°F, wind 8 mph, Out To CF",
+      "durationMinutes": 218
+    }
+  }
+}

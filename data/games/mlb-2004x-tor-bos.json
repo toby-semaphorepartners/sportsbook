@@ -14,12 +14,67 @@
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "pending",
+    "status": "candidates",
     "source": null,
     "sourceGameId": null,
     "snapshot": null,
     "fetchedAt": null,
-    "candidates": null,
+    "candidates": [
+      {
+        "sourceGameId": "20082",
+        "date": "2004-04-09",
+        "away": "Toronto Blue Jays",
+        "score": "10–5"
+      },
+      {
+        "sourceGameId": "20097",
+        "date": "2004-04-10",
+        "away": "Toronto Blue Jays",
+        "score": "1–4"
+      },
+      {
+        "sourceGameId": "20112",
+        "date": "2004-04-11",
+        "away": "Toronto Blue Jays",
+        "score": "4–6"
+      },
+      {
+        "sourceGameId": "20640",
+        "date": "2004-05-21",
+        "away": "Toronto Blue Jays",
+        "score": "5–11"
+      },
+      {
+        "sourceGameId": "20655",
+        "date": "2004-05-22",
+        "away": "Toronto Blue Jays",
+        "score": "2–5"
+      },
+      {
+        "sourceGameId": "20670",
+        "date": "2004-05-23",
+        "away": "Toronto Blue Jays",
+        "score": "2–7"
+      },
+      {
+        "sourceGameId": "21787",
+        "date": "2004-08-16",
+        "away": "Toronto Blue Jays",
+        "score": "4–8"
+      },
+      {
+        "sourceGameId": "21802",
+        "date": "2004-08-17",
+        "away": "Toronto Blue Jays",
+        "score": "4–5"
+      },
+      {
+        "sourceGameId": "21817",
+        "date": "2004-08-18",
+        "away": "Toronto Blue Jays",
+        "score": "4–6"
+      }
+    ],
     "summary": null
   }
 }
