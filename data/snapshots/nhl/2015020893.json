@@ -1140,7 +1140,67 @@
         "running": false,
         "inIntermission": false
       }
+    },
+    "espnSummary": {
+      "gameInfo": {
+        "venue": {
+          "id": "1826",
+          "fullName": "Prudential Center",
+          "address": {
+            "city": "Newark",
+            "state": "NJ",
+            "zipCode": "07199",
+            "country": "USA"
+          },
+          "grass": false,
+          "images": [
+            {
+              "href": "https://a.espncdn.com/i/venues/nhl/day/1826.jpg",
+              "width": 2000,
+              "height": 1125,
+              "alt": "",
+              "rel": [
+                "full",
+                "day"
+              ]
+            }
+          ]
+        },
+        "attendance": 16514,
+        "officials": [
+          {
+            "fullName": "Mike Leggo",
+            "displayName": "Mike Leggo",
+            "position": {
+              "name": "Referee",
+              "displayName": "Referee",
+              "id": "24"
+            },
+            "order": 1
+          },
+          {
+            "fullName": "Jonny Murray",
+            "displayName": "Jonny Murray",
+            "position": {
+              "name": "Linesman",
+              "displayName": "Linesman",
+              "id": "25"
+            },
+            "order": 2
+          },
+          {
+            "fullName": "Tim Nowak",
+            "displayName": "Tim Nowak",
+            "position": {
+              "name": "Linesman",
+              "displayName": "Linesman",
+              "id": "25"
+            },
+            "order": 1
+          }
+        ]
+      }
     }
   },
-  "fetchedAt": "2026-07-27T01:11:39.070Z"
+  "fetchedAt": "2026-07-27T01:42:10.262Z"
 }

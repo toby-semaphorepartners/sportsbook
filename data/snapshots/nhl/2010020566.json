@@ -1157,7 +1157,54 @@
         "running": false,
         "inIntermission": false
       }
+    },
+    "espnSummary": {
+      "gameInfo": {
+        "attendance": 68111,
+        "officials": [
+          {
+            "fullName": "Paul Devorski",
+            "displayName": "Paul Devorski",
+            "position": {
+              "name": "Referee",
+              "displayName": "Referee",
+              "id": "24"
+            },
+            "order": 1
+          },
+          {
+            "fullName": "Stephen Walkom",
+            "displayName": "Stephen Walkom",
+            "position": {
+              "name": "Referee",
+              "displayName": "Referee",
+              "id": "24"
+            },
+            "order": 2
+          },
+          {
+            "fullName": "Derek Amell",
+            "displayName": "Derek Amell",
+            "position": {
+              "name": "Linesman",
+              "displayName": "Linesman",
+              "id": "25"
+            },
+            "order": 1
+          },
+          {
+            "fullName": "Pierre Champoux",
+            "displayName": "Pierre Champoux",
+            "position": {
+              "name": "Linesman",
+              "displayName": "Linesman",
+              "id": "25"
+            },
+            "order": 2
+          }
+        ]
+      }
     }
   },
-  "fetchedAt": "2026-07-27T01:11:25.854Z"
+  "fetchedAt": "2026-07-27T01:41:38.666Z"
 }

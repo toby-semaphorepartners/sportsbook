@@ -18,7 +18,7 @@
     "source": "nhl",
     "sourceGameId": "2016020255",
     "snapshot": "data/snapshots/nhl/2016020255.json",
-    "fetchedAt": "2026-07-27T01:11:42.394Z",
+    "fetchedAt": "2026-07-27T01:42:15.201Z",
     "candidates": null,
     "summary": {
       "homeScore": 2,
@@ -26,7 +26,7 @@
       "linescore": null,
       "finalType": "F/OT",
       "venue": "barclays-center",
-      "attendance": null,
+      "attendance": 13365,
       "weather": null,
       "durationMinutes": null
     }
