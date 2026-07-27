@@ -190,6 +190,13 @@ async function fetchSnapshot(game, sourceGameId, teams) {
     endpoints.boxscore = await fetchJson(`${NHL}/gamecenter/${sourceGameId}/boxscore`);
     endpoints.landing = await fetchJson(`${NHL}/gamecenter/${sourceGameId}/landing`);
     pruned = prune(endpoints.landing, ['summary.scoring', 'summary.penalties']);
+    // Neither boxscore nor landing carries period scores anymore; right-rail does.
+    try {
+      const rail = await fetchJson(`${NHL}/gamecenter/${sourceGameId}/right-rail`);
+      endpoints.rightRail = { linescore: rail.linescore || null, teamGameStats: rail.teamGameStats || null };
+    } catch (err) {
+      // linescore stays null; the rest of the snapshot is intact
+    }
     // The NHL API doesn't expose attendance; best-effort ESPN supplement.
     try {
       const espnGame = teams && await resolveEspnOnDate(game, teams, game.date);

@@ -85,7 +85,10 @@ function normalizeNhl(snapshot, venues) {
   if (outcome === 'OT') s.finalType = 'F/OT';
   else if (outcome === 'SO') s.finalType = 'F/SO';
 
-  const byPeriod = landing.summary && landing.summary.linescore && landing.summary.linescore.byPeriod;
+  const rail = snapshot.endpoints.rightRail || {};
+  const byPeriod =
+    (rail.linescore && rail.linescore.byPeriod) ||
+    (landing.summary && landing.summary.linescore && landing.summary.linescore.byPeriod);
   if (Array.isArray(byPeriod) && byPeriod.length) {
     s.linescore = byPeriod.map((p) => [num(p.home) || 0, num(p.away) || 0]);
   }
