@@ -1,0 +1,26 @@
+{
+  "id": "usmnt-2017-09-01-crc-usa",
+  "league": "usmnt",
+  "date": "2017-09-01",
+  "datePrecision": "day",
+  "home": "usa",
+  "away": "crc",
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "World Cup qualifier",
+  "companions": [],
+  "seat": null,
+  "venueOverride": "red-bull-arena",
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  },
+  "espnLeague": "fifa.worldq.concacaf"
+}

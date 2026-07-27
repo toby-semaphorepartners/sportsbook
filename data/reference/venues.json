@@ -644,6 +644,47 @@
       "lat": 42.3662,
       "lng": -71.0621,
       "metro": "Boston"
+    },
+    "red-bull-arena": {
+      "name": "Red Bull Arena",
+      "city": "Harrison, NJ",
+      "country": "US",
+      "leagues": [
+        "mls"
+      ],
+      "opened": 2010,
+      "closed": null,
+      "aka": [],
+      "apiNames": [
+        "Red Bull Arena"
+      ],
+      "homeOf": [
+        {
+          "league": "mls",
+          "team": "rbny",
+          "from": 2010,
+          "to": null
+        }
+      ],
+      "lat": 40.7368,
+      "lng": -74.1503,
+      "metro": "New York"
+    },
+    "radio-city-music-hall": {
+      "name": "Radio City Music Hall",
+      "city": "New York, NY",
+      "country": "US",
+      "leagues": [],
+      "opened": 1932,
+      "closed": null,
+      "aka": [],
+      "apiNames": [
+        "Radio City Music Hall"
+      ],
+      "homeOf": [],
+      "lat": 40.76,
+      "lng": -73.9799,
+      "metro": "New York"
     }
   }
 }

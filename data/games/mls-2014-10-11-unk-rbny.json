@@ -1,0 +1,25 @@
+{
+  "id": "mls-2014-10-11-unk-rbny",
+  "league": "mls",
+  "date": "2014-10-11",
+  "datePrecision": "day",
+  "home": "rbny",
+  "away": null,
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": null,
+  "companions": [],
+  "seat": null,
+  "venueOverride": "red-bull-arena",
+  "overrides": {},
+  "enrichment": {
+    "status": "pending",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  }
+}

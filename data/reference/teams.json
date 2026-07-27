@@ -1283,7 +1283,29 @@
       ]
     }
   },
-  "mls": {},
+  "mls": {
+    "rbny": {
+      "eras": [
+        {
+          "from": 1996,
+          "to": null,
+          "name": "New York Red Bulls"
+        }
+      ],
+      "sportsref": [],
+      "api": {
+        "espnAbbr": "RBNY"
+      },
+      "aliases": [
+        "new york red bulls",
+        "nj red bulls",
+        "red bulls",
+        "rbny",
+        "nyrb",
+        "ny"
+      ]
+    }
+  },
   "usmnt": {
     "usa": {
       "eras": [
@@ -1302,6 +1324,23 @@
         "usa",
         "united states",
         "us mens national team"
+      ]
+    },
+    "crc": {
+      "eras": [
+        {
+          "from": 1921,
+          "to": null,
+          "name": "Costa Rica"
+        }
+      ],
+      "sportsref": [],
+      "api": {
+        "espnAbbr": "CRC"
+      },
+      "aliases": [
+        "costa rica",
+        "crc"
       ]
     }
   }

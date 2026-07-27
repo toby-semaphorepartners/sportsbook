@@ -825,9 +825,11 @@ if (typeof module !== 'undefined') {
       var active = STATS.activeVenues[l];
       var visited = STATS.visitedActive[l] || 0;
       html += '<h2 class="sec"><span class="lg ' + l + '">' + LEAGUE_LABELS[l] + '</span> — venues</h2>';
-      html += '<div class="tile" style="--acc: var(--' + l + ')"><b>' + visited + ' / ' + active + '</b>' +
-        '<span>active ' + LEAGUE_LABELS[l] + ' venues visited</span>' +
-        '<div class="bar"><i style="width:' + Math.round(100 * visited / active) + '%"></i></div></div>';
+      if (active) {
+        html += '<div class="tile" style="--acc: var(--' + l + ')"><b>' + visited + ' / ' + active + '</b>' +
+          '<span>active ' + LEAGUE_LABELS[l] + ' venues visited</span>' +
+          '<div class="bar"><i style="width:' + Math.round(100 * visited / active) + '%"></i></div></div>';
+      }
       html += '<div class="tablewrap"><table><thead><tr><th>Venue</th><th class="num">Games</th><th class="num">Visits</th></tr></thead><tbody>';
       rows.forEach(function (v) {
         html += '<tr><td>' + esc(v.name) + (v.closed !== null ? '<span class="badge">Gone</span>' : '') +

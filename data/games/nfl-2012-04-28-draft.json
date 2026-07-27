@@ -1,0 +1,29 @@
+{
+  "id": "nfl-2012-04-28-draft",
+  "league": "nfl",
+  "date": "2012-04-28",
+  "datePrecision": "day",
+  "home": null,
+  "away": null,
+  "neutralSite": false,
+  "seasonType": "regular",
+  "doubleheaderGame": 0,
+  "notes": "Day 3",
+  "companions": [],
+  "seat": null,
+  "venueOverride": "radio-city-music-hall",
+  "overrides": {},
+  "enrichment": {
+    "status": "unresolvable",
+    "source": null,
+    "sourceGameId": null,
+    "snapshot": null,
+    "fetchedAt": null,
+    "candidates": null,
+    "summary": null
+  },
+  "event": {
+    "kind": "draft",
+    "title": "2012 NFL Draft"
+  }
+}
