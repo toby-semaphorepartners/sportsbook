@@ -7,30 +7,19 @@
   "away": "col",
   "neutralSite": false,
   "seasonType": "regular",
-  "doubleheaderGame": 0,
+  "doubleheaderGame": 1,
   "notes": "WHS BP, suite",
   "companions": [],
   "seat": null,
   "venueOverride": null,
   "overrides": {},
   "enrichment": {
-    "status": "candidates",
+    "status": "pending",
     "source": null,
     "sourceGameId": null,
     "snapshot": null,
     "fetchedAt": null,
-    "candidates": [
-      {
-        "sourceGameId": "634005",
-        "date": "2021-05-29",
-        "note": "game 1 of doubleheader"
-      },
-      {
-        "sourceGameId": "633936",
-        "date": "2021-05-29",
-        "note": "game 2 of doubleheader"
-      }
-    ],
+    "candidates": null,
     "summary": null
   }
 }

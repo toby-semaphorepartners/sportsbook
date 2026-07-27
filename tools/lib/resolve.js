@@ -87,7 +87,12 @@ async function resolveMlbOnDate(game, teams, date) {
   }
   if (matches.length === 1) return { sourceGameId: String(matches[0].gamePk) };
   if (matches.length > 1) {
-    return { candidates: matches.map((g) => ({ sourceGameId: String(g.gamePk), date, note: `game ${g.gameNumber} of doubleheader` })) };
+    return {
+      candidates: matches.map((g) => ({
+        sourceGameId: String(g.gamePk), date, gameNumber: g.gameNumber,
+        note: `game ${g.gameNumber} of doubleheader`,
+      })),
+    };
   }
   return null;
 }

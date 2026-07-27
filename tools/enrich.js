@@ -138,6 +138,7 @@ async function main() {
       if (!cand) throw new Error(`${chosen} is not among ${game.id}'s saved candidates — run --search first`);
       const oldId = game.id;
       if (cand.date) { game.date = cand.date; game.datePrecision = 'day'; }
+      if (cand.gameNumber) game.doubleheaderGame = cand.gameNumber; // b-ref URLs need the DH index
       game.id = canonicalId(game);
       game.enrichment.candidates = null;
       game.enrichment.status = 'pending';
