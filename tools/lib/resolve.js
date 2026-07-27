@@ -82,6 +82,10 @@ async function resolveMlbOnDate(game, teams, date) {
   const games = (sched.dates || []).flatMap((d) => d.games || []);
   let matches = games.filter((g) =>
     g.teams.home.team.id === homeId && (awayId === null || g.teams.away.team.id === awayId));
+  if (!matches.length && awayId !== null) {
+    const flipped = games.filter((g) => g.teams.home.team.id === awayId && g.teams.away.team.id === homeId);
+    if (flipped.length === 1) return { sourceGameId: String(flipped[0].gamePk), swapped: true };
+  }
   if (matches.length > 1 && game.doubleheaderGame) {
     matches = matches.filter((g) => g.gameNumber === game.doubleheaderGame);
   }
@@ -101,9 +105,16 @@ async function resolveNhlOnDate(game, teams, date) {
   const home = teams.nhl[game.home].api.nhlAbbr;
   const away = game.away ? teams.nhl[game.away].api.nhlAbbr : null;
   const score = await fetchJson(`${NHL}/score/${date}`);
-  const matches = (score.games || []).filter((g) =>
+  const games = score.games || [];
+  const matches = games.filter((g) =>
     g.homeTeam && g.homeTeam.abbrev === home && (away === null || (g.awayTeam && g.awayTeam.abbrev === away)));
-  return matches.length === 1 ? { sourceGameId: String(matches[0].id) } : null;
+  if (matches.length === 1) return { sourceGameId: String(matches[0].id) };
+  if (!matches.length && away !== null) {
+    const flipped = games.filter((g) =>
+      g.homeTeam && g.homeTeam.abbrev === away && g.awayTeam && g.awayTeam.abbrev === home);
+    if (flipped.length === 1) return { sourceGameId: String(flipped[0].id), swapped: true };
+  }
+  return null;
 }
 
 async function resolveEspnOnDate(game, teams, date, extra = '') {

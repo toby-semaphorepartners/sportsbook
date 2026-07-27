@@ -1,10 +1,10 @@
 {
-  "id": "mlb-2014-06-27-pit-nym",
+  "id": "mlb-2014-06-27-nym-pit",
   "league": "mlb",
   "date": "2014-06-27",
   "datePrecision": "day",
-  "home": "nym",
-  "away": "pit",
+  "home": "pit",
+  "away": "nym",
   "neutralSite": false,
   "seasonType": "regular",
   "doubleheaderGame": 0,
