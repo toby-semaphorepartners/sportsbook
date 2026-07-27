@@ -14,12 +14,30 @@
   "venueOverride": "red-bull-arena",
   "overrides": {},
   "enrichment": {
-    "status": "pending",
-    "source": null,
-    "sourceGameId": null,
-    "snapshot": null,
-    "fetchedAt": null,
+    "status": "enriched",
+    "source": "espn",
+    "sourceGameId": "384867",
+    "snapshot": "data/snapshots/mls/384867.json",
+    "fetchedAt": "2026-07-27T12:12:06.969Z",
     "candidates": null,
-    "summary": null
+    "summary": {
+      "homeScore": 3,
+      "awayScore": 1,
+      "linescore": [
+        [
+          3,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "finalType": "F",
+      "venue": null,
+      "attendance": 24068,
+      "weather": null,
+      "durationMinutes": null
+    }
   }
 }
