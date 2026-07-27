@@ -18,12 +18,25 @@
     "source": "nhl",
     "sourceGameId": "2015020893",
     "snapshot": "data/snapshots/nhl/2015020893.json",
-    "fetchedAt": "2026-07-27T01:42:10.262Z",
+    "fetchedAt": "2026-07-27T02:23:12.123Z",
     "candidates": null,
     "summary": {
       "homeScore": 5,
       "awayScore": 2,
-      "linescore": null,
+      "linescore": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
       "finalType": "F",
       "venue": "prudential-center",
       "attendance": 16514,

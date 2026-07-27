@@ -7104,6 +7104,13 @@
         "gameState": "post",
         "syncUrl": "https://client.espncdn.com/fauxcast/stats/28/401547459/en/us/"
       }
+    },
+    "nflverse": {
+      "temp": 61,
+      "wind": 10,
+      "roof": "outdoors",
+      "surface": "fieldturf",
+      "stadium": "Gillette Stadium"
     }
   },
   "fetchedAt": "2026-07-27T01:11:09.507Z"

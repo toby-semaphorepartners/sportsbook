@@ -1148,7 +1148,156 @@
         "running": false,
         "inIntermission": false
       }
+    },
+    "rightRail": {
+      "linescore": {
+        "byPeriod": [
+          {
+            "periodDescriptor": {
+              "number": 1,
+              "periodType": "REG",
+              "maxRegulationPeriods": 3
+            },
+            "away": 1,
+            "home": 2
+          },
+          {
+            "periodDescriptor": {
+              "number": 2,
+              "periodType": "REG",
+              "maxRegulationPeriods": 3
+            },
+            "away": 2,
+            "home": 0
+          },
+          {
+            "periodDescriptor": {
+              "number": 3,
+              "periodType": "REG",
+              "maxRegulationPeriods": 3
+            },
+            "away": 2,
+            "home": 1
+          }
+        ],
+        "totals": {
+          "away": 5,
+          "home": 3
+        }
+      },
+      "teamGameStats": [
+        {
+          "category": "sog",
+          "awayValue": 26,
+          "homeValue": 26
+        },
+        {
+          "category": "faceoffWinningPctg",
+          "awayValue": 0.480769,
+          "homeValue": 0.519231
+        },
+        {
+          "category": "faceoffWins",
+          "awayValue": "25/52",
+          "homeValue": "27/52"
+        },
+        {
+          "category": "powerPlay",
+          "awayValue": "0/3",
+          "homeValue": "1/2"
+        },
+        {
+          "category": "powerPlayPctg",
+          "awayValue": 0,
+          "homeValue": 0.5
+        },
+        {
+          "category": "pim",
+          "awayValue": 9,
+          "homeValue": 11
+        },
+        {
+          "category": "hits",
+          "awayValue": 46,
+          "homeValue": 36
+        },
+        {
+          "category": "blockedShots",
+          "awayValue": 17,
+          "homeValue": 24
+        },
+        {
+          "category": "giveaways",
+          "awayValue": 8,
+          "homeValue": 14
+        },
+        {
+          "category": "takeaways",
+          "awayValue": 7,
+          "homeValue": 13
+        }
+      ]
+    },
+    "espnSummary": {
+      "gameInfo": {
+        "venue": {
+          "id": "3559",
+          "fullName": "Barclays Center",
+          "address": {
+            "city": "Brooklyn",
+            "state": "NY",
+            "zipCode": "11217",
+            "country": "USA"
+          },
+          "grass": false,
+          "images": [
+            {
+              "href": "https://a.espncdn.com/i/venues/nhl/day/3559.jpg",
+              "width": 2000,
+              "height": 1125,
+              "alt": "",
+              "rel": [
+                "full",
+                "day"
+              ]
+            }
+          ]
+        },
+        "attendance": 13113,
+        "officials": [
+          {
+            "fullName": "Shane Heyer",
+            "displayName": "Shane Heyer",
+            "position": {
+              "name": "Linesman",
+              "displayName": "Linesman",
+              "id": "25"
+            },
+            "order": 1
+          },
+          {
+            "fullName": "Kevin Pollock",
+            "displayName": "Kevin Pollock",
+            "position": {
+              "name": "Referee",
+              "displayName": "Referee",
+              "id": "24"
+            },
+            "order": 2
+          },
+          {
+            "fullName": "Derek Amell",
+            "displayName": "Derek Amell",
+            "position": {
+              "name": "Linesman",
+              "displayName": "Linesman",
+              "id": "25"
+            },
+            "order": 2
+          }
+        ]
+      }
     }
   },
-  "fetchedAt": "2026-07-27T01:42:05.686Z"
+  "fetchedAt": "2026-07-27T02:23:06.493Z"
 }

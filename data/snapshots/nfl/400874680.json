@@ -7376,6 +7376,13 @@
         "gameState": "post",
         "syncUrl": "https://client.espncdn.com/fauxcast/stats/28/400874680/en/us/"
       }
+    },
+    "nflverse": {
+      "temp": 47,
+      "wind": 10,
+      "roof": "outdoors",
+      "surface": "fieldturf",
+      "stadium": "MetLife Stadium"
     }
   },
   "fetchedAt": "2026-07-27T01:10:43.017Z"

@@ -6959,6 +6959,13 @@
         "gameState": "post",
         "syncUrl": "https://client.espncdn.com/fauxcast/stats/28/400874506/en/us/"
       }
+    },
+    "nflverse": {
+      "temp": 63,
+      "wind": 13,
+      "roof": "outdoors",
+      "surface": "grass",
+      "stadium": "Heinz Field"
     }
   },
   "fetchedAt": "2026-07-27T01:10:40.709Z"
